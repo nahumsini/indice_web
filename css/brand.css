@@ -1,0 +1,241 @@
+/* ============================================================
+   ÍNDICE — brand.css
+   Tokens de marca, paleta oficial y micro-componentes
+   ============================================================ */
+
+/* ── Paleta de colores Índice ──────────────────────────────── */
+:root {
+    /* Azules corporativos */
+    --indice-navy: #0f172a;
+    /* fondo oscuro principal     */
+    --indice-sidebar: #1e293b;
+    /* sidebar del panel          */
+    --indice-blue: #1a3c6e;
+    /* azul primario de marca     */
+    --indice-blue-mid: #2563eb;
+    /* azul acciones interactivas */
+    --indice-blue-light: #dbeafe;
+    /* fondo azul suave           */
+
+    /* Amarillo/dorado */
+    --indice-yellow: #f4c84a;
+    /* acento principal, logo     */
+    --indice-yellow-light: #fef3c7;
+    --indice-coral: #ff6b5e;
+    /* humanidad, energía         */
+    --indice-aqua: #59c3a5;
+    /* crecimiento, balance       */
+    --indice-graphite: #222831;
+    /* estabilidad premium        */
+
+    /* Funcionales */
+    --indice-green: #22c55e;
+    /* éxito, módulos básicos     */
+    --indice-green-light: #d1fae5;
+    --indice-purple: #2563eb;
+    /* complementarios / escala   */
+    --indice-purple-light: #eff6ff;
+    --indice-red: #ef4444;
+    /* error, negado              */
+    --indice-red-light: #fee2e2;
+
+    /* Tipografía */
+    --indice-text: #1e293b;
+    --indice-text-soft: #64748b;
+    --indice-text-xsoft: #94a3b8;
+
+    /* Superficies */
+    --indice-white: #ffffff;
+    --indice-surface: #f8fafc;
+    --indice-border: #e2e8f0;
+
+    /* Semantica comercial home 2026 */
+    --indice-diagnosis: #7c3aed;
+    --indice-people: #2563eb;
+    --indice-process: #f4c84a;
+    --indice-products: #ff6b5e;
+    --indice-finance: #59c3a5;
+    --indice-ai: #a88417;
+}
+
+/* ── Tipografía de marca ───────────────────────────────────── */
+body {
+    font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.brand-heading {
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    color: var(--indice-blue);
+}
+
+/* ── Botones de marca ──────────────────────────────────────── */
+.btn-brand-primary {
+    background: var(--indice-blue-mid);
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    font-weight: 700;
+    padding: 0.7rem 1.75rem;
+    transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+}
+
+.btn-brand-primary:hover {
+    background: #1d4ed8;
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(37, 99, 235, 0.35);
+}
+
+.btn-brand-outline {
+    border: 2px solid var(--indice-blue);
+    color: var(--indice-blue);
+    background: transparent;
+    border-radius: 10px;
+    font-weight: 700;
+    padding: 0.65rem 1.75rem;
+    transition: all 0.2s;
+}
+
+.btn-brand-outline:hover {
+    background: var(--indice-blue);
+    color: #fff;
+    transform: translateY(-2px);
+}
+
+.btn-brand-yellow {
+    background: var(--indice-yellow);
+    color: var(--indice-navy);
+    border: none;
+    border-radius: 10px;
+    font-weight: 700;
+    padding: 0.7rem 1.75rem;
+    transition: filter 0.2s, transform 0.15s;
+}
+
+.btn-brand-yellow:hover {
+    filter: brightness(1.08);
+    transform: translateY(-2px);
+    color: var(--indice-navy);
+}
+
+/* ── Insignias de categoría ────────────────────────────────── */
+.pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-size: 0.78rem;
+    font-weight: 700;
+    padding: 0.3rem 0.85rem;
+    border-radius: 50px;
+    line-height: 1;
+}
+
+.pill-blue {
+    background: var(--indice-blue-light);
+    color: var(--indice-blue-mid);
+}
+
+.pill-yellow {
+    background: var(--indice-yellow-light);
+    color: #92400e;
+}
+
+.pill-green {
+    background: var(--indice-green-light);
+    color: #065f46;
+}
+
+.pill-purple {
+    background: var(--indice-purple-light);
+    color: #4338ca;
+}
+
+.pill-red {
+    background: var(--indice-red-light);
+    color: #b91c1c;
+}
+
+/* ── Divisores de sección ──────────────────────────────────── */
+.section-divider {
+    width: 56px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--indice-blue-mid), var(--indice-yellow));
+    border-radius: 4px;
+    margin: 0 auto 1.5rem;
+}
+
+.section-divider.left {
+    margin-left: 0;
+}
+
+/* ── Cards de pilares ──────────────────────────────────────── */
+.pilar-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    flex-shrink: 0;
+}
+
+.pilar-icon.yellow {
+    background: var(--indice-yellow-light);
+    color: #92400e;
+}
+
+.pilar-icon.green {
+    background: var(--indice-green-light);
+    color: #065f46;
+}
+
+.pilar-icon.purple {
+    background: var(--indice-purple-light);
+    color: #4338ca;
+}
+
+.pilar-icon.blue {
+    background: var(--indice-blue-light);
+    color: var(--indice-blue);
+}
+
+/* ── App-preview badge ─────────────────────────────────────── */
+.app-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 50px;
+    padding: 0.35rem 1rem;
+    font-size: 0.82rem;
+    color: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(8px);
+}
+
+.app-badge .dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--indice-green);
+    box-shadow: 0 0 6px var(--indice-green);
+}
+
+/* ── Highlight de texto ────────────────────────────────────── */
+.highlight-yellow {
+    background: linear-gradient(180deg, transparent 55%, rgba(245, 158, 11, 0.3) 55%);
+    padding-bottom: 2px;
+}
+
+/* ── Responsive ────────────────────────────────────────────── */
+@media (max-width: 768px) {
+    .pilar-icon {
+        width: 48px;
+        height: 48px;
+        font-size: 1.2rem;
+    }
+}

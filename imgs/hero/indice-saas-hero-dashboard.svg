@@ -1,0 +1,110 @@
+<svg width="1600" height="1200" viewBox="0 0 1600 1200" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Laptop with clean business dashboard for SaaS hero</title>
+  <desc id="desc">A modern laptop on a soft neutral background displaying a simplified business dashboard with revenue, profit, tasks pending, and sections for Finances, Operations, and Team.</desc>
+  <defs>
+    <linearGradient id="bg" x1="180" y1="120" x2="1400" y2="1080" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F9FBFD"/>
+      <stop offset="1" stop-color="#EEF3F8"/>
+    </linearGradient>
+    <linearGradient id="screenGlow" x1="520" y1="250" x2="1150" y2="820" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FCFEFF"/>
+      <stop offset="1" stop-color="#F4F7FB"/>
+    </linearGradient>
+    <linearGradient id="metal" x1="592" y1="884" x2="1096" y2="884" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#BCC7D3"/>
+      <stop offset="0.5" stop-color="#E4EBF2"/>
+      <stop offset="1" stop-color="#B4C0CC"/>
+    </linearGradient>
+    <filter id="shadowSoft" x="357" y="145" width="915" height="870" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+      <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+      <feOffset dy="28"/>
+      <feGaussianBlur stdDeviation="36"/>
+      <feColorMatrix type="matrix" values="0 0 0 0 0.0823529 0 0 0 0 0.129412 0 0 0 0 0.188235 0 0 0 0.14 0"/>
+      <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_1_1"/>
+      <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_1_1" result="shape"/>
+    </filter>
+    <filter id="shadowCard" x="0" y="0" width="200%" height="200%" filterUnits="objectBoundingBox" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="10" stdDeviation="16" flood-color="#0F172A" flood-opacity="0.08"/>
+    </filter>
+  </defs>
+
+  <rect width="1600" height="1200" fill="url(#bg)"/>
+  <ellipse cx="1040" cy="960" rx="360" ry="72" fill="#CBD6E2" fill-opacity="0.28"/>
+  <ellipse cx="1040" cy="972" rx="280" ry="42" fill="#D8E1EB" fill-opacity="0.35"/>
+
+  <g filter="url(#shadowSoft)">
+    <rect x="429" y="218" width="760" height="620" rx="32" fill="#111827"/>
+    <rect x="455" y="244" width="708" height="568" rx="22" fill="url(#screenGlow)"/>
+    <circle cx="809" cy="231" r="5" fill="#243041"/>
+
+    <rect x="592" y="850" width="434" height="22" rx="11" fill="url(#metal)"/>
+    <path d="M391 872H1227L1139 925C1132.68 928.809 1125.44 930.821 1118.06 930.821H499.936C492.561 930.821 485.319 928.809 479 925L391 872Z" fill="#D9E2EA"/>
+    <path d="M391 872H1227L1183 897H435L391 872Z" fill="#C5D0DA"/>
+    <rect x="730" y="883" width="158" height="10" rx="5" fill="#B1BDC8"/>
+  </g>
+
+  <g>
+    <text x="518" y="302" fill="#111827" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="600">Indice Overview</text>
+    <rect x="1028" y="279" width="104" height="34" rx="17" fill="#E8F0FE"/>
+    <text x="1060" y="301" fill="#315EAF" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="600">Live</text>
+    <circle cx="1046" cy="296" r="5" fill="#4F83B8"/>
+  </g>
+
+  <g filter="url(#shadowCard)">
+    <rect x="518" y="338" width="230" height="154" rx="24" fill="#FFFFFF"/>
+    <text x="544" y="376" fill="#64748B" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="600">Revenue</text>
+    <text x="544" y="436" fill="#0F172A" font-family="Inter, Arial, sans-serif" font-size="54" font-weight="700">$248K</text>
+    <rect x="544" y="452" width="102" height="30" rx="15" fill="#ECFDF3"/>
+    <text x="568" y="472" fill="#15803D" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="700">+12.4%</text>
+  </g>
+
+  <g filter="url(#shadowCard)">
+    <rect x="770" y="338" width="174" height="154" rx="24" fill="#FFFFFF"/>
+    <text x="796" y="376" fill="#64748B" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="600">Profit</text>
+    <text x="796" y="432" fill="#16A34A" font-family="Inter, Arial, sans-serif" font-size="40" font-weight="700">18.6%</text>
+    <circle cx="812" cy="462" r="7" fill="#22C55E"/>
+    <text x="828" y="468" fill="#334155" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="600">Healthy margin</text>
+  </g>
+
+  <g filter="url(#shadowCard)">
+    <rect x="966" y="338" width="174" height="154" rx="24" fill="#FFFFFF"/>
+    <text x="992" y="376" fill="#64748B" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="600">Tasks</text>
+    <text x="992" y="430" fill="#0F172A" font-family="Inter, Arial, sans-serif" font-size="40" font-weight="700">3 pending</text>
+    <text x="992" y="466" fill="#64748B" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="500">2 due today</text>
+  </g>
+
+  <g filter="url(#shadowCard)">
+    <rect x="518" y="522" width="622" height="242" rx="28" fill="#FFFFFF"/>
+    <text x="548" y="565" fill="#111827" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="700">Core areas</text>
+    <text x="548" y="597" fill="#64748B" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="500">A clear snapshot of the business, without clutter.</text>
+
+    <rect x="548" y="628" width="170" height="98" rx="20" fill="#F8FBFE" stroke="#E2E8F0"/>
+    <text x="572" y="665" fill="#4F83B8" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="700">Finances</text>
+    <text x="572" y="697" fill="#0F172A" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="700">$42.1K</text>
+    <text x="572" y="718" fill="#64748B" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="500">Cash available</text>
+
+    <rect x="744" y="628" width="170" height="98" rx="20" fill="#FFF9F1" stroke="#F5E6BE"/>
+    <text x="768" y="665" fill="#B7791F" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="700">Operations</text>
+    <text x="768" y="697" fill="#0F172A" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="700">94%</text>
+    <text x="768" y="718" fill="#64748B" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="500">On-time execution</text>
+
+    <rect x="940" y="628" width="170" height="98" rx="20" fill="#F3FAF6" stroke="#D9F0E2"/>
+    <text x="964" y="665" fill="#159A55" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="700">Team</text>
+    <text x="964" y="697" fill="#0F172A" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="700">28 active</text>
+    <text x="964" y="718" fill="#64748B" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="500">2 on leave</text>
+  </g>
+
+  <g opacity="0.92">
+    <rect x="1128" y="560" width="12" height="120" rx="6" fill="#D9E3EC"/>
+    <rect x="1106" y="604" width="12" height="76" rx="6" fill="#C9D7E4"/>
+    <rect x="1084" y="582" width="12" height="98" rx="6" fill="#AFC6DB"/>
+    <rect x="1062" y="540" width="12" height="140" rx="6" fill="#4F83B8"/>
+    <rect x="1040" y="622" width="12" height="58" rx="6" fill="#DCE5EE"/>
+  </g>
+
+  <g>
+    <path d="M541 791H1079" stroke="#E2E8F0" stroke-width="2" stroke-linecap="round"/>
+    <text x="548" y="825" fill="#94A3B8" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="600">Designed for clarity, control and daily execution</text>
+  </g>
+</svg>

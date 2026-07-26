@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+
+Sitemap: http://indiceapp.com/?sitemapindex.xml
+Sitemap: http://indiceapp.com/?sitemap205.xml
+Sitemap: http://indiceapp.com/?sitemap518.xml
+Sitemap: http://indiceapp.com/?sitemap75.xml
+Sitemap: http://indiceapp.com/?sitemap578.xml
+Sitemap: http://indiceapp.com/?sitemap997.xml
+Sitemap: http://indiceapp.com/goods.php?sitemap289.xml

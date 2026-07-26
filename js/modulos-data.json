@@ -1,0 +1,107 @@
+[
+	{
+		"pillar": "people",
+		"color": "blue",
+		"modules": [
+			{
+				"name": "Human Resources",
+				"description": "Manage employees, attendance, payroll, permissions, and communication.",
+				"icon": "people"
+			},
+			{
+				"name": "Incentives",
+				"description": "Track goals, rewards, and team performance indicators.",
+				"icon": "award"
+			},
+			{
+				"name": "People KPIs",
+				"description": "Measure turnover, productivity, and team health from one view.",
+				"icon": "chart"
+			}
+		]
+	},
+	{
+		"pillar": "process",
+		"color": "yellow",
+		"modules": [
+			{
+				"name": "Tasks and Projects",
+				"description": "Coordinate daily operations, deadlines, and accountability.",
+				"icon": "tasks"
+			},
+			{
+				"name": "Recurring Processes",
+				"description": "Standardize repeatable workflows and reduce operational chaos.",
+				"icon": "repeat"
+			},
+			{
+				"name": "Maintenance and Cleaning",
+				"description": "Plan checklists, inspections, and service routines.",
+				"icon": "wrench"
+			}
+		]
+	},
+	{
+		"pillar": "products",
+		"color": "orange",
+		"modules": [
+			{
+				"name": "POS and Sales",
+				"description": "Manage point-of-sale, sales flows, and customer activity.",
+				"icon": "cart"
+			},
+			{
+				"name": "CRM",
+				"description": "Track prospects, opportunities, and follow-ups in one pipeline.",
+				"icon": "users"
+			},
+			{
+				"name": "Inventory and Assets",
+				"description": "Control stock, fixed assets, and property-related operations.",
+				"icon": "boxes"
+			}
+		]
+	},
+	{
+		"pillar": "finance",
+		"color": "green",
+		"modules": [
+			{
+				"name": "Expenses and Petty Cash",
+				"description": "Register spending with categories, approvals, and traceability.",
+				"icon": "wallet"
+			},
+			{
+				"name": "Billing and Payments",
+				"description": "Issue invoices and monitor cash flow and payment commitments.",
+				"icon": "invoice"
+			},
+			{
+				"name": "Financial KPIs",
+				"description": "Understand margins, profitability, and trends in real time.",
+				"icon": "trend"
+			}
+		]
+	},
+	{
+		"pillar": "ai",
+		"color": "gold",
+		"modules": [
+			{
+				"name": "Sales Agent",
+				"description": "Automate follow-up and prioritize sales opportunities.",
+				"icon": "robot"
+			},
+			{
+				"name": "Business Analytics",
+				"description": "Use predictive insights and recommendations by module.",
+				"icon": "brain"
+			},
+			{
+				"name": "Learning Mode",
+				"description": "Guide users with practical tips and role-based onboarding.",
+				"icon": "graduation"
+			}
+		]
+	}
+]
