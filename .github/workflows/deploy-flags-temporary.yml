@@ -29,7 +29,6 @@ jobs:
           set ssl:verify-certificate no
           set net:max-retries 4
           set net:reconnect-interval-base 3
-          mkdir -p "$FTP_REMOTE_PATH/imgs/flags"
           mirror --reverse --verbose --parallel=1 "imgs/flags" "$FTP_REMOTE_PATH/imgs/flags"
           bye
           EOF
