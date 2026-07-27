@@ -14,6 +14,11 @@
 
 require_once __DIR__ . '/functions.php';
 
+if (($_SERVER['REQUEST_METHOD'] ?? 'GET') === 'GET') {
+    header('Location: ' . getIndiceSignupUrl(), true, 302);
+    exit;
+}
+
 $bootstrapPath = '/home1/corazon/app.indiceapp.com/bootstrap.php';
 $friendlyError = 'No pudimos iniciar el registro en este momento. '
     . 'Por favor contáctanos en contacto@indiceapp.com.';

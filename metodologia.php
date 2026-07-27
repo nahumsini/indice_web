@@ -18,7 +18,7 @@ include 'header.php';
             Índice no le suelta módulos al azar. Le da una ruta clara para ordenar, controlar y crecer sin cargar todo usted solo.
           </p>
           <div class="d-flex flex-wrap gap-2">
-            <a href="registro.php" class="btn btn-brand btn-lg" data-i18n="methodology_hero_cta_primary">Comenzar ahora</a>
+            <a href="<?= getIndiceSignupUrlAttr() ?>" class="btn btn-brand btn-lg" data-i18n="methodology_hero_cta_primary">Comenzar ahora</a>
             <a href="planes.php" class="btn btn-ghost btn-lg" data-i18n="methodology_hero_cta_secondary">Ver planes</a>
           </div>
         </div>
@@ -199,7 +199,7 @@ include 'header.php';
           Cree su cuenta, complete el Panel Inicial y comience a configurar su empresa con claridad sobre el siguiente paso.
         </p>
         <div class="d-flex flex-wrap gap-2 justify-content-center">
-          <a href="registro.php" class="btn btn-brand btn-lg" data-i18n="methodology_cta_primary">Crear mi cuenta</a>
+          <a href="<?= getIndiceSignupUrlAttr() ?>" class="btn btn-brand btn-lg" data-i18n="methodology_cta_primary">Crear mi cuenta</a>
           <a href="<?= getIndiceLoginUrlAttr() ?>" class="btn btn-ghost btn-lg" data-i18n="nav.login">Iniciar sesión</a>
         </div>
       </div>

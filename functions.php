@@ -44,6 +44,14 @@ function getIndiceLoginUrlAttr() {
 	return htmlspecialchars(getIndiceLoginUrl(), ENT_QUOTES, 'UTF-8');
 }
 
+function getIndiceSignupUrl() {
+	return getIndiceAppBaseUrl() . '/signup';
+}
+
+function getIndiceSignupUrlAttr() {
+	return htmlspecialchars(getIndiceSignupUrl(), ENT_QUOTES, 'UTF-8');
+}
+
 function sendEmail($to, $subject, $message, $headers = []) {
 	$to = sanitizeEmailHeader($to);
 	$subject = sanitizeEmailHeader($subject);
