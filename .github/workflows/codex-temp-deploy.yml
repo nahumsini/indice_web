@@ -74,7 +74,7 @@ jobs:
         run: |
           set -euo pipefail
           stamp=$(date +%s)
-          curl -fsS "https://indiceapp.com/?deploy=$stamp" | grep -Fq 'Opera tu negocio con claridad'
+          curl -fsS "https://indiceapp.com/?deploy=$stamp" | grep -Fq 'class="home-minimal"'
           curl -fsS "https://indiceapp.com/planes.php?deploy=$stamp" | grep -Fq 'plans.config.growth.storage'
           curl -fsS "https://indiceapp.com/css/style.css?deploy=$stamp" | grep -Fq '.pricing-growth-note'
           curl -fsS "https://indiceapp.com/js/planes.js?deploy=$stamp" | grep -Fq 'CONSULTING_PRICE = 89'
