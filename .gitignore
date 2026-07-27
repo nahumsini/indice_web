@@ -1,0 +1,15 @@
+.env
+.env.*
+!.env.example
+
+.vscode/sftp.json
+
+.codex
+.codex-*.php
+.ftpquota
+
+data/*
+!data/.gitkeep
+
+logs/*
+!logs/.gitkeep
