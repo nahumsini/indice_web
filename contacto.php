@@ -8,7 +8,7 @@ include 'header.php';
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-8 mx-auto text-center">
-				<h1 class="display-5 fw-bold mb-3">Hablemos de tu empresa</h1>
+				<h1 class="display-5 fw-medium mb-3">Hablemos de tu empresa</h1>
 				<p class="lead lead-soft">Cuéntanos tu operación actual y te mostramos cómo implementar Índice paso a paso.</p>
 			</div>
 		</div>
@@ -20,7 +20,7 @@ include 'header.php';
 		<div class="row g-4">
 			<div class="col-lg-7">
 				<div class="card-min p-4 h-100">
-					<h2 class="h4 fw-bold mb-3">Envíanos un mensaje</h2>
+					<h2 class="h4 fw-medium mb-3">Envíanos un mensaje</h2>
 					<form id="contactForm" class="row g-3">
 						<?php echo honeypotInput(); ?>
 						<div class="col-md-6">
@@ -51,7 +51,7 @@ include 'header.php';
 
 			<div class="col-lg-5">
 				<div class="card-min p-4 h-100 company-info">
-					<h3 class="h5 fw-bold mb-2">Contáctanos directamente</h3>
+					<h3 class="h5 fw-medium mb-2">Contáctanos directamente</h3>
 					<p class="lead-soft mb-3">Si tienes dudas o quieres conocer cómo Índice puede ayudarte, escríbenos o agenda una demo.</p>
 
 					<p class="mb-2">

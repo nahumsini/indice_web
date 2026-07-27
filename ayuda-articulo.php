@@ -19,7 +19,7 @@ if (!$article) {
 	?>
 	<section class="page-hero bg-surface reveal">
 		<div class="container text-center">
-			<h1 class="display-5 fw-bold mb-3" data-i18n="help.not_found.title">Artículo no encontrado</h1>
+			<h1 class="display-5 fw-medium mb-3" data-i18n="help.not_found.title">Artículo no encontrado</h1>
 			<p class="lead lead-soft mb-4" data-i18n="help.not_found.text">La guía que buscas no existe o cambió de ubicación.</p>
 			<a href="/ayuda.php" class="btn btn-brand" data-i18n="help.article.back">Volver al Centro de ayuda</a>
 		</div>
@@ -40,7 +40,7 @@ include 'header.php';
 			<div class="row justify-content-center">
 				<div class="col-lg-9 text-center">
 					<span class="eyebrow"><?php echo htmlspecialchars($article['category'], ENT_QUOTES, 'UTF-8'); ?></span>
-					<h1 class="display-5 fw-bold text-balance mb-3"><?php echo htmlspecialchars($article['title'], ENT_QUOTES, 'UTF-8'); ?></h1>
+					<h1 class="display-5 fw-medium text-balance mb-3"><?php echo htmlspecialchars($article['title'], ENT_QUOTES, 'UTF-8'); ?></h1>
 					<p class="lead lead-soft mb-3"><?php echo htmlspecialchars($article['excerpt'], ENT_QUOTES, 'UTF-8'); ?></p>
 					<p class="small text-muted mb-0">
 						<span data-i18n="help.article.updated">Actualizado</span>:
@@ -60,7 +60,7 @@ include 'header.php';
 					<article class="card-min p-4 p-lg-5">
 						<?php foreach ($article['sections'] as $section): ?>
 							<section class="mb-4">
-								<h2 class="h4 fw-bold mb-3"><?php echo htmlspecialchars($section['title'], ENT_QUOTES, 'UTF-8'); ?></h2>
+								<h2 class="h4 fw-medium mb-3"><?php echo htmlspecialchars($section['title'], ENT_QUOTES, 'UTF-8'); ?></h2>
 
 								<?php if (!empty($section['body'])): ?>
 									<?php foreach ($section['body'] as $paragraph): ?>

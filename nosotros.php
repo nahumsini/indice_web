@@ -28,11 +28,11 @@ $pageDescriptions = [
 $page_title = $pageTitles[$currentLocale] ?? 'Hablemos';
 $page_description = $pageDescriptions[$currentLocale] ?? $pageDescriptions['es-MX'];
 
-$demoHref = '#lead-form';
+$demoHref = getIndiceLoginUrl();
 $emailSubject = $isCanadaLocale ? 'Indice inquiry' : 'Consulta sobre Índice';
 $salesSubject = $isCanadaLocale ? 'Indice sales conversation' : 'Conversación comercial con Índice';
 $emailHref = 'mailto:contacto@indiceapp.com?subject=' . rawurlencode($emailSubject);
-$salesHref = 'mailto:contacto@indiceapp.com?subject=' . rawurlencode($salesSubject);
+$salesHref = getIndiceLoginUrl();
 $mapHref = 'https://www.google.com/maps/search/?api=1&query=' . rawurlencode('130 King St W, Toronto, ON, Canada');
 
 include 'header.php';
@@ -42,10 +42,10 @@ include 'header.php';
   <div class="container">
     <div class="row align-items-center">
       <div class="col-lg-8 mx-auto text-center">
-        <h1 class="display-5 fw-bold mb-3 text-balance" data-i18n="connect.hero.title">¿Quieres entender cómo aplicar Índice en tu negocio?</h1>
+        <h1 class="display-5 fw-medium mb-3 text-balance" data-i18n="connect.hero.title">¿Quieres entender cómo aplicar Índice en tu negocio?</h1>
         <p class="lead lead-soft mb-4" data-i18n="connect.hero.subtitle">Te mostramos cómo organizar tu operación paso a paso, sin complicaciones.</p>
         <div class="d-flex flex-column flex-sm-row gap-2 justify-content-center hero-actions">
-          <a href="<?php echo htmlspecialchars($demoHref, ENT_QUOTES, 'UTF-8'); ?>" class="btn btn-brand btn-lg" data-i18n="connect.hero.cta.primary">Agendar demo</a>
+          <a href="<?php echo htmlspecialchars($demoHref, ENT_QUOTES, 'UTF-8'); ?>" class="btn btn-brand btn-lg" data-i18n="nav.login">Iniciar sesión</a>
           <a href="<?php echo htmlspecialchars($emailHref, ENT_QUOTES, 'UTF-8'); ?>" class="btn btn-ghost btn-lg" data-i18n="connect.hero.cta.secondary">Escribir por correo</a>
         </div>
       </div>
@@ -59,15 +59,15 @@ include 'header.php';
       <div class="col-lg-4">
         <div class="card-min p-4 h-100">
           <div class="mb-3" style="font-size: 1.75rem;">→</div>
-          <h2 class="h4 fw-bold mb-2" data-i18n="connect.options.demo.title">Ver cómo funciona</h2>
+          <h2 class="h4 fw-medium mb-2" data-i18n="connect.options.demo.title">Ver cómo funciona</h2>
           <p class="lead-soft mb-4" data-i18n="connect.options.demo.text">Agenda una demo y te mostramos cómo organizar tu negocio con Índice.</p>
-          <a href="<?php echo htmlspecialchars($demoHref, ENT_QUOTES, 'UTF-8'); ?>" class="btn btn-brand" data-i18n="connect.options.demo.cta">Agendar demo</a>
+          <a href="<?php echo htmlspecialchars($demoHref, ENT_QUOTES, 'UTF-8'); ?>" class="btn btn-brand" data-i18n="nav.login">Iniciar sesión</a>
         </div>
       </div>
       <div class="col-lg-4">
         <div class="card-min p-4 h-100">
           <div class="mb-3" style="font-size: 1.75rem;">?</div>
-          <h2 class="h4 fw-bold mb-2" data-i18n="connect.options.support.title">Tengo dudas</h2>
+          <h2 class="h4 fw-medium mb-2" data-i18n="connect.options.support.title">Tengo dudas</h2>
           <p class="lead-soft mb-4" data-i18n="connect.options.support.text">Si tienes preguntas, te respondemos por correo con claridad.</p>
           <a href="<?php echo htmlspecialchars($emailHref, ENT_QUOTES, 'UTF-8'); ?>" class="btn btn-ghost" data-i18n="connect.options.support.cta">Escribir por correo</a>
         </div>
@@ -75,9 +75,9 @@ include 'header.php';
       <div class="col-lg-4">
         <div class="card-min p-4 h-100">
           <div class="mb-3" style="font-size: 1.75rem;">+</div>
-          <h2 class="h4 fw-bold mb-2" data-i18n="connect.options.sales.title">Necesito algo más avanzado</h2>
+          <h2 class="h4 fw-medium mb-2" data-i18n="connect.options.sales.title">Necesito algo más avanzado</h2>
           <p class="lead-soft mb-4" data-i18n="connect.options.sales.text">Si tu operación requiere algo más estructurado o personalizado, podemos ayudarte.</p>
-          <a href="<?php echo htmlspecialchars($salesHref, ENT_QUOTES, 'UTF-8'); ?>" class="btn btn-ghost" data-i18n="connect.options.sales.cta">Contactar por correo</a>
+          <a href="<?php echo htmlspecialchars($salesHref, ENT_QUOTES, 'UTF-8'); ?>" class="btn btn-ghost" data-i18n="nav.login">Iniciar sesión</a>
         </div>
       </div>
     </div>
@@ -89,7 +89,7 @@ include 'header.php';
     <div class="row g-4 align-items-start">
       <div class="col-lg-7">
         <div class="card-min p-4 p-lg-5 h-100">
-          <h2 class="display-6 fw-bold mb-2 text-balance" data-i18n="connect.form.title">Déjanos tus datos y te contactamos</h2>
+          <h2 class="display-6 fw-medium mb-2 text-balance" data-i18n="connect.form.title">Déjanos tus datos y te contactamos</h2>
           <p class="lead-soft mb-4" data-i18n="connect.form.subtitle">Respuesta rápida. Sin formularios largos.</p>
 
           <form data-registration-form class="row g-3">
@@ -133,7 +133,7 @@ include 'header.php';
 
       <div class="col-lg-5">
         <div class="card-min p-4 p-lg-5 h-100 company-info">
-          <h2 class="h4 fw-bold mb-2" data-i18n="connect.quick.title">Contacto por correo</h2>
+          <h2 class="h4 fw-medium mb-2" data-i18n="connect.quick.title">Contacto por correo</h2>
           <p class="lead-soft mb-4" data-i18n="connect.quick.text">Escríbenos y te respondemos lo antes posible.</p>
 
           <div class="d-grid gap-3 mb-4">
@@ -143,7 +143,7 @@ include 'header.php';
           <p class="small text-muted mb-3" data-i18n="connect.quick.note">Respondemos en menos de 24 horas hábiles.</p>
 
           <div class="border-top pt-3">
-            <p class="mb-1 text-uppercase text-muted" style="letter-spacing:1px; font-size:0.75rem;" data-i18n="connect.quick.email_label">Email</p>
+            <p class="mb-1 text-muted" style="font-size:0.75rem;" data-i18n="connect.quick.email_label">Email</p>
             <p class="mb-0"><a href="mailto:contacto@indiceapp.com">contacto@indiceapp.com</a></p>
           </div>
         </div>
@@ -157,17 +157,17 @@ include 'header.php';
     <div class="card-min p-4 company-info">
       <div class="row g-3 align-items-start">
         <div class="col-lg-5">
-          <h2 class="h5 fw-bold mb-2" data-i18n="connect.company.title">Información corporativa</h2>
+          <h2 class="h5 fw-medium mb-2" data-i18n="connect.company.title">Información corporativa</h2>
           <p class="lead-soft mb-0" data-i18n="connect.company.text">Índice Technologies Inc. es una empresa registrada en Canadá.</p>
         </div>
         <div class="col-lg-4">
-          <p class="small text-uppercase text-muted mb-1" style="letter-spacing:1px;" data-i18n="connect.company.address_label">Dirección</p>
+          <p class="small text-muted mb-1" data-i18n="connect.company.address_label">Dirección</p>
           <p class="mb-0" data-i18n="connect.company.address">130 King St W, Toronto, ON, Canada — Exchange Tower</p>
         </div>
         <div class="col-lg-3">
-          <p class="small text-uppercase text-muted mb-1" style="letter-spacing:1px;" data-i18n="connect.company.email_label">Email</p>
+          <p class="small text-muted mb-1" data-i18n="connect.company.email_label">Email</p>
           <p class="mb-2"><a href="mailto:contacto@indiceapp.com">contacto@indiceapp.com</a></p>
-          <a href="<?php echo htmlspecialchars($mapHref, ENT_QUOTES, 'UTF-8'); ?>" class="small fw-semibold" target="_blank" rel="noopener" data-i18n="connect.company.map">Ver ubicación</a>
+          <a href="<?php echo htmlspecialchars($mapHref, ENT_QUOTES, 'UTF-8'); ?>" class="small fw-medium" target="_blank" rel="noopener" data-i18n="connect.company.map">Ver ubicación</a>
         </div>
       </div>
     </div>

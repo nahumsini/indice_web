@@ -8,7 +8,13 @@
     </url>
     <url>
         <loc>https://indiceapp.com/modulos.php</loc>
-        <lastmod>2025-11-05</lastmod>
+        <lastmod>2026-07-27</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://indiceapp.com/modo-aprendiz.php</loc>
+        <lastmod>2026-07-27</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -68,9 +74,15 @@
     </url>
     <url>
         <loc>https://indiceapp.com/modulo-inventarios.php</loc>
-        <lastmod>2026-05-19</lastmod>
+        <lastmod>2026-07-27</lastmod>
         <changefreq>monthly</changefreq>
-        <priority>0.6</priority>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://indiceapp.com/modulo-cartera.php</loc>
+        <lastmod>2026-07-27</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
     </url>
     <url>
         <loc>https://indiceapp.com/modulo-control-minutas.php</loc>

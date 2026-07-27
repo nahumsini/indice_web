@@ -117,17 +117,31 @@ function basicModuleConfigs(): array {
 		],
 		'inventarios' => [
 			'href' => '/modulo-inventarios.php',
-			'theme' => 'complementarios',
+			'theme' => 'productos',
 			'icon' => 'fa-box',
-			'title_key' => 'modules.scale.inventory.title',
-			'tagline_key' => 'modules.scale.inventory.tagline',
-			'desc_key' => 'modules.scale.inventory.desc',
+			'title_key' => 'modules.core.inventory.title',
+			'tagline_key' => 'modules.core.inventory.tagline',
+			'desc_key' => 'modules.core.inventory.desc',
 			'features' => [
-				['icon' => 'fa-boxes-stacked', 'label_key' => 'modules.scale.inventory.feature_1'],
-				['icon' => 'fa-arrow-trend-down', 'label_key' => 'modules.scale.inventory.feature_2'],
-				['icon' => 'fa-clipboard-check', 'label_key' => 'modules.scale.inventory.feature_3'],
+				['icon' => 'fa-box-open', 'label_key' => 'modules.core.inventory.feature_1'],
+				['icon' => 'fa-warehouse', 'label_key' => 'modules.core.inventory.feature_2'],
+				['icon' => 'fa-cart-flatbed', 'label_key' => 'modules.core.inventory.feature_3'],
 			],
 			'stats' => ['248', '12', '6', '99%'],
+		],
+		'cartera' => [
+			'href' => '/modulo-cartera.php',
+			'theme' => 'finanzas',
+			'icon' => 'fa-book',
+			'title_key' => 'modules.core.receivables.title',
+			'tagline_key' => 'modules.core.receivables.tagline',
+			'desc_key' => 'modules.core.receivables.desc',
+			'features' => [
+				['icon' => 'fa-credit-card', 'label_key' => 'modules.core.receivables.feature_1'],
+				['icon' => 'fa-calendar-day', 'label_key' => 'modules.core.receivables.feature_2'],
+				['icon' => 'fa-money-check-dollar', 'label_key' => 'modules.core.receivables.feature_3'],
+			],
+			'stats' => ['18', '$42K', '5', '94%'],
 		],
 		'control-minutas' => [
 			'href' => '/modulo-control-minutas.php',
@@ -380,11 +394,11 @@ function basicModuleRenderPage(array $module): void {
 						<span data-i18n="module.basic.back"><?= basicModuleAttr('module.basic.back') ?></span>
 					</a>
 					<span class="eyebrow module-detail-eyebrow" data-i18n="module.basic.hero.eyebrow"><?= basicModuleAttr('module.basic.hero.eyebrow') ?></span>
-					<h1 class="display-5 fw-bold text-balance mb-3"><?= htmlspecialchars($title, ENT_QUOTES, 'UTF-8') ?></h1>
+					<h1 class="display-5 fw-medium text-balance mb-3"><?= htmlspecialchars($title, ENT_QUOTES, 'UTF-8') ?></h1>
 					<p class="lead lead-soft mb-2"><?= htmlspecialchars($description, ENT_QUOTES, 'UTF-8') ?></p>
 					<p class="lead-soft fs-5 mb-4"><?= htmlspecialchars($tagline, ENT_QUOTES, 'UTF-8') ?></p>
 					<div class="d-flex flex-column flex-sm-row gap-2 hero-actions">
-						<a href="/contacto.php#lead-form" class="btn btn-brand btn-lg"><?= basicModuleAttr('module.basic.hero.cta.primary_template', $vars) ?></a>
+						<a href="<?= getIndiceLoginUrlAttr() ?>" class="btn btn-brand btn-lg" data-i18n="nav.login"><?= basicModuleAttr('nav.login') ?></a>
 						<a href="#flujos" class="btn btn-ghost btn-lg" data-i18n="module.basic.hero.cta.secondary"><?= basicModuleAttr('module.basic.hero.cta.secondary') ?></a>
 					</div>
 					<p class="hero-microcopy mt-3"><?= basicModuleAttr('module.basic.hero.microcopy_template', $vars) ?></p>
@@ -576,7 +590,7 @@ function basicModuleRenderPage(array $module): void {
 				<h2><?= basicModuleAttr('module.basic.cta.title_template', $vars) ?></h2>
 				<p><?= basicModuleAttr('module.basic.cta.text_template', $vars) ?></p>
 				<div class="d-flex flex-column flex-sm-row gap-2 justify-content-center">
-					<a href="/contacto.php#lead-form" class="btn btn-brand btn-lg"><?= basicModuleAttr('module.basic.cta.primary_template', $vars) ?></a>
+					<a href="<?= getIndiceLoginUrlAttr() ?>" class="btn btn-brand btn-lg" data-i18n="nav.login"><?= basicModuleAttr('nav.login') ?></a>
 					<a href="/modulos.php#basicos" class="btn btn-ghost btn-lg" data-i18n="module.basic.cta.secondary"><?= basicModuleAttr('module.basic.cta.secondary') ?></a>
 				</div>
 			</div>

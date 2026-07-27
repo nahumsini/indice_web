@@ -22,7 +22,7 @@ if (!file_exists($bootstrapPath)) {
     error_log('[registro.php] App bootstrap not found.');
     http_response_code(503);
     echo '<!doctype html><meta charset="utf-8"><title>Registro</title>'
-        . '<div style="font-family:Inter,Arial,sans-serif;max-width:560px;margin:80px auto;padding:24px;'
+        . '<div style="font-family:system-ui,-apple-system,BlinkMacSystemFont,&quot;Segoe UI&quot;,sans-serif;max-width:560px;margin:80px auto;padding:24px;'
         . 'border:1px solid #e5e7eb;border-radius:12px;color:#111;">'
         . '<h1 style="margin:0 0 12px;font-size:1.25rem;">Registro temporalmente no disponible</h1>'
         . '<p style="margin:0;color:#374151;">' . htmlspecialchars($friendlyError) . '</p>'
@@ -45,7 +45,7 @@ try {
     error_log('[registro.php] Bootstrap failure: ' . $bootErr->getMessage());
     http_response_code(503);
     echo '<!doctype html><meta charset="utf-8"><title>Registro</title>'
-        . '<div style="font-family:Inter,Arial,sans-serif;max-width:560px;margin:80px auto;padding:24px;'
+        . '<div style="font-family:system-ui,-apple-system,BlinkMacSystemFont,&quot;Segoe UI&quot;,sans-serif;max-width:560px;margin:80px auto;padding:24px;'
         . 'border:1px solid #e5e7eb;border-radius:12px;color:#111;">'
         . '<h1 style="margin:0 0 12px;font-size:1.25rem;">Registro temporalmente no disponible</h1>'
         . '<p style="margin:0;color:#374151;">' . htmlspecialchars($friendlyError) . '</p>'
@@ -60,7 +60,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if (isHoneypotTriggered($_POST)) {
             http_response_code(200);
             echo '<!doctype html><meta charset="utf-8"><title>Registro</title>'
-                . '<div style="font-family:Inter,Arial,sans-serif;max-width:560px;margin:80px auto;padding:24px;'
+                . '<div style="font-family:system-ui,-apple-system,BlinkMacSystemFont,&quot;Segoe UI&quot;,sans-serif;max-width:560px;margin:80px auto;padding:24px;'
                 . 'border:1px solid #e5e7eb;border-radius:12px;color:#111;">'
                 . '<h1 style="margin:0 0 12px;font-size:1.25rem;">Registro recibido</h1>'
                 . '<p style="margin:0;color:#374151;">Gracias. Revisaremos la información enviada.</p>'

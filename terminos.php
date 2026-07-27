@@ -57,7 +57,7 @@ include 'header.php';
 	<section class="page-hero bg-surface reveal" aria-label="<?php echo termsAttr('legal.terms.hero.title'); ?>">
 		<div class="container text-center">
 			<span class="eyebrow" data-i18n="legal.terms.hero.eyebrow"><?php echo termsAttr('legal.terms.hero.eyebrow'); ?></span>
-			<h1 class="display-5 fw-bold text-balance mb-3" data-i18n="legal.terms.hero.title"><?php echo termsAttr('legal.terms.hero.title'); ?></h1>
+			<h1 class="display-5 fw-medium text-balance mb-3" data-i18n="legal.terms.hero.title"><?php echo termsAttr('legal.terms.hero.title'); ?></h1>
 			<p class="lead lead-soft mb-3 mx-auto" style="max-width:820px;" data-i18n="legal.terms.hero.subtitle"><?php echo termsAttr('legal.terms.hero.subtitle'); ?></p>
 			<p class="small text-muted mb-0">
 				<span data-i18n="legal.common.last_updated_label"><?php echo termsAttr('legal.common.last_updated_label'); ?></span>
@@ -71,14 +71,14 @@ include 'header.php';
 			<div class="row g-4">
 				<div class="col-lg-7">
 					<div class="card-min p-4 p-lg-5 h-100">
-						<h2 class="h3 fw-bold mb-3" data-i18n="legal.terms.intro.title"><?php echo termsAttr('legal.terms.intro.title'); ?></h2>
+						<h2 class="h3 fw-medium mb-3" data-i18n="legal.terms.intro.title"><?php echo termsAttr('legal.terms.intro.title'); ?></h2>
 						<?php termsParagraph('legal.terms.intro.text'); ?>
 					</div>
 				</div>
 
 				<div class="col-lg-5">
 					<div class="card-min p-4 h-100">
-						<h2 class="h4 fw-bold mb-3" data-i18n="legal.terms.operator.title"><?php echo termsAttr('legal.terms.operator.title'); ?></h2>
+						<h2 class="h4 fw-medium mb-3" data-i18n="legal.terms.operator.title"><?php echo termsAttr('legal.terms.operator.title'); ?></h2>
 						<p class="lead-soft mb-3" data-i18n="legal.terms.operator.text"><?php echo termsAttr('legal.terms.operator.text'); ?></p>
 						<address class="lead-soft mb-0" style="font-style:normal;">
 							<strong>Índice Technologies Inc.</strong><br>
@@ -96,14 +96,14 @@ include 'header.php';
 			<div class="row g-4">
 				<div class="col-lg-6">
 					<div class="card-min p-4 h-100">
-						<h2 class="h4 fw-bold mb-3" data-i18n="legal.terms.site.title"><?php echo termsAttr('legal.terms.site.title'); ?></h2>
+						<h2 class="h4 fw-medium mb-3" data-i18n="legal.terms.site.title"><?php echo termsAttr('legal.terms.site.title'); ?></h2>
 						<?php termsParagraph('legal.terms.site.text'); ?>
 					</div>
 				</div>
 
 				<div class="col-lg-6">
 					<div class="card-min p-4 h-100">
-						<h2 class="h4 fw-bold mb-3" data-i18n="legal.terms.use.title"><?php echo termsAttr('legal.terms.use.title'); ?></h2>
+						<h2 class="h4 fw-medium mb-3" data-i18n="legal.terms.use.title"><?php echo termsAttr('legal.terms.use.title'); ?></h2>
 						<?php termsList([
 							'legal.terms.use.item_1',
 							'legal.terms.use.item_2',
@@ -122,21 +122,21 @@ include 'header.php';
 			<div class="row g-4">
 				<div class="col-lg-4">
 					<div class="card-min p-4 h-100">
-						<h2 class="h4 fw-bold mb-3" data-i18n="legal.terms.accounts.title"><?php echo termsAttr('legal.terms.accounts.title'); ?></h2>
+						<h2 class="h4 fw-medium mb-3" data-i18n="legal.terms.accounts.title"><?php echo termsAttr('legal.terms.accounts.title'); ?></h2>
 						<?php termsParagraph('legal.terms.accounts.text'); ?>
 					</div>
 				</div>
 
 				<div class="col-lg-4">
 					<div class="card-min p-4 h-100">
-						<h2 class="h4 fw-bold mb-3" data-i18n="legal.terms.plans.title"><?php echo termsAttr('legal.terms.plans.title'); ?></h2>
+						<h2 class="h4 fw-medium mb-3" data-i18n="legal.terms.plans.title"><?php echo termsAttr('legal.terms.plans.title'); ?></h2>
 						<?php termsParagraph('legal.terms.plans.text'); ?>
 					</div>
 				</div>
 
 				<div class="col-lg-4">
 					<div class="card-min p-4 h-100">
-						<h2 class="h4 fw-bold mb-3" data-i18n="legal.terms.payments.title"><?php echo termsAttr('legal.terms.payments.title'); ?></h2>
+						<h2 class="h4 fw-medium mb-3" data-i18n="legal.terms.payments.title"><?php echo termsAttr('legal.terms.payments.title'); ?></h2>
 						<?php termsParagraph('legal.terms.payments.text'); ?>
 					</div>
 				</div>
@@ -149,28 +149,28 @@ include 'header.php';
 			<div class="row g-4">
 				<div class="col-md-6">
 					<div class="card-min p-4 h-100">
-						<h2 class="h4 fw-bold mb-3" data-i18n="legal.terms.ip.title"><?php echo termsAttr('legal.terms.ip.title'); ?></h2>
+						<h2 class="h4 fw-medium mb-3" data-i18n="legal.terms.ip.title"><?php echo termsAttr('legal.terms.ip.title'); ?></h2>
 						<?php termsParagraph('legal.terms.ip.text'); ?>
 					</div>
 				</div>
 
 				<div class="col-md-6">
 					<div class="card-min p-4 h-100">
-						<h2 class="h4 fw-bold mb-3" data-i18n="legal.terms.third_party.title"><?php echo termsAttr('legal.terms.third_party.title'); ?></h2>
+						<h2 class="h4 fw-medium mb-3" data-i18n="legal.terms.third_party.title"><?php echo termsAttr('legal.terms.third_party.title'); ?></h2>
 						<?php termsParagraph('legal.terms.third_party.text'); ?>
 					</div>
 				</div>
 
 				<div class="col-md-6">
 					<div class="card-min p-4 h-100">
-						<h2 class="h4 fw-bold mb-3" data-i18n="legal.terms.availability.title"><?php echo termsAttr('legal.terms.availability.title'); ?></h2>
+						<h2 class="h4 fw-medium mb-3" data-i18n="legal.terms.availability.title"><?php echo termsAttr('legal.terms.availability.title'); ?></h2>
 						<?php termsParagraph('legal.terms.availability.text'); ?>
 					</div>
 				</div>
 
 				<div class="col-md-6">
 					<div class="card-min p-4 h-100">
-						<h2 class="h4 fw-bold mb-3" data-i18n="legal.terms.liability.title"><?php echo termsAttr('legal.terms.liability.title'); ?></h2>
+						<h2 class="h4 fw-medium mb-3" data-i18n="legal.terms.liability.title"><?php echo termsAttr('legal.terms.liability.title'); ?></h2>
 						<?php termsParagraph('legal.terms.liability.text'); ?>
 					</div>
 				</div>
@@ -183,21 +183,21 @@ include 'header.php';
 			<div class="row g-4">
 				<div class="col-lg-4">
 					<div class="card-min p-4 h-100">
-						<h2 class="h4 fw-bold mb-3" data-i18n="legal.terms.privacy.title"><?php echo termsAttr('legal.terms.privacy.title'); ?></h2>
+						<h2 class="h4 fw-medium mb-3" data-i18n="legal.terms.privacy.title"><?php echo termsAttr('legal.terms.privacy.title'); ?></h2>
 						<?php termsParagraph('legal.terms.privacy.text'); ?>
 					</div>
 				</div>
 
 				<div class="col-lg-4">
 					<div class="card-min p-4 h-100">
-						<h2 class="h4 fw-bold mb-3" data-i18n="legal.terms.law.title"><?php echo termsAttr('legal.terms.law.title'); ?></h2>
+						<h2 class="h4 fw-medium mb-3" data-i18n="legal.terms.law.title"><?php echo termsAttr('legal.terms.law.title'); ?></h2>
 						<?php termsParagraph('legal.terms.law.text'); ?>
 					</div>
 				</div>
 
 				<div class="col-lg-4">
 					<div class="card-min p-4 h-100">
-						<h2 class="h4 fw-bold mb-3" data-i18n="legal.terms.changes.title"><?php echo termsAttr('legal.terms.changes.title'); ?></h2>
+						<h2 class="h4 fw-medium mb-3" data-i18n="legal.terms.changes.title"><?php echo termsAttr('legal.terms.changes.title'); ?></h2>
 						<?php termsParagraph('legal.terms.changes.text'); ?>
 					</div>
 				</div>

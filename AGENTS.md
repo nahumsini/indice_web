@@ -23,7 +23,7 @@ include 'header.php'; // navbar, meta tags, Bootstrap CSS
 
 | File | Purpose |
 |------|---------|
-| [index.php](index.php) | Home. A/B test via `$heroVariant = 'a'|'b'|'c'` |
+| [index.php](index.php) | Home tipográfico con mensaje principal personalizado por país |
 | [modulos.php](modulos.php) | Modules page, data from [js/modulos-data.json](js/modulos-data.json) |
 | [planes.php](planes.php) | Current pricing page (3 tiers: Control/Escala/Corporativo) |
 | [registro.php](registro.php) | Multi-step registration — connects to production DB + Stripe |

@@ -11,7 +11,7 @@ include 'header.php';
       <div class="row align-items-center g-5">
         <div class="col-lg-7">
           <span class="eyebrow" data-i18n="methodology_hero_badge">Cómo funciona</span>
-          <h1 class="display-5 fw-bold text-balance mb-3" data-i18n="methodology_hero_title">
+          <h1 class="display-5 fw-medium text-balance mb-3" data-i18n="methodology_hero_title">
             Del caos al control, paso a paso
           </h1>
           <p class="lead-soft fs-5 mb-4" data-i18n="methodology_hero_text">
@@ -200,7 +200,7 @@ include 'header.php';
         </p>
         <div class="d-flex flex-wrap gap-2 justify-content-center">
           <a href="registro.php" class="btn btn-brand btn-lg" data-i18n="methodology_cta_primary">Crear mi cuenta</a>
-          <a href="contacto.php" class="btn btn-ghost btn-lg" data-i18n="methodology_cta_secondary">Recibir ayuda</a>
+          <a href="<?= getIndiceLoginUrlAttr() ?>" class="btn btn-ghost btn-lg" data-i18n="nav.login">Iniciar sesión</a>
         </div>
       </div>
     </div>

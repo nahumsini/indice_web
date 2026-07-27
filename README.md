@@ -7,7 +7,7 @@ Sitio oficial de [Índice](https://indiceapp.com), plataforma de gestión empres
 - **PHP 8.4 plano** (sin framework, sin build system).
 - **Bootstrap 5.3.3** vía CDN.
 - **Font Awesome 6.5** vía CDN.
-- **Google Font Inter** vía CDN.
+- **Tipografía segura del sistema** (`system-ui`, San Francisco, Segoe UI y equivalentes), sin descarga externa.
 - CSS propio: [css/brand.css](css/brand.css) (tokens de marca) + [css/style.css](css/style.css) (componentes).
 - JS vanilla: [js/main.js](js/main.js), [js/i18n.js](js/i18n.js), [js/modulos.js](js/modulos.js), [js/metodologia.js](js/metodologia.js).
 - i18n por archivos JSON en [i18n/](i18n/).
@@ -19,10 +19,10 @@ Sitio oficial de [Índice](https://indiceapp.com), plataforma de gestión empres
 ```
 Indice_web/
 ├── header.php              # navbar, meta, CSRF meta tag, selector de locale
-├── footer.php              # CTA + redes
+├── footer.php              # navegación institucional y datos corporativos
 ├── functions.php           # env loader, sanitizeInput, sendEmail,
 │                           # detección de país, CSRF, rate limit, honeypot
-├── index.php               # home con A/B/C de hero según país
+├── index.php               # home tipográfico con mensaje por mercado
 ├── planes.php              # única página activa de planes
 ├── modulos.php             # módulos (datos en js/modulos-data.json)
 ├── metodologia.php

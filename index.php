@@ -1,435 +1,185 @@
 <?php
 require_once __DIR__ . '/functions.php';
+require_once __DIR__ . '/content/home-campaigns.php';
 
-$homeCampaignsFile = __DIR__ . '/content/home-campaigns.php';
-if (is_file($homeCampaignsFile)) {
-  require_once $homeCampaignsFile;
-}
+$page_title = 'Inicio';
+$page_description = 'Índice conecta personas, procesos, productos y finanzas para que pequeñas empresas operen con claridad y control.';
 
-if (!function_exists('normalizeHomeCampaignCountry')) {
-  function normalizeHomeCampaignCountry($country) {
-    $country = strtoupper(preg_replace('/[^A-Za-z]/', '', (string)$country));
-    return preg_match('/^[A-Z]{2}$/', $country) ? $country : 'GLOBAL';
-  }
-}
-
-if (!function_exists('getHomeCampaignForCountry')) {
-  function getHomeCampaignForCountry($country) {
-    $country = normalizeHomeCampaignCountry($country);
-
-    $campaigns = [
-      'MX' => [
-        'country' => 'MX',
-        'theme' => 'mexico',
-        'flag' => '/imgs/flags/mx.svg',
-        'i18n_prefix' => 'home.promo.mx',
-        'campaign_id' => 'home-mx-control',
-        'badge' => 'Promoción México',
-        'title' => 'Ordene ventas, gastos y equipo sin depender de Excel.',
-        'text' => 'Una ruta clara para pasar de WhatsApp, notas sueltas y reportes tardíos a una operación centralizada.',
-        'offer' => 'Diagnóstico empresarial sin costo para empresas mexicanas en crecimiento.',
-        'metrics' => [
-          ['value' => '4', 'label' => 'áreas críticas organizadas'],
-          ['value' => '1', 'label' => 'panel para ver lo importante'],
-          ['value' => '0', 'label' => 'plantillas sueltas que perseguir'],
-        ],
-      ],
-      'CO' => [
-        'country' => 'CO',
-        'theme' => 'colombia',
-        'flag' => '/imgs/flags/co.svg',
-        'i18n_prefix' => 'home.promo.co',
-        'campaign_id' => 'home-co-growth',
-        'badge' => 'Promoción Colombia',
-        'title' => 'Crezca con claridad: personas, procesos, productos y finanzas en orden.',
-        'text' => 'Construido para empresas colombianas que quieren dejar el desorden operativo y tomar decisiones con mejores números.',
-        'offer' => 'Diagnóstico inicial gratis para identificar qué área está frenando su crecimiento.',
-        'metrics' => [
-          ['value' => '4', 'label' => 'pilares para controlar la empresa'],
-          ['value' => '30', 'label' => 'minutos para revisar su operación'],
-          ['value' => '1', 'label' => 'plan de acción claro'],
-        ],
-      ],
-      'CA' => [
-        'country' => 'CA',
-        'theme' => 'canada',
-        'flag' => '/imgs/flags/ca.svg',
-        'i18n_prefix' => 'home.promo.ca',
-        'campaign_id' => 'home-ca-multilingual',
-        'badge' => 'Canada multilingual launch',
-        'title' => 'Run your business in English, French, Chinese or Korean.',
-        'text' => 'Indice gives Canadian SMBs one operating system for teams, processes, sales, finance and guided learning.',
-        'offer' => 'Launch onboarding available for multilingual teams in Canada.',
-        'metrics' => [
-          ['value' => '4', 'label' => 'supported language paths'],
-          ['value' => '1', 'label' => 'operating dashboard'],
-          ['value' => '24/7', 'label' => 'clarity across teams'],
-        ],
-      ],
-      'US' => [
-        'country' => 'US',
-        'theme' => 'canada',
-        'flag' => '/imgs/flags/default.svg',
-        'i18n_prefix' => 'home.promo.us',
-        'campaign_id' => 'home-us-clarity',
-        'badge' => 'North America',
-        'title' => 'Bring operations, sales and finance into one clear system.',
-        'text' => 'For growing teams that need less tool fragmentation and more visibility across the business.',
-        'offer' => 'Book a guided business diagnosis and see where the operation is leaking control.',
-        'metrics' => [
-          ['value' => '4', 'label' => 'core areas connected'],
-          ['value' => '1', 'label' => 'source of truth'],
-          ['value' => '0', 'label' => 'guesswork in decisions'],
-        ],
-      ],
-      'BR' => [
-        'country' => 'BR',
-        'theme' => 'brasil',
-        'flag' => '/imgs/flags/br.svg',
-        'i18n_prefix' => 'home.promo.br',
-        'campaign_id' => 'home-br-control',
-        'badge' => 'Promoção Brasil',
-        'title' => 'Controle sua operação, equipe e dinheiro em um só lugar.',
-        'text' => 'Para empresas brasileiras que querem sair das planilhas e enxergar receitas, despesas e tarefas com clareza.',
-        'offer' => 'Diagnóstico gratuito para mapear gargalos e oportunidades de controle.',
-        'metrics' => [
-          ['value' => '4', 'label' => 'áreas críticas organizadas'],
-          ['value' => '1', 'label' => 'painel de controle'],
-          ['value' => '0', 'label' => 'caos entre herramientas'],
-        ],
-      ],
-      'GLOBAL' => [
-        'country' => 'GLOBAL',
-        'theme' => 'global',
-        'flag' => '/imgs/flags/default.svg',
-        'i18n_prefix' => 'home.promo.global',
-        'campaign_id' => 'home-global-clarity',
-        'badge' => 'Claridad operacional',
-        'title' => 'Toda empresa crece mejor cuando sus 4 áreas críticas están en orden.',
-        'text' => 'Índice conecta personas, procesos, productos y finanzas en un sistema claro para operar y decidir mejor.',
-        'offer' => 'Agenda una demo y vea qué parte de su operación necesita atención primero.',
-        'metrics' => [
-          ['value' => '4', 'label' => 'áreas críticas conectadas'],
-          ['value' => '1', 'label' => 'sistema operativo empresarial'],
-          ['value' => '+', 'label' => 'módulos para crecer'],
-        ],
-      ],
-    ];
-
-    return $campaigns[$country] ?? $campaigns['GLOBAL'];
-  }
-}
-
-$page_title = "Inicio";
-$page_description = "Índice ayuda a dueños de PYMEs a organizar, entender y controlar su negocio con un ERP modular y modo aprendiz.";
-
-$heroVariantOverride = null;
 $siteContext = resolveSiteContext();
-$heroVariant = $heroVariantOverride ?: ($siteContext['heroVariant'] ?? 'b');
 $homeCampaignCountry = $siteContext['country'] ?? null;
+
 if (isset($_GET['country'])) {
   $requestedCountry = strtoupper(preg_replace('/[^A-Za-z]/', '', (string)$_GET['country']));
   if (preg_match('/^[A-Z]{2}$/', $requestedCountry)) {
     $homeCampaignCountry = $requestedCountry;
   }
 }
+
 $homeCampaign = getHomeCampaignForCountry($homeCampaignCountry);
 $homeCampaignPrefix = $homeCampaign['i18n_prefix'];
 
-$heroDashboardCandidates = [
-  '/imgs/hero/dashboard-ui.svg',
-  '/imgs/hero/dashboard-ui.webp',
-  '/imgs/hero/dashboard-ui.png',
-  '/imgs/hero/dashboard-ui.jpg',
-  '/imgs/hero/dashboard-ui.jpeg',
+$pillars = [
+  [
+    'number' => '01',
+    'tone' => 'people',
+    'title_key' => 'home_people_title',
+    'text_key' => 'home_people_text',
+    'title' => 'Personas',
+    'text' => 'Equipo, responsabilidades y actividad visibles.',
+  ],
+  [
+    'number' => '02',
+    'tone' => 'process',
+    'title_key' => 'home_processes_title',
+    'text_key' => 'home_processes_text',
+    'title' => 'Procesos',
+    'text' => 'Trabajo diario con responsables y seguimiento.',
+  ],
+  [
+    'number' => '03',
+    'tone' => 'products',
+    'title_key' => 'home_products_title',
+    'text_key' => 'home_products_text',
+    'title' => 'Productos',
+    'text' => 'Catálogo, ventas e inventario conectados.',
+  ],
+  [
+    'number' => '04',
+    'tone' => 'finance',
+    'title_key' => 'home_finance_title',
+    'text_key' => 'home_finance_text',
+    'title' => 'Finanzas',
+    'text' => 'Ingresos, gastos y utilidad para decidir.',
+  ],
 ];
 
-$heroDashboardSrc = null;
-foreach ($heroDashboardCandidates as $candidate) {
-  $absoluteCandidate = __DIR__ . $candidate;
-  if (is_file($absoluteCandidate)) {
-    $heroDashboardSrc = $candidate . '?v=' . filemtime($absoluteCandidate);
-    break;
-  }
-}
-
-$heroContent = [
-    'a' => [
-        'badge' => 'Diagnóstico empresarial en 2 minutos',
-        'title' => 'No sabes si tu negocio gana dinero.',
-        'subtitle' => 'Descúbrelo en minutos y entiende qué está mal en tu empresa.',
-        'bullets' => [
-            'Sepa exactamente cuánto está ganando o perdiendo',
-            'Detecte qué área está fallando en su negocio',
-            'Reciba claridad inmediata, sin complicaciones',
-        ],
-        'primary_cta' => 'Descubrir mi negocio',
-        'secondary_cta' => 'Ver cómo funciona',
-        'microcopy' => 'Resultado inmediato. Sin registro. Sin complicaciones.',
-        'dashboard_label' => 'Así se ve su negocio con Índice',
-        'dashboard_note' => 'De caos a control.',
-    ],
-
-    'b' => [
-        'badge' => 'Control empresarial simplificado',
-        'title' => 'Su negocio está creciendo, pero no está bajo control.',
-        'subtitle' => 'Índice le muestra qué está pasando realmente y cómo organizarlo.',
-        'bullets' => [
-            'Entienda si realmente está generando utilidad',
-            'Ordene su operación sin depender de usted',
-            'Tome decisiones con claridad todos los días',
-        ],
-        'primary_cta' => 'Descubrir mi negocio',
-        'secondary_cta' => 'Ver planes',
-        'microcopy' => 'En minutos verá qué está mal y cómo arreglarlo.',
-        'dashboard_label' => 'Así se ve su negocio con Índice',
-        'dashboard_note' => 'Menos caos. Más control.',
-    ],
-
-    'c' => [
-        'badge' => 'Business diagnosis in minutes',
-        'title' => 'You are running your business across too many tools.',
-        'subtitle' => 'Find out what’s broken and take control in minutes.',
-        'bullets' => [
-            'See what is not working in your business',
-            'Stop relying on scattered tools',
-            'Make better decisions with clarity',
-        ],
-        'primary_cta' => 'Start diagnosis',
-        'secondary_cta' => 'Explore platform',
-        'microcopy' => 'Instant results. No signup required.',
-        'dashboard_label' => 'Your business in Indice',
-        'dashboard_note' => 'Less chaos. More control.',
-    ],
+$outcomes = [
+  ['number' => '01', 'key' => 'home_problem_1', 'text' => 'Ve lo que está pasando.'],
+  ['number' => '02', 'key' => 'home_problem_2', 'text' => 'Sabe qué debe hacer.'],
+  ['number' => '03', 'key' => 'home_problem_3', 'text' => 'Delega sin perder el control.'],
 ];
 
-  $v = $heroVariant;
-  $hero = $heroContent[$v] ?? $heroContent['b'];
-  $kpis = [
-    [
-      'key' => 'hero_kpi_sales',
-      'label' => 'Ventas',
-      'value' => '$248K',
-    ],
-    [
-      'key' => 'hero_kpi_profit',
-      'label' => 'Utilidad',
-      'value' => '18.6%',
-    ],
-    [
-      'key' => 'hero_kpi_tasks',
-      'label' => 'Tareas',
-      'value' => '3 pendientes',
-    ],
-    [
-      'key' => 'hero_kpi_expenses',
-      'label' => 'Gastos',
-      'value' => '$31K',
-    ],
-  ];
+$learningSignals = [
+  ['key' => 'home_learning_1', 'text' => 'Explica cada módulo'],
+  ['key' => 'home_learning_2', 'text' => 'Guía la siguiente acción'],
+  ['key' => 'home_learning_3', 'text' => 'Estandariza la operación'],
+];
 
 include __DIR__ . '/header.php';
 ?>
 
-<main>
-
-  <!-- HERO -->
-  <section class="home-hero hero-variant hero-variant-<?= htmlspecialchars($v, ENT_QUOTES) ?> reveal" id="hero" aria-label="Hero">
+<main class="home-minimal">
+  <section
+    class="home-hero-minimal"
+    id="hero"
+    data-market-country="<?= htmlspecialchars($homeCampaign['country'], ENT_QUOTES, 'UTF-8') ?>"
+    aria-label="Mensaje principal de Índice"
+    data-i18n-aria-label="home.promo.aria"
+  >
     <div class="container">
-      <div class="row align-items-center g-5">
+      <div class="home-hero-minimal__inner">
+        <span
+          class="home-market-label"
+          data-i18n="<?= htmlspecialchars($homeCampaignPrefix . '.badge', ENT_QUOTES, 'UTF-8') ?>"
+        ><?= htmlspecialchars($homeCampaign['badge'], ENT_QUOTES, 'UTF-8') ?></span>
 
-        <div class="col-lg-6">
-          <span class="eyebrow" data-i18n="hero_badge">
-            <?= htmlspecialchars($hero['badge'], ENT_QUOTES) ?>
-          </span>
+        <h1 data-i18n="<?= htmlspecialchars($homeCampaignPrefix . '.title', ENT_QUOTES, 'UTF-8') ?>">
+          <?= htmlspecialchars($homeCampaign['title'], ENT_QUOTES, 'UTF-8') ?>
+        </h1>
 
-          <h1 class="home-title hero-title mt-3" data-i18n-html="hero_title">
-            <?= $hero['title'] ?>
-          </h1>
+        <p
+          class="home-hero-minimal__lead"
+          data-i18n="<?= htmlspecialchars($homeCampaignPrefix . '.text', ENT_QUOTES, 'UTF-8') ?>"
+        ><?= htmlspecialchars($homeCampaign['text'], ENT_QUOTES, 'UTF-8') ?></p>
 
-          <p class="home-subtitle hero-subtitle" data-i18n="hero_subtitle">
-            <?= htmlspecialchars($hero['subtitle'], ENT_QUOTES) ?>
-          </p>
-
-          <ul class="hero-bullets hero-points list-unstyled mt-4 mb-0">
-            <?php foreach ($hero['bullets'] as $i => $bullet): ?>
-              <li>
-                <i class="fa-solid fa-circle-check" aria-hidden="true"></i>
-                <span data-i18n="hero_bullet_<?= $i + 1 ?>">
-                  <?= htmlspecialchars($bullet, ENT_QUOTES) ?>
-                </span>
-              </li>
-            <?php endforeach; ?>
-          </ul>
-
-          <div class="hero-actions d-flex flex-wrap gap-2 mt-4">
-            <a href="contacto.php#demo" class="btn btn-brand btn-lg" data-i18n="hero_cta_primary">
-              <?= htmlspecialchars($hero['primary_cta'], ENT_QUOTES) ?>
-            </a>
-            <a href="planes.php" class="btn btn-ghost btn-lg" data-i18n="hero_cta_secondary">
-              <?= htmlspecialchars($hero['secondary_cta'], ENT_QUOTES) ?>
-            </a>
-          </div>
-
-          <p class="hero-microcopy mt-3" data-i18n="hero_microcopy">
-            <?= htmlspecialchars($hero['microcopy'], ENT_QUOTES) ?>
-          </p>
-
-          <p class="small text-muted mt-2" data-i18n="hero_available_languages">
-            Disponible en múltiples idiomas y países.
-          </p>
+        <div class="home-hero-minimal__actions">
+          <a href="<?= getIndiceLoginUrlAttr() ?>" class="btn btn-brand btn-lg" data-i18n="home_hero_cta_primary">Empezar mis 30 días gratis</a>
+          <a href="/metodologia.php" class="btn btn-ghost btn-lg" data-i18n="nav.methodology">Cómo funciona</a>
         </div>
 
-        <div class="col-lg-6">
-          <div class="product-stage product-stage-laptop">
-            <span class="preview-label" data-i18n="hero_dashboard_label">
-              <?= htmlspecialchars($hero['dashboard_label'], ENT_QUOTES) ?>
+        <p
+          class="home-hero-minimal__proof"
+          data-i18n="<?= htmlspecialchars($homeCampaignPrefix . '.offer', ENT_QUOTES, 'UTF-8') ?>"
+        ><?= htmlspecialchars($homeCampaign['offer'], ENT_QUOTES, 'UTF-8') ?></p>
+
+        <div class="home-pillar-rail" aria-label="Personas, procesos, productos y finanzas" data-i18n-aria-label="home_solution_title">
+          <?php foreach ($pillars as $pillar): ?>
+            <span class="home-pillar-rail__item home-pillar-rail__item--<?= htmlspecialchars($pillar['tone'], ENT_QUOTES, 'UTF-8') ?>">
+              <span data-i18n="<?= htmlspecialchars($pillar['title_key'], ENT_QUOTES, 'UTF-8') ?>">
+                <?= htmlspecialchars($pillar['title'], ENT_QUOTES, 'UTF-8') ?>
+              </span>
             </span>
-
-            <div class="hero-visual-shell" aria-hidden="true">
-              <div class="hero-visual-aura"></div>
-
-              <div class="saas-laptop">
-                <div class="saas-laptop__screen-frame">
-                  <div class="saas-laptop__camera"></div>
-
-                  <div class="saas-laptop__screen">
-                    <?php if ($heroDashboardSrc): ?>
-                      <img
-                        src="<?= htmlspecialchars($heroDashboardSrc, ENT_QUOTES) ?>"
-                        alt="Vista del dashboard de Índice con métricas, operaciones y equipo"
-                        class="saas-laptop__screen-image"
-                        width="1280"
-                        height="800"
-                        fetchpriority="high"
-                        decoding="async"
-                      >
-                    <?php else: ?>
-                      <div class="saas-laptop__fallback">
-                        <div class="hero-dashboard-card dashboard-preview system-preview bg-card hero-dashboard saas-screen-fallback">
-                          <div class="preview-top" aria-hidden="true">
-                            <span class="dot"></span>
-                            <span class="dot"></span>
-                            <span class="dot"></span>
-                          </div>
-
-                          <div class="hero-kpis" aria-label="Indicadores clave del negocio">
-                            <?php foreach ($kpis as $kpi): ?>
-                              <div class="hero-kpi">
-                                <span data-i18n="<?= htmlspecialchars($kpi['key'], ENT_QUOTES) ?>">
-                                  <?= htmlspecialchars($kpi['label'], ENT_QUOTES) ?>
-                                </span>
-                                <strong><?= htmlspecialchars($kpi['value'], ENT_QUOTES) ?></strong>
-                              </div>
-                            <?php endforeach; ?>
-                          </div>
-
-                          <div class="hero-module-grid module-strip" aria-label="Módulos de Índice">
-                            <span class="module-chip module-theme-panel">
-                              <i class="fa-solid fa-gauge-high"></i>
-                              <span data-i18n="hero_module_panel">Panel Inicial</span>
-                            </span>
-
-                            <span class="module-chip module-theme-personas">
-                              <i class="fa-solid fa-user-group"></i>
-                              <span data-i18n="hero_module_hr">Recursos Humanos</span>
-                            </span>
-
-                            <span class="module-chip module-theme-procesos">
-                              <i class="fa-solid fa-diagram-project"></i>
-                              <span data-i18n="hero_module_tasks">Tareas y Procesos</span>
-                            </span>
-
-                            <span class="module-chip module-theme-finanzas">
-                              <i class="fa-solid fa-sack-dollar"></i>
-                              <span data-i18n="hero_module_expenses">Gastos</span>
-                            </span>
-
-                            <span class="module-chip module-theme-productos">
-                              <i class="fa-solid fa-cash-register"></i>
-                              <span data-i18n="hero_module_pos">POS</span>
-                            </span>
-
-                            <span class="module-chip module-theme-ia">
-                              <i class="fa-solid fa-brain"></i>
-                              <span data-i18n="hero_module_ai">IA</span>
-                            </span>
-                          </div>
-
-                          <div class="hero-dashboard-note" data-i18n="hero_dashboard_note">
-                            <?= htmlspecialchars($hero['dashboard_note'], ENT_QUOTES) ?>
-                          </div>
-                        </div>
-                      </div>
-                    <?php endif; ?>
-                  </div>
-                </div>
-
-                <div class="saas-laptop__base"></div>
-                <div class="saas-laptop__trackpad"></div>
-              </div>
-            </div>
-          </div>
+          <?php endforeach; ?>
         </div>
-
       </div>
     </div>
   </section>
 
-  <!-- PROMO POR PAÍS -->
-  <section
-    class="home-market-promo home-market-promo--<?= htmlspecialchars($homeCampaign['theme'], ENT_QUOTES) ?> reveal"
-    id="market-promo"
-    data-market-country="<?= htmlspecialchars($homeCampaign['country'], ENT_QUOTES) ?>"
-    data-market-campaign="<?= htmlspecialchars($homeCampaign['campaign_id'], ENT_QUOTES) ?>"
-    aria-label="Promoción personalizada por país"
-    data-i18n-aria-label="home.promo.aria"
-  >
+  <section class="home-system-section" id="system">
     <div class="container">
-      <div class="home-market-promo__grid">
-        <div class="home-market-promo__copy">
-          <span class="market-badge">
-            <img src="<?= htmlspecialchars($homeCampaign['flag'], ENT_QUOTES) ?>" alt="" width="22" height="16" loading="lazy" decoding="async" aria-hidden="true">
-            <span data-i18n="<?= htmlspecialchars($homeCampaignPrefix . '.badge', ENT_QUOTES) ?>">
-              <?= htmlspecialchars($homeCampaign['badge'], ENT_QUOTES) ?>
-            </span>
-          </span>
+      <div class="home-section-heading">
+        <span class="home-section-kicker" data-i18n="home_solution_eyebrow">Sistema operativo empresarial</span>
+        <h2 data-i18n="home_solution_title">Todo tu negocio. Un solo sistema.</h2>
+        <p data-i18n="home_solution_intro">Índice conecta las cuatro áreas que sostienen la operación.</p>
+      </div>
 
-          <h2 data-i18n="<?= htmlspecialchars($homeCampaignPrefix . '.title', ENT_QUOTES) ?>">
-            <?= htmlspecialchars($homeCampaign['title'], ENT_QUOTES) ?>
-          </h2>
+      <div class="home-system-grid">
+        <?php foreach ($pillars as $pillar): ?>
+          <article class="home-system-item home-system-item--<?= htmlspecialchars($pillar['tone'], ENT_QUOTES, 'UTF-8') ?>">
+            <span class="home-system-item__number"><?= htmlspecialchars($pillar['number'], ENT_QUOTES, 'UTF-8') ?></span>
+            <h3 data-i18n="<?= htmlspecialchars($pillar['title_key'], ENT_QUOTES, 'UTF-8') ?>">
+              <?= htmlspecialchars($pillar['title'], ENT_QUOTES, 'UTF-8') ?>
+            </h3>
+            <p data-i18n="<?= htmlspecialchars($pillar['text_key'], ENT_QUOTES, 'UTF-8') ?>">
+              <?= htmlspecialchars($pillar['text'], ENT_QUOTES, 'UTF-8') ?>
+            </p>
+          </article>
+        <?php endforeach; ?>
+      </div>
+    </div>
+  </section>
 
-          <p data-i18n="<?= htmlspecialchars($homeCampaignPrefix . '.text', ENT_QUOTES) ?>">
-            <?= htmlspecialchars($homeCampaign['text'], ENT_QUOTES) ?>
+  <section class="home-outcomes-section" id="outcomes">
+    <div class="container">
+      <div class="home-section-heading home-section-heading--compact">
+        <span class="home-section-kicker" data-i18n="home_problem_title">Lo que cambia con Índice</span>
+        <h2 data-i18n="home_problem_4">Claridad para operar. Control para crecer.</h2>
+      </div>
+
+      <div class="home-outcomes-grid">
+        <?php foreach ($outcomes as $outcome): ?>
+          <article class="home-outcome">
+            <span><?= htmlspecialchars($outcome['number'], ENT_QUOTES, 'UTF-8') ?></span>
+            <h3 data-i18n="<?= htmlspecialchars($outcome['key'], ENT_QUOTES, 'UTF-8') ?>">
+              <?= htmlspecialchars($outcome['text'], ENT_QUOTES, 'UTF-8') ?>
+            </h3>
+          </article>
+        <?php endforeach; ?>
+      </div>
+    </div>
+  </section>
+
+  <section class="home-learning-section" id="learning">
+    <div class="container">
+      <div class="home-learning-panel">
+        <div class="home-learning-panel__copy">
+          <span class="home-section-kicker" data-i18n="home_learning_badge">Modo aprendiz</span>
+          <h2 data-i18n="home_learning_title">Software que también te enseña a dirigir.</h2>
+          <p data-i18n="home_learning_text">
+            Cada módulo explica qué hacer, por qué importa y cómo convertirlo en una forma estándar de operar.
           </p>
-
-          <div class="market-offer">
-            <i class="fa-solid fa-bolt" aria-hidden="true"></i>
-            <span data-i18n="<?= htmlspecialchars($homeCampaignPrefix . '.offer', ENT_QUOTES) ?>">
-              <?= htmlspecialchars($homeCampaign['offer'], ENT_QUOTES) ?>
-            </span>
-          </div>
-
-          <div class="d-flex flex-wrap gap-2 mt-4">
-            <a
-              href="contacto.php?campaign=<?= rawurlencode($homeCampaign['campaign_id']) ?>#demo"
-              class="btn btn-market-primary"
-              data-i18n="home.promo.cta.primary"
-            >Agendar diagnóstico</a>
-            <a href="modulos.php" class="btn btn-market-secondary" data-i18n="home.promo.cta.secondary">Ver módulos</a>
-          </div>
+          <a href="/modo-aprendiz.php" class="home-text-link" data-i18n="home.apprentice.link">
+            Conocer el modo aprendiz
+          </a>
         </div>
 
-        <div class="market-metrics" aria-label="Indicadores de campaña" data-i18n-aria-label="home.promo.metrics_aria">
-          <?php foreach ($homeCampaign['metrics'] as $idx => $metric): ?>
-            <?php $metricNumber = $idx + 1; ?>
-            <div class="market-metric">
-              <strong data-i18n="<?= htmlspecialchars($homeCampaignPrefix . '.metric_' . $metricNumber . '.value', ENT_QUOTES) ?>">
-                <?= htmlspecialchars($metric['value'], ENT_QUOTES) ?>
+        <div class="home-learning-signals">
+          <?php foreach ($learningSignals as $index => $signal): ?>
+            <div>
+              <span>0<?= $index + 1 ?></span>
+              <strong data-i18n="<?= htmlspecialchars($signal['key'], ENT_QUOTES, 'UTF-8') ?>">
+                <?= htmlspecialchars($signal['text'], ENT_QUOTES, 'UTF-8') ?>
               </strong>
-              <span data-i18n="<?= htmlspecialchars($homeCampaignPrefix . '.metric_' . $metricNumber . '.label', ENT_QUOTES) ?>">
-                <?= htmlspecialchars($metric['label'], ENT_QUOTES) ?>
-              </span>
             </div>
           <?php endforeach; ?>
         </div>
@@ -437,164 +187,52 @@ include __DIR__ . '/header.php';
     </div>
   </section>
 
-  <!-- PROBLEMA -->
-  <section class="py-6 bg-card reveal" id="problem">
+  <section class="home-final-section" id="cta">
     <div class="container">
-      <div class="text-center mb-4">
-        <h2 class="section-title" data-i18n="home_problem_title">
-          ¿Siente que se le arma el desorden y todo termina cayendo en usted?
-        </h2>
-      </div>
+      <div class="home-final-section__inner">
+        <span class="home-section-kicker" data-i18n="home_cta_eyebrow">30 días de acceso total</span>
+        <h2 data-i18n="home_cta_title">Prueba Índice con acompañamiento, no por tu cuenta.</h2>
+        <p class="home-final-section__text" data-i18n="home_cta_text">
+          Tu cuenta incluye acceso completo a los módulos básicos, dos evaluaciones y una consultoría inicial para orientar la implementación de Índice en tu empresa.
+        </p>
 
-      <div class="row g-3">
-        <div class="col-md-6 col-lg-3">
-          <div class="card-min outcome-card h-100 p-4">
-            <i class="fa-solid fa-chart-line"></i>
-            <h3 data-i18n="home_problem_1">No sabe si realmente está ganando dinero.</h3>
+        <div class="home-final-benefits" role="list">
+          <div role="listitem">
+            <span>01</span>
+            <strong data-i18n="home_cta_step_1_title">Crea tu cuenta</strong>
+            <small data-i18n="home_cta_step_1_text">Activa 30 días de acceso total a todos los módulos básicos.</small>
+          </div>
+          <div role="listitem">
+            <span>02</span>
+            <strong data-i18n="home_cta_step_2_title">Completa el Panel Inicial</strong>
+            <small data-i18n="home_cta_step_2_text">Realiza el BMI y el PPI para conocer a tu empresa y tu perfil como líder.</small>
+          </div>
+          <div role="listitem">
+            <span>03</span>
+            <strong data-i18n="home_cta_step_3_title">Revisa tus resultados</strong>
+            <small data-i18n="home_cta_step_3_text">Agenda una consultoría inicial sin costo para orientar la implementación y saber si necesitas una solución más robusta.</small>
+          </div>
+          <div role="listitem">
+            <span>04</span>
+            <strong data-i18n="home_cta_step_4_title">Continúa acompañado</strong>
+            <small data-i18n="home_cta_step_4_text">Sigue probando, arma tu paquete y agenda más consultorías si tu empresa lo requiere.</small>
           </div>
         </div>
 
-        <div class="col-md-6 col-lg-3">
-          <div class="card-min outcome-card h-100 p-4">
-            <i class="fa-solid fa-user-clock"></i>
-            <h3 data-i18n="home_problem_2">Todo depende de usted.</h3>
-          </div>
+        <div class="home-final-support">
+          <strong data-i18n="home_cta_support_title">Estamos contigo durante la prueba.</strong>
+          <p data-i18n="home_cta_support_text">
+            Puedes avanzar por tu cuenta o pedir apoyo cuando lo necesites. Queremos que Índice se adapte a tu empresa y no al revés.
+          </p>
         </div>
 
-        <div class="col-md-6 col-lg-3">
-          <div class="card-min outcome-card h-100 p-4">
-            <i class="fa-solid fa-plug-circle-xmark"></i>
-            <h3 data-i18n="home_problem_3">Usa Excel, WhatsApp y notas sueltas.</h3>
-          </div>
-        </div>
-
-        <div class="col-md-6 col-lg-3">
-          <div class="card-min outcome-card h-100 p-4">
-            <i class="fa-solid fa-magnifying-glass-chart"></i>
-            <h3 data-i18n="home_problem_4">Se le va el tiempo en lo operativo.</h3>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- SOLUCIÓN -->
-  <section class="py-6 bg-surface home-pillars reveal" id="solution">
-    <div class="container">
-      <div class="text-center mb-5">
-        <span class="eyebrow" data-i18n="home_solution_eyebrow">Sistema operativo empresarial</span>
-        <h2 class="section-title mb-3" data-i18n="home_solution_title">
-          Todo su negocio, organizado en 4 pilares
-        </h2>
-        <p class="section-subtitle" data-i18n="home_solution_intro">
-          Cuando una falla, toda la empresa lo siente. Índice las conecta para que pueda operar con claridad.
+        <a href="<?= getIndiceLoginUrlAttr() ?>" class="btn btn-brand btn-lg" data-i18n="home_cta_primary">Empezar mis 30 días gratis</a>
+        <p class="home-final-section__note" data-i18n="home_cta_note">
+          Consultorías disponibles en español e inglés. Para los demás idiomas, puedes utilizar Índice y recibir atención por chat.
         </p>
       </div>
-
-      <div class="row g-4">
-        <div class="col-md-6 col-lg-3">
-          <article class="pillar-card-v2 pillar-card-v2--people h-100">
-            <span class="pillar-card-v2__icon" aria-hidden="true"><i class="fa-solid fa-user-group"></i></span>
-            <h4 data-i18n="home_people_title">Personas</h4>
-            <p data-i18n="home_people_text">Su equipo, asistencia y comunicación.</p>
-            <span class="pillar-card-v2__bar" aria-hidden="true"></span>
-          </article>
-        </div>
-
-        <div class="col-md-6 col-lg-3">
-          <article class="pillar-card-v2 pillar-card-v2--process h-100">
-            <span class="pillar-card-v2__icon" aria-hidden="true"><i class="fa-solid fa-gears"></i></span>
-            <h4 data-i18n="home_processes_title">Procesos</h4>
-            <p data-i18n="home_processes_text">Las tareas y operación del día a día.</p>
-            <span class="pillar-card-v2__bar" aria-hidden="true"></span>
-          </article>
-        </div>
-
-        <div class="col-md-6 col-lg-3">
-          <article class="pillar-card-v2 pillar-card-v2--products h-100">
-            <span class="pillar-card-v2__icon" aria-hidden="true"><i class="fa-solid fa-box-open"></i></span>
-            <h4 data-i18n="home_products_title">Productos</h4>
-            <p data-i18n="home_products_text">Lo que vende y cómo lo vende.</p>
-            <span class="pillar-card-v2__bar" aria-hidden="true"></span>
-          </article>
-        </div>
-
-        <div class="col-md-6 col-lg-3">
-          <article class="pillar-card-v2 pillar-card-v2--finance h-100">
-            <span class="pillar-card-v2__icon" aria-hidden="true"><i class="fa-solid fa-chart-simple"></i></span>
-            <h4 data-i18n="home_finance_title">Finanzas</h4>
-            <p data-i18n="home_finance_text">Su dinero, gastos e ingresos claros.</p>
-            <span class="pillar-card-v2__bar" aria-hidden="true"></span>
-          </article>
-        </div>
-      </div>
     </div>
   </section>
-
-  <!-- MODO APRENDIZ -->
-  <section class="py-6 bg-card reveal" id="learning">
-    <div class="container text-center">
-      <span class="badge-indice badge-indice-dashboard mb-3">
-        <i class="fa-solid fa-graduation-cap"></i>
-        <span data-i18n="home_learning_badge">Modo aprendiz</span>
-      </span>
-
-      <h2 class="section-title mb-3" data-i18n="home_learning_title">
-        Índice no solo organiza su negocio, lo enseña a administrarlo
-      </h2>
-
-      <p class="section-subtitle mb-4" data-i18n="home_learning_text">
-        El sistema le guía paso a paso para que entienda qué hacer, sin ser experto.
-      </p>
-
-      <div class="row g-3 justify-content-center">
-        <div class="col-md-4 col-lg-3">
-          <div class="card-min p-4 h-100">
-            <i class="fa-solid fa-circle-info mb-2"></i>
-            <h4 data-i18n="home_learning_1">Explica cada módulo</h4>
-          </div>
-        </div>
-
-        <div class="col-md-4 col-lg-3">
-          <div class="card-min p-4 h-100">
-            <i class="fa-solid fa-route mb-2"></i>
-            <h4 data-i18n="home_learning_2">Le dice qué hacer</h4>
-          </div>
-        </div>
-
-        <div class="col-md-4 col-lg-3">
-          <div class="card-min p-4 h-100">
-            <i class="fa-solid fa-shield-check mb-2"></i>
-            <h4 data-i18n="home_learning_3">Reduce errores</h4>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA FINAL -->
-  <section class="py-6 text-center reveal" id="cta">
-    <div class="container">
-      <h2 class="section-title mb-3" data-i18n="home_cta_title">
-        Empiece a tomar control de su negocio hoy
-      </h2>
-
-      <p class="section-subtitle mb-4" data-i18n="home_cta_text">
-        Pruebe Índice y lleve su empresa al siguiente nivel.
-      </p>
-
-      <div class="d-flex justify-content-center gap-3 flex-wrap">
-        <a href="contacto.php#demo" class="btn btn-brand btn-lg" data-i18n="home_cta_primary">
-          Agenda una demo
-        </a>
-
-        <a href="planes.php" class="btn btn-ghost btn-lg" data-i18n="home_cta_secondary">
-          Ver planes
-        </a>
-      </div>
-    </div>
-  </section>
-
 </main>
 
 <?php include __DIR__ . '/footer.php'; ?>

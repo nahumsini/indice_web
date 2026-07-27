@@ -117,10 +117,10 @@ include 'header.php';
 						<span data-i18n="module.process.back"><?php echo processModuleAttr('module.process.back'); ?></span>
 					</a>
 					<span class="eyebrow process-detail-eyebrow" data-i18n="module.process.hero.eyebrow"><?php echo processModuleAttr('module.process.hero.eyebrow'); ?></span>
-					<h1 class="display-5 fw-bold text-balance mb-3" data-i18n="module.process.hero.title"><?php echo processModuleAttr('module.process.hero.title'); ?></h1>
+					<h1 class="display-5 fw-medium text-balance mb-3" data-i18n="module.process.hero.title"><?php echo processModuleAttr('module.process.hero.title'); ?></h1>
 					<p class="lead lead-soft mb-4" data-i18n="module.process.hero.subtitle"><?php echo processModuleAttr('module.process.hero.subtitle'); ?></p>
 					<div class="d-flex flex-column flex-sm-row gap-2 hero-actions">
-						<a href="/contacto.php#lead-form" class="btn btn-brand btn-lg" data-i18n="module.process.hero.cta.primary"><?php echo processModuleAttr('module.process.hero.cta.primary'); ?></a>
+						<a href="<?= getIndiceLoginUrlAttr() ?>" class="btn btn-brand btn-lg" data-i18n="nav.login"><?php echo processModuleAttr('nav.login'); ?></a>
 						<a href="#tablero-operativo" class="btn btn-ghost btn-lg" data-i18n="module.process.hero.cta.secondary"><?php echo processModuleAttr('module.process.hero.cta.secondary'); ?></a>
 					</div>
 					<p class="hero-microcopy mt-3" data-i18n="module.process.hero.microcopy"><?php echo processModuleAttr('module.process.hero.microcopy'); ?></p>
@@ -285,7 +285,7 @@ include 'header.php';
 				<h2 data-i18n="module.process.cta.title"><?php echo processModuleAttr('module.process.cta.title'); ?></h2>
 				<p data-i18n="module.process.cta.text"><?php echo processModuleAttr('module.process.cta.text'); ?></p>
 				<div class="d-flex flex-column flex-sm-row gap-2 justify-content-center">
-					<a href="/contacto.php#lead-form" class="btn btn-brand btn-lg" data-i18n="module.process.cta.primary"><?php echo processModuleAttr('module.process.cta.primary'); ?></a>
+					<a href="<?= getIndiceLoginUrlAttr() ?>" class="btn btn-brand btn-lg" data-i18n="nav.login"><?php echo processModuleAttr('nav.login'); ?></a>
 					<a href="/modulos.php#basicos" class="btn btn-ghost btn-lg" data-i18n="module.process.cta.secondary"><?php echo processModuleAttr('module.process.cta.secondary'); ?></a>
 				</div>
 			</div>

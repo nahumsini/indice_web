@@ -27,6 +27,23 @@ if (!isset($_ENV['ENV_LOADED'])) {
 	$_ENV['ENV_LOADED'] = true;
 }
 
+function getIndiceAppBaseUrl() {
+	$configuredUrl = trim((string)($_ENV['APP_URL'] ?? 'https://app.indiceapp.com'));
+	if (!preg_match('#^https://#i', $configuredUrl)) {
+		return 'https://app.indiceapp.com';
+	}
+
+	return rtrim($configuredUrl, '/');
+}
+
+function getIndiceLoginUrl() {
+	return getIndiceAppBaseUrl() . '/login';
+}
+
+function getIndiceLoginUrlAttr() {
+	return htmlspecialchars(getIndiceLoginUrl(), ENT_QUOTES, 'UTF-8');
+}
+
 function sendEmail($to, $subject, $message, $headers = []) {
 	$to = sanitizeEmailHeader($to);
 	$subject = sanitizeEmailHeader($subject);

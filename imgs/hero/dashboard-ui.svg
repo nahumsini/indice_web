@@ -23,14 +23,14 @@
 
   <rect x="66" y="20" width="21" height="21" rx="10.5" fill="#F8D64E"/>
   <path d="M76.5 25V22.5M76.5 38.5V36M71 30.5H68.5M84.5 30.5H82M72.6 26.6L70.8 24.8M82.2 36.2L80.4 34.4M80.4 26.6L82.2 24.8M70.8 36.2L72.6 34.4" stroke="#B7791F" stroke-width="1.4" stroke-linecap="round"/>
-  <text x="95" y="31" fill="#1E293B" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="700">Good afternoon, Angi</text>
-  <text x="66" y="49" fill="#64748B" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="500">Wednesday, April 29, 2026 · 02:20 P.M.</text>
+  <text x="95" y="31" fill="#1E293B" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="14" font-weight="500">Good afternoon, Angi</text>
+  <text x="66" y="49" fill="#64748B" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="12" font-weight="500">Wednesday, April 29, 2026 · 02:20 P.M.</text>
 
   <circle cx="1124" cy="31" r="3.5" fill="#E11D48"/>
   <rect x="1118" y="21" width="14" height="14" rx="7" fill="#EF4444"/>
-  <text x="1122.2" y="30.6" fill="#FFFFFF" font-family="Inter, Arial, sans-serif" font-size="8" font-weight="700">2</text>
+  <text x="1122.2" y="30.6" fill="#FFFFFF" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="8" font-weight="500">2</text>
   <circle cx="1218" cy="34" r="16" fill="#E2ECFF"/>
-  <text x="1213.7" y="39" fill="#4F83B8" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="700">A</text>
+  <text x="1213.7" y="39" fill="#4F83B8" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="14" font-weight="500">A</text>
 
   <g fill="#475569">
     <circle cx="1083" cy="34" r="5"/>
@@ -40,155 +40,155 @@
     <circle cx="1188" cy="34" r="5"/>
   </g>
 
-  <text x="44" y="115" fill="#1E293B" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="700">📊 Your KPIs</text>
+  <text x="44" y="115" fill="#1E293B" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="17" font-weight="500">📊 Your KPIs</text>
   <rect x="171" y="99" width="100" height="34" rx="10" fill="#FFFFFF" stroke="#E2E8F0"/>
-  <text x="188" y="121" fill="#334155" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="600">Configure KPIs</text>
+  <text x="188" y="121" fill="#334155" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="12" font-weight="500">Configure KPIs</text>
 
   <g filter="url(#shadowCard)">
     <rect x="44" y="140" width="180" height="92" rx="16" fill="#FFFFFF" stroke="#E2E8F0"/>
     <rect x="188" y="140" width="36" height="24" rx="0 16 0 12" fill="#4F83B8"/>
-    <text x="82" y="164" fill="#64748B" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="600">Weekly Revenue</text>
-    <text x="85" y="196" fill="#0F172A" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">$45,200</text>
-    <text x="85" y="220" fill="#22C55E" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="700">↗ +6% vs last week</text>
+    <text x="82" y="164" fill="#64748B" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="11" font-weight="500">Weekly Revenue</text>
+    <text x="85" y="196" fill="#0F172A" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="18" font-weight="500">$45,200</text>
+    <text x="85" y="220" fill="#22C55E" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="11" font-weight="500">↗ +6% vs last week</text>
   </g>
   <g filter="url(#shadowCard)">
     <rect x="238" y="140" width="180" height="92" rx="16" fill="#FFFFFF" stroke="#E2E8F0"/>
     <rect x="382" y="140" width="36" height="24" rx="0 16 0 12" fill="#4F83B8"/>
-    <text x="289" y="164" fill="#64748B" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="600">Net Profit</text>
-    <text x="280" y="196" fill="#0F172A" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">$28,750</text>
-    <text x="278" y="220" fill="#22C55E" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="700">↗ +12% this month</text>
+    <text x="289" y="164" fill="#64748B" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="11" font-weight="500">Net Profit</text>
+    <text x="280" y="196" fill="#0F172A" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="18" font-weight="500">$28,750</text>
+    <text x="278" y="220" fill="#22C55E" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="11" font-weight="500">↗ +12% this month</text>
   </g>
   <g filter="url(#shadowCard)">
     <rect x="432" y="140" width="180" height="92" rx="16" fill="#FFFFFF" stroke="#E2E8F0"/>
     <rect x="576" y="140" width="36" height="24" rx="0 16 0 12" fill="#4F83B8"/>
-    <text x="479" y="164" fill="#64748B" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="600">Active Clients</text>
-    <text x="524" y="196" fill="#0F172A" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">245</text>
-    <text x="516" y="220" fill="#22C55E" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="700">↗ +18 new</text>
+    <text x="479" y="164" fill="#64748B" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="11" font-weight="500">Active Clients</text>
+    <text x="524" y="196" fill="#0F172A" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="18" font-weight="500">245</text>
+    <text x="516" y="220" fill="#22C55E" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="11" font-weight="500">↗ +18 new</text>
   </g>
   <g filter="url(#shadowCard)">
     <rect x="626" y="140" width="180" height="92" rx="16" fill="#FFFFFF" stroke="#E2E8F0"/>
     <rect x="770" y="140" width="36" height="24" rx="0 16 0 12" fill="#4F83B8"/>
-    <text x="670" y="164" fill="#64748B" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="600">Active Employees</text>
-    <text x="715" y="196" fill="#0F172A" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">18</text>
-    <text x="694" y="220" fill="#22C55E" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="700">↗ +2 this month</text>
+    <text x="670" y="164" fill="#64748B" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="11" font-weight="500">Active Employees</text>
+    <text x="715" y="196" fill="#0F172A" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="18" font-weight="500">18</text>
+    <text x="694" y="220" fill="#22C55E" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="11" font-weight="500">↗ +2 this month</text>
   </g>
   <g filter="url(#shadowCard)">
     <rect x="820" y="140" width="180" height="92" rx="16" fill="#FFFFFF" stroke="#E2E8F0"/>
     <rect x="964" y="140" width="36" height="24" rx="0 16 0 12" fill="#4F83B8"/>
-    <text x="874" y="164" fill="#64748B" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="600">Pending Tasks</text>
-    <text x="913" y="196" fill="#0F172A" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">12</text>
-    <text x="879" y="220" fill="#EF4444" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="700">↘ 3 due today</text>
+    <text x="874" y="164" fill="#64748B" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="11" font-weight="500">Pending Tasks</text>
+    <text x="913" y="196" fill="#0F172A" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="18" font-weight="500">12</text>
+    <text x="879" y="220" fill="#EF4444" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="11" font-weight="500">↘ 3 due today</text>
   </g>
   <g filter="url(#shadowCard)">
     <rect x="1014" y="140" width="180" height="92" rx="16" fill="#FFFFFF" stroke="#E2E8F0"/>
     <rect x="1158" y="140" width="36" height="24" rx="0 16 0 12" fill="#4F83B8"/>
-    <text x="1052" y="164" fill="#64748B" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="600">Monthly Expenses</text>
-    <text x="1072" y="196" fill="#0F172A" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">$15,320</text>
-    <text x="1048" y="220" fill="#EF4444" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="700">↘ -10% vs last month</text>
+    <text x="1052" y="164" fill="#64748B" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="11" font-weight="500">Monthly Expenses</text>
+    <text x="1072" y="196" fill="#0F172A" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="18" font-weight="500">$15,320</text>
+    <text x="1048" y="220" fill="#EF4444" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="11" font-weight="500">↘ -10% vs last month</text>
   </g>
 
-  <text x="44" y="282" fill="#1E293B" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="700">⭐ Your favourites</text>
-  <text x="1128" y="282" fill="#64748B" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="600">Quick access</text>
+  <text x="44" y="282" fill="#1E293B" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="17" font-weight="500">⭐ Your favourites</text>
+  <text x="1128" y="282" fill="#64748B" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="12" font-weight="500">Quick access</text>
 
   <g>
     <rect x="44" y="304" width="99" height="82" rx="10" fill="#FFFFFF" stroke="#335EA8" stroke-width="2"/>
-    <text x="82" y="343" fill="#335EA8" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="700">👥</text>
-    <text x="53" y="374" fill="#1E293B" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="700">Human Resources</text>
+    <text x="82" y="343" fill="#335EA8" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="24" font-weight="500">👥</text>
+    <text x="53" y="374" fill="#1E293B" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="11" font-weight="500">Human Resources</text>
 
     <rect x="156" y="304" width="99" height="82" rx="10" fill="#FFFFFF" stroke="#3F9A52" stroke-width="2"/>
-    <text x="196" y="343" fill="#8A6B11" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="700">💰</text>
-    <text x="188" y="374" fill="#1E293B" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="700">Expenses</text>
+    <text x="196" y="343" fill="#8A6B11" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="24" font-weight="500">💰</text>
+    <text x="188" y="374" fill="#1E293B" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="11" font-weight="500">Expenses</text>
 
     <rect x="268" y="304" width="99" height="82" rx="10" fill="#FFFFFF" stroke="#3F9A52" stroke-width="2"/>
-    <text x="307" y="343" fill="#7C6B22" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="700">💳</text>
-    <text x="295" y="374" fill="#1E293B" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="700">Petty cash</text>
+    <text x="307" y="343" fill="#7C6B22" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="24" font-weight="500">💳</text>
+    <text x="295" y="374" fill="#1E293B" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="11" font-weight="500">Petty cash</text>
 
     <rect x="380" y="304" width="99" height="82" rx="10" fill="#FFFFFF" stroke="#F2B600" stroke-width="2"/>
-    <text x="419" y="343" fill="#1FA345" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="700">✅</text>
-    <text x="393" y="366" fill="#1E293B" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="700">Processes and</text>
-    <text x="414" y="380" fill="#1E293B" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="700">tasks</text>
+    <text x="419" y="343" fill="#1FA345" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="24" font-weight="500">✅</text>
+    <text x="393" y="366" fill="#1E293B" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="11" font-weight="500">Processes and</text>
+    <text x="414" y="380" fill="#1E293B" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="11" font-weight="500">tasks</text>
   </g>
 
-  <text x="44" y="454" fill="#1E293B" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="700">🏢 Basic modules</text>
-  <text x="1172" y="454" fill="#64748B" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="600">Main</text>
+  <text x="44" y="454" fill="#1E293B" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="17" font-weight="500">🏢 Basic modules</text>
+  <text x="1172" y="454" fill="#64748B" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="12" font-weight="500">Main</text>
 
   <g>
     <rect x="44" y="476" width="99" height="82" rx="10" fill="#FFFFFF" stroke="#A855F7" stroke-width="2"/>
-    <text x="78" y="515" fill="#4F83B8" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="700">📊</text>
-    <text x="65" y="546" fill="#1E293B" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="700">Home Panel</text>
+    <text x="78" y="515" fill="#4F83B8" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="24" font-weight="500">📊</text>
+    <text x="65" y="546" fill="#1E293B" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="11" font-weight="500">Home Panel</text>
 
     <rect x="156" y="476" width="99" height="82" rx="10" fill="#FFFFFF" stroke="#335EA8" stroke-width="2"/>
-    <text x="194" y="515" fill="#335EA8" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="700">👥</text>
-    <text x="165" y="546" fill="#1E293B" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="700">Human Resources</text>
+    <text x="194" y="515" fill="#335EA8" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="24" font-weight="500">👥</text>
+    <text x="165" y="546" fill="#1E293B" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="11" font-weight="500">Human Resources</text>
 
     <rect x="268" y="476" width="99" height="82" rx="10" fill="#FFFFFF" stroke="#3F9A52" stroke-width="2"/>
-    <text x="308" y="515" fill="#8A6B11" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="700">💰</text>
-    <text x="300" y="546" fill="#1E293B" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="700">Expenses</text>
+    <text x="308" y="515" fill="#8A6B11" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="24" font-weight="500">💰</text>
+    <text x="300" y="546" fill="#1E293B" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="11" font-weight="500">Expenses</text>
 
     <rect x="380" y="476" width="99" height="82" rx="10" fill="#FFFFFF" stroke="#3F9A52" stroke-width="2"/>
-    <text x="418" y="515" fill="#7C6B22" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="700">💳</text>
-    <text x="406" y="546" fill="#1E293B" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="700">Petty cash</text>
+    <text x="418" y="515" fill="#7C6B22" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="24" font-weight="500">💳</text>
+    <text x="406" y="546" fill="#1E293B" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="11" font-weight="500">Petty cash</text>
 
     <rect x="492" y="476" width="99" height="82" rx="10" fill="#FFFFFF" stroke="#FB923C" stroke-width="2"/>
-    <text x="530" y="515" fill="#F97316" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="700">🛒</text>
-    <text x="522" y="546" fill="#1E293B" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="700">Point of sale</text>
+    <text x="530" y="515" fill="#F97316" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="24" font-weight="500">🛒</text>
+    <text x="522" y="546" fill="#1E293B" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="11" font-weight="500">Point of sale</text>
 
     <rect x="604" y="476" width="99" height="82" rx="10" fill="#FFFFFF" stroke="#F2B600" stroke-width="2"/>
-    <text x="643" y="515" fill="#1FA345" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="700">✅</text>
-    <text x="617" y="538" fill="#1E293B" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="700">Processes and</text>
-    <text x="638" y="552" fill="#1E293B" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="700">tasks</text>
+    <text x="643" y="515" fill="#1FA345" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="24" font-weight="500">✅</text>
+    <text x="617" y="538" fill="#1E293B" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="11" font-weight="500">Processes and</text>
+    <text x="638" y="552" fill="#1E293B" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="11" font-weight="500">tasks</text>
 
     <rect x="716" y="476" width="99" height="82" rx="10" fill="#FFFFFF" stroke="#A855F7" stroke-width="2"/>
-    <text x="756" y="515" fill="#A855F7" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="700">📈</text>
-    <text x="754" y="546" fill="#1E293B" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="700">KPIs</text>
+    <text x="756" y="515" fill="#A855F7" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="24" font-weight="500">📈</text>
+    <text x="754" y="546" fill="#1E293B" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="11" font-weight="500">KPIs</text>
   </g>
 
-  <text x="44" y="632" fill="#1E293B" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="700">🔧 Complementary modules</text>
-  <text x="1144" y="632" fill="#64748B" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="600">Additional</text>
+  <text x="44" y="632" fill="#1E293B" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="17" font-weight="500">🔧 Complementary modules</text>
+  <text x="1144" y="632" fill="#64748B" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="12" font-weight="500">Additional</text>
 
   <g>
     <rect x="44" y="654" width="99" height="82" rx="10" fill="#FFFFFF" stroke="#FB923C" stroke-width="2"/>
-    <text x="84" y="693" fill="#F97316" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="700">💵</text>
-    <text x="81" y="724" fill="#1E293B" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="700">Sales</text>
+    <text x="84" y="693" fill="#F97316" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="24" font-weight="500">💵</text>
+    <text x="81" y="724" fill="#1E293B" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="11" font-weight="500">Sales</text>
 
     <rect x="156" y="654" width="99" height="82" rx="10" fill="#FFFFFF" stroke="#60A5FA" stroke-width="2"/>
-    <text x="197" y="693" fill="#64748B" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="700">🔧</text>
-    <text x="171" y="724" fill="#1E293B" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="700">Maintenance</text>
+    <text x="197" y="693" fill="#64748B" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="24" font-weight="500">🔧</text>
+    <text x="171" y="724" fill="#1E293B" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="11" font-weight="500">Maintenance</text>
 
     <rect x="268" y="654" width="99" height="82" rx="10" fill="#FFFFFF" stroke="#60A5FA" stroke-width="2"/>
-    <text x="306" y="693" fill="#64748B" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="700">📦</text>
-    <text x="302" y="724" fill="#1E293B" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="700">Inventory</text>
+    <text x="306" y="693" fill="#64748B" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="24" font-weight="500">📦</text>
+    <text x="302" y="724" fill="#1E293B" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="11" font-weight="500">Inventory</text>
 
     <rect x="380" y="654" width="99" height="82" rx="10" fill="#FFFFFF" stroke="#60A5FA" stroke-width="2"/>
-    <text x="420" y="693" fill="#64748B" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="700">📄</text>
-    <text x="399" y="724" fill="#1E293B" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="700">Minutes control</text>
+    <text x="420" y="693" fill="#64748B" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="24" font-weight="500">📄</text>
+    <text x="399" y="724" fill="#1E293B" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="11" font-weight="500">Minutes control</text>
 
     <rect x="492" y="654" width="99" height="82" rx="10" fill="#FFFFFF" stroke="#60A5FA" stroke-width="2"/>
-    <text x="532" y="693" fill="#64748B" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="700">🧹</text>
-    <text x="526" y="724" fill="#1E293B" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="700">Cleaning</text>
+    <text x="532" y="693" fill="#64748B" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="24" font-weight="500">🧹</text>
+    <text x="526" y="724" fill="#1E293B" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="11" font-weight="500">Cleaning</text>
 
     <rect x="604" y="654" width="99" height="82" rx="10" fill="#FFFFFF" stroke="#60A5FA" stroke-width="2"/>
-    <text x="645" y="693" fill="#64748B" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="700">👕</text>
-    <text x="643" y="724" fill="#1E293B" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="700">Laundry</text>
+    <text x="645" y="693" fill="#64748B" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="24" font-weight="500">👕</text>
+    <text x="643" y="724" fill="#1E293B" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="11" font-weight="500">Laundry</text>
 
     <rect x="716" y="654" width="99" height="82" rx="10" fill="#FFFFFF" stroke="#60A5FA" stroke-width="2"/>
-    <text x="755" y="693" fill="#64748B" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="700">🚚</text>
-    <text x="736" y="724" fill="#1E293B" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="700">Transportation</text>
+    <text x="755" y="693" fill="#64748B" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="24" font-weight="500">🚚</text>
+    <text x="736" y="724" fill="#1E293B" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="11" font-weight="500">Transportation</text>
 
     <rect x="828" y="654" width="99" height="82" rx="10" fill="#FFFFFF" stroke="#60A5FA" stroke-width="2"/>
-    <text x="868" y="693" fill="#64748B" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="700">🚗</text>
-    <text x="842" y="716" fill="#1E293B" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="700">Vehicles and</text>
-    <text x="856" y="730" fill="#1E293B" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="700">machinery</text>
+    <text x="868" y="693" fill="#64748B" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="24" font-weight="500">🚗</text>
+    <text x="842" y="716" fill="#1E293B" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="11" font-weight="500">Vehicles and</text>
+    <text x="856" y="730" fill="#1E293B" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="11" font-weight="500">machinery</text>
 
     <rect x="940" y="654" width="99" height="82" rx="10" fill="#FFFFFF" stroke="#60A5FA" stroke-width="2"/>
-    <text x="981" y="693" fill="#64748B" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="700">🏢</text>
-    <text x="972" y="724" fill="#1E293B" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="700">Real estate</text>
+    <text x="981" y="693" fill="#64748B" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="24" font-weight="500">🏢</text>
+    <text x="972" y="724" fill="#1E293B" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="11" font-weight="500">Real estate</text>
 
     <rect x="1052" y="654" width="99" height="82" rx="10" fill="#FFFFFF" stroke="#60A5FA" stroke-width="2"/>
-    <text x="1092" y="693" fill="#64748B" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="700">📋</text>
-    <text x="1094" y="724" fill="#1E293B" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="700">Forms</text>
+    <text x="1092" y="693" fill="#64748B" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="24" font-weight="500">📋</text>
+    <text x="1094" y="724" fill="#1E293B" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="11" font-weight="500">Forms</text>
   </g>
 
-  <text x="44" y="788" fill="#1E293B" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="700">🤖 Artificial intelligence</text>
-  <text x="1170" y="788" fill="#64748B" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="600">AI Modules</text>
+  <text x="44" y="788" fill="#1E293B" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="17" font-weight="500">🤖 Artificial intelligence</text>
+  <text x="1170" y="788" fill="#64748B" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="12" font-weight="500">AI Modules</text>
 </svg>

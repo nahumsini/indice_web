@@ -32,314 +32,233 @@ function modulesAttr(string $key): string {
   return htmlspecialchars(modulesText($key), ENT_QUOTES, 'UTF-8');
 }
 
-$page_title = modulesText('modules.meta.title');
+$page_title = preg_replace('/\s*\|\s*[ÍI]ndice\s*$/u', '', modulesText('modules.meta.title'));
 $page_description = modulesText('modules.meta.description');
 include 'header.php';
 
-$modulos_basicos = [
+$moduleJourney = [
   [
-    'theme' => 'panel',
-    'icon' => 'fa-gauge-high',
-    'emoji' => '📊',
-    'title_key' => 'modules.core.panel.title',
-    'tagline_key' => 'modules.core.panel.tagline',
-    'desc_key' => 'modules.core.panel.desc',
-    'href' => '/modulo-panel-inicial.php',
-    'preview' => 'panel',
-    'features' => [
-      ['icon' => 'fa-sitemap', 'label_key' => 'modules.core.panel.feature_1'],
-      ['icon' => 'fa-chart-column', 'label_key' => 'modules.core.panel.feature_2'],
-      ['icon' => 'fa-clipboard-list', 'label_key' => 'modules.core.panel.feature_3'],
+    'number' => '01',
+    'tone' => 'blue',
+    'label_key' => 'modules.journey.structure.label',
+    'title_key' => 'modules.journey.structure.title',
+    'desc_key' => 'modules.journey.structure.desc',
+    'modules' => [
+      ['emoji' => '🏠', 'href' => '/modulo-panel-inicial.php', 'title_key' => 'modules.core.panel.title'],
     ],
   ],
   [
-    'theme' => 'personas',
-    'icon' => 'fa-users',
-    'emoji' => '👥',
-    'title_key' => 'modules.core.rh.title',
-    'tagline_key' => 'modules.core.rh.tagline',
-    'desc_key' => 'modules.core.rh.desc',
-    'href' => '/modulo-recursos-humanos.php',
-    'preview' => 'people',
-    'features' => [
-      ['icon' => 'fa-user-group', 'label_key' => 'modules.core.rh.feature_1'],
-      ['icon' => 'fa-calendar-check', 'label_key' => 'modules.core.rh.feature_2'],
-      ['icon' => 'fa-money-check-dollar', 'label_key' => 'modules.core.rh.feature_3'],
+    'number' => '02',
+    'tone' => 'aqua',
+    'label_key' => 'modules.journey.people.label',
+    'title_key' => 'modules.journey.people.title',
+    'desc_key' => 'modules.journey.people.desc',
+    'modules' => [
+      ['emoji' => '👥', 'href' => '/modulo-recursos-humanos.php', 'title_key' => 'modules.core.rh.title'],
     ],
   ],
   [
-    'theme' => 'finanzas',
-    'icon' => 'fa-receipt',
-    'emoji' => '💰',
-    'title_key' => 'modules.core.expenses.title',
-    'tagline_key' => 'modules.core.expenses.tagline',
-    'desc_key' => 'modules.core.expenses.desc',
-    'href' => '/modulo-gastos.php',
-    'preview' => 'expenses',
-    'features' => [
-      ['icon' => 'fa-money-bill-wave', 'label_key' => 'modules.core.expenses.feature_1'],
-      ['icon' => 'fa-clipboard-list', 'label_key' => 'modules.core.expenses.feature_2'],
-      ['icon' => 'fa-truck-field', 'label_key' => 'modules.core.expenses.feature_3'],
+    'number' => '03',
+    'tone' => 'yellow',
+    'label_key' => 'modules.journey.process.label',
+    'title_key' => 'modules.journey.process.title',
+    'desc_key' => 'modules.journey.process.desc',
+    'modules' => [
+      ['emoji' => '✅', 'href' => '/modulo-procesos-tareas.php', 'title_key' => 'modules.core.process.title'],
     ],
   ],
   [
-    'theme' => 'finanzas',
-    'icon' => 'fa-wallet',
-    'emoji' => '💳',
-    'title_key' => 'modules.core.cash.title',
-    'tagline_key' => 'modules.core.cash.tagline',
-    'desc_key' => 'modules.core.cash.desc',
-    'href' => '/modulo-caja-chica.php',
-    'preview' => 'cash',
-    'features' => [
-      ['icon' => 'fa-money-bill', 'label_key' => 'modules.core.cash.feature_1'],
-      ['icon' => 'fa-clipboard-check', 'label_key' => 'modules.core.cash.feature_2'],
-      ['icon' => 'fa-scale-balanced', 'label_key' => 'modules.core.cash.feature_3'],
+    'number' => '04',
+    'tone' => 'green',
+    'label_key' => 'modules.journey.finance.label',
+    'title_key' => 'modules.journey.finance.title',
+    'desc_key' => 'modules.journey.finance.desc',
+    'modules' => [
+      ['emoji' => '💸', 'href' => '/modulo-gastos.php', 'title_key' => 'modules.core.expenses.title'],
+      ['emoji' => '💰', 'href' => '/modulo-caja-chica.php', 'title_key' => 'modules.core.cash.title'],
+      ['emoji' => '📙', 'href' => '/modulo-cartera.php', 'title_key' => 'modules.core.receivables.title'],
     ],
   ],
   [
-    'theme' => 'productos',
-    'icon' => 'fa-cash-register',
-    'emoji' => '🛒',
-    'title_key' => 'modules.core.pos.title',
-    'tagline_key' => 'modules.core.pos.tagline',
-    'desc_key' => 'modules.core.pos.desc',
-    'href' => '/modulo-punto-de-venta.php',
-    'preview' => 'pos',
-    'features' => [
-      ['icon' => 'fa-bag-shopping', 'label_key' => 'modules.core.pos.feature_1'],
-      ['icon' => 'fa-boxes-stacked', 'label_key' => 'modules.core.pos.feature_2'],
-      ['icon' => 'fa-sack-dollar', 'label_key' => 'modules.core.pos.feature_3'],
+    'number' => '05',
+    'tone' => 'coral',
+    'label_key' => 'modules.journey.products.label',
+    'title_key' => 'modules.journey.products.title',
+    'desc_key' => 'modules.journey.products.desc',
+    'modules' => [
+      ['emoji' => '🛒', 'href' => '/modulo-punto-de-venta.php', 'title_key' => 'modules.core.pos.title'],
+      ['emoji' => '💼', 'href' => '/modulo-ventas.php', 'title_key' => 'modules.core.sales.title'],
+      ['emoji' => '📦', 'href' => '/modulo-inventarios.php', 'title_key' => 'modules.core.inventory.title'],
     ],
   ],
   [
-    'theme' => 'productos',
-    'icon' => 'fa-handshake',
-    'emoji' => '💵',
-    'title_key' => 'modules.core.sales.title',
-    'tagline_key' => 'modules.core.sales.tagline',
-    'desc_key' => 'modules.core.sales.desc',
-    'href' => '/modulo-ventas.php',
-    'preview' => 'sales',
-    'features' => [
-      ['icon' => 'fa-bullseye', 'label_key' => 'modules.core.sales.feature_1'],
-      ['icon' => 'fa-file-invoice-dollar', 'label_key' => 'modules.core.sales.feature_2'],
-      ['icon' => 'fa-arrow-right', 'label_key' => 'modules.core.sales.feature_3'],
-    ],
-  ],
-  [
-    'theme' => 'procesos',
-    'icon' => 'fa-list-check',
-    'emoji' => '✅',
-    'title_key' => 'modules.core.process.title',
-    'tagline_key' => 'modules.core.process.tagline',
-    'desc_key' => 'modules.core.process.desc',
-    'href' => '/modulo-procesos-tareas.php',
-    'preview' => 'process',
-    'features' => [
-      ['icon' => 'fa-bullseye', 'label_key' => 'modules.core.process.feature_1'],
-      ['icon' => 'fa-user-check', 'label_key' => 'modules.core.process.feature_2'],
-      ['icon' => 'fa-chart-simple', 'label_key' => 'modules.core.process.feature_3'],
-    ],
-  ],
-  [
-    'theme' => 'dashboard',
-    'icon' => 'fa-chart-line',
-    'emoji' => '📈',
-    'title_key' => 'modules.core.kpis.title',
-    'tagline_key' => 'modules.core.kpis.tagline',
-    'desc_key' => 'modules.core.kpis.desc',
-    'href' => '/modulo-kpis.php',
-    'preview' => 'kpis',
-    'features' => [
-      ['icon' => 'fa-chart-simple', 'label_key' => 'modules.core.kpis.feature_1'],
-      ['icon' => 'fa-file-lines', 'label_key' => 'modules.core.kpis.feature_2'],
-      ['icon' => 'fa-bell', 'label_key' => 'modules.core.kpis.feature_3'],
+    'number' => '06',
+    'tone' => 'purple',
+    'label_key' => 'modules.journey.intelligence.label',
+    'title_key' => 'modules.journey.intelligence.title',
+    'desc_key' => 'modules.journey.intelligence.desc',
+    'modules' => [
+      ['emoji' => '📈', 'href' => '/modulo-kpis.php', 'title_key' => 'modules.core.kpis.title'],
     ],
   ],
 ];
 
-$modulos_complementarios = [
-  ['icon' => 'fa-screwdriver-wrench', 'emoji' => '🔧', 'href' => '/modulo-mantenimiento.php', 'title_key' => 'modules.scale.maintenance.title', 'desc_key' => 'modules.scale.maintenance.desc'],
-  ['icon' => 'fa-box', 'emoji' => '📦', 'href' => '/modulo-inventarios.php', 'title_key' => 'modules.scale.inventory.title', 'desc_key' => 'modules.scale.inventory.desc'],
-  ['icon' => 'fa-file-lines', 'emoji' => '📄', 'href' => '/modulo-control-minutas.php', 'title_key' => 'modules.scale.minutes.title', 'desc_key' => 'modules.scale.minutes.desc'],
-  ['icon' => 'fa-broom', 'emoji' => '🧹', 'href' => '/modulo-limpieza.php', 'title_key' => 'modules.scale.cleaning.title', 'desc_key' => 'modules.scale.cleaning.desc'],
-  ['icon' => 'fa-shirt', 'emoji' => '👕', 'href' => '/modulo-lavanderia.php', 'title_key' => 'modules.scale.laundry.title', 'desc_key' => 'modules.scale.laundry.desc'],
-  ['icon' => 'fa-truck', 'emoji' => '🚚', 'href' => '/modulo-transportacion.php', 'title_key' => 'modules.scale.transport.title', 'desc_key' => 'modules.scale.transport.desc'],
-  ['icon' => 'fa-car', 'emoji' => '🚗', 'href' => '/modulo-vehiculos-maquinaria.php', 'title_key' => 'modules.scale.vehicles.title', 'desc_key' => 'modules.scale.vehicles.desc'],
-  ['icon' => 'fa-building', 'emoji' => '🏢', 'href' => '/modulo-inmuebles.php', 'title_key' => 'modules.scale.properties.title', 'desc_key' => 'modules.scale.properties.desc'],
-  ['icon' => 'fa-clipboard', 'emoji' => '📋', 'href' => '/modulo-formularios.php', 'title_key' => 'modules.scale.forms.title', 'desc_key' => 'modules.scale.forms.desc'],
-  ['icon' => 'fa-receipt', 'emoji' => '🧾', 'href' => '/modulo-facturacion.php', 'title_key' => 'modules.scale.billing.title', 'desc_key' => 'modules.scale.billing.desc'],
-  ['icon' => 'fa-envelope', 'emoji' => '📧', 'href' => '/modulo-correo-electronico.php', 'title_key' => 'modules.scale.email.title', 'desc_key' => 'modules.scale.email.desc'],
-  ['icon' => 'fa-face-smile', 'emoji' => '😊', 'href' => '/modulo-clima-laboral.php', 'title_key' => 'modules.scale.climate.title', 'desc_key' => 'modules.scale.climate.desc'],
-  ['icon' => 'fa-handshake', 'emoji' => '🤝', 'href' => '/modulo-afiliados.php', 'title_key' => 'modules.scale.affiliates.title', 'desc_key' => 'modules.scale.affiliates.desc'],
+$moduleGroups = [
+  [
+    'title_key' => 'modules.directory.assets',
+    'modules' => [
+      ['emoji' => '🔧', 'href' => '/modulo-mantenimiento.php', 'title_key' => 'modules.scale.maintenance.title'],
+      ['emoji' => '🚜', 'href' => '/modulo-vehiculos-maquinaria.php', 'title_key' => 'modules.scale.vehicles.title'],
+      ['emoji' => '🏢', 'href' => '/modulo-inmuebles.php', 'title_key' => 'modules.scale.properties.title'],
+    ],
+  ],
+  [
+    'title_key' => 'modules.directory.daily',
+    'modules' => [
+      ['emoji' => '🧹', 'href' => '/modulo-limpieza.php', 'title_key' => 'modules.scale.cleaning.title'],
+      ['emoji' => '👕', 'href' => '/modulo-lavanderia.php', 'title_key' => 'modules.scale.laundry.title'],
+      ['emoji' => '🚚', 'href' => '/modulo-transportacion.php', 'title_key' => 'modules.scale.transport.title'],
+    ],
+  ],
+  [
+    'title_key' => 'modules.directory.admin',
+    'modules' => [
+      ['emoji' => '📝', 'href' => '/modulo-control-minutas.php', 'title_key' => 'modules.scale.minutes.title'],
+      ['emoji' => '📋', 'href' => '/modulo-formularios.php', 'title_key' => 'modules.scale.forms.title'],
+      ['emoji' => '📄', 'href' => '/modulo-facturacion.php', 'title_key' => 'modules.scale.billing.title'],
+      ['emoji' => '✉️', 'href' => '/modulo-correo-electronico.php', 'title_key' => 'modules.scale.email.title'],
+    ],
+  ],
+  [
+    'title_key' => 'modules.directory.team',
+    'modules' => [
+      ['emoji' => '🌡️', 'href' => '/modulo-clima-laboral.php', 'title_key' => 'modules.scale.climate.title'],
+      ['emoji' => '🤝', 'href' => '/modulo-afiliados.php', 'title_key' => 'modules.scale.affiliates.title'],
+    ],
+  ],
 ];
 
 $modulos_ia = [
-  ['icon' => 'fa-robot', 'emoji' => '🤖', 'title_key' => 'modules.ai.agent.title', 'desc_key' => 'modules.ai.agent.desc'],
-  ['icon' => 'fa-brain', 'emoji' => '📊', 'title_key' => 'modules.ai.analytics.title', 'desc_key' => 'modules.ai.analytics.desc'],
-  ['icon' => 'fa-chalkboard-user', 'emoji' => '🎓', 'title_key' => 'modules.ai.training.title', 'desc_key' => 'modules.ai.training.desc'],
+  ['emoji' => '🤖', 'title_key' => 'modules.ai.agent.title'],
+  ['emoji' => '🧠', 'title_key' => 'modules.ai.analytics.title'],
+  ['emoji' => '🎓', 'title_key' => 'modules.ai.training.title'],
+  ['emoji' => '🧭', 'title_key' => 'modules.ai.coach.title'],
 ];
 ?>
 
-<main>
+<main class="modules-page">
 
-  <section class="page-hero bg-surface reveal" aria-label="<?= modulesAttr('modules.hero.title') ?>">
+  <section class="modules-page-hero reveal" aria-label="<?= modulesAttr('modules.hero.title') ?>">
     <div class="container text-center">
       <span class="eyebrow" data-i18n="modules.hero.eyebrow"><?= modulesAttr('modules.hero.eyebrow') ?></span>
-      <h1 class="display-5 fw-bold text-balance mb-3" data-i18n="modules.hero.title"><?= modulesAttr('modules.hero.title') ?></h1>
-      <p class="lead lead-soft mb-4 mx-auto" style="max-width:780px;" data-i18n="modules.hero.subtitle"><?= modulesAttr('modules.hero.subtitle') ?></p>
-      <div class="d-flex flex-wrap gap-2 justify-content-center">
-        <a href="#basicos" class="btn btn-brand" data-i18n="modules.hero.cta.core"><?= modulesAttr('modules.hero.cta.core') ?></a>
-        <a href="#complementarios" class="btn btn-ghost" data-i18n="modules.hero.cta.complementary"><?= modulesAttr('modules.hero.cta.complementary') ?></a>
-        <a href="#ia" class="btn btn-ghost" data-i18n="modules.hero.cta.ai"><?= modulesAttr('modules.hero.cta.ai') ?></a>
-      </div>
+      <h1 class="display-5 text-balance" data-i18n="modules.hero.title"><?= modulesAttr('modules.hero.title') ?></h1>
+      <p class="lead lead-soft mx-auto" data-i18n="modules.hero.subtitle"><?= modulesAttr('modules.hero.subtitle') ?></p>
+      <a href="<?= getIndiceLoginUrlAttr() ?>" class="btn btn-brand btn-lg" data-i18n="home_hero_cta_primary"><?= modulesAttr('home_hero_cta_primary') ?></a>
     </div>
   </section>
 
-  <section class="py-6 bg-card reveal" id="basicos" aria-label="<?= modulesAttr('modules.core.title') ?>">
+  <section class="modules-core-showcase reveal" id="basicos" aria-label="<?= modulesAttr('modules.core.title') ?>">
     <div class="container">
-      <div class="text-center mb-5">
+      <div class="modules-section-heading text-center">
         <span class="eyebrow" data-i18n="modules.core.eyebrow"><?= modulesAttr('modules.core.eyebrow') ?></span>
         <h2 class="section-title" data-i18n="modules.core.title"><?= modulesAttr('modules.core.title') ?></h2>
-        <p class="lead-soft mx-auto" style="max-width:760px;" data-i18n="modules.core.desc"><?= modulesAttr('modules.core.desc') ?></p>
+        <p class="lead-soft mx-auto" data-i18n="modules.core.desc"><?= modulesAttr('modules.core.desc') ?></p>
       </div>
 
-      <div class="row g-4">
-        <?php foreach ($modulos_basicos as $mod):
-          $theme = htmlspecialchars($mod['theme'], ENT_QUOTES, 'UTF-8');
-          $preview = htmlspecialchars($mod['preview'] ?? 'panel', ENT_QUOTES, 'UTF-8');
-          $moduleHref = $mod['href'] ?? null;
-          $moduleTag = $moduleHref ? 'a' : 'article';
-        ?>
-        <div class="col-lg-6">
-          <<?= $moduleTag ?><?php if ($moduleHref): ?> href="<?= htmlspecialchars($moduleHref, ENT_QUOTES, 'UTF-8') ?>"<?php endif; ?> class="module-card-modern module-core-card module-theme-<?= $theme ?><?php echo $moduleHref ? ' module-card-link' : ''; ?> h-100">
-            <div class="module-core-head">
-              <div class="module-core-title-row">
-                <?php if (!empty($mod['emoji'])): ?>
-                  <span class="module-emoji-icon module-emoji-icon-xl" aria-hidden="true"><?= htmlspecialchars($mod['emoji'], ENT_QUOTES, 'UTF-8') ?></span>
-                <?php else: ?>
-                  <i class="fa-solid <?= htmlspecialchars($mod['icon'], ENT_QUOTES, 'UTF-8') ?> module-icon"></i>
-                <?php endif; ?>
-                <div>
-                  <h3 data-i18n="<?= htmlspecialchars($mod['title_key'], ENT_QUOTES, 'UTF-8') ?>"><?= modulesAttr($mod['title_key']) ?></h3>
-                  <p class="hero-microcopy mb-0" data-i18n="<?= htmlspecialchars($mod['tagline_key'], ENT_QUOTES, 'UTF-8') ?>"><?= modulesAttr($mod['tagline_key']) ?></p>
-                </div>
-              </div>
-              <div class="module-card-preview module-preview-<?= $preview ?>" aria-hidden="true">
-                <span></span>
-                <span></span>
-                <span></span>
+      <div class="module-journey-grid">
+        <?php foreach ($moduleJourney as $stage): ?>
+          <article class="module-journey-card module-journey-card--<?= htmlspecialchars($stage['tone'], ENT_QUOTES, 'UTF-8') ?>">
+            <div class="module-journey-card__heading">
+              <span class="module-journey-card__number"><?= htmlspecialchars($stage['number'], ENT_QUOTES, 'UTF-8') ?></span>
+              <div>
+                <h3 data-i18n="<?= htmlspecialchars($stage['label_key'], ENT_QUOTES, 'UTF-8') ?>"><?= modulesAttr($stage['label_key']) ?></h3>
+                <p data-i18n="<?= htmlspecialchars($stage['desc_key'], ENT_QUOTES, 'UTF-8') ?>"><?= modulesAttr($stage['desc_key']) ?></p>
               </div>
             </div>
-            <div class="module-core-body">
-              <p class="module-core-copy" data-i18n="<?= htmlspecialchars($mod['desc_key'], ENT_QUOTES, 'UTF-8') ?>"><?= modulesAttr($mod['desc_key']) ?></p>
-              <div class="module-core-chip-grid">
-                <?php foreach ($mod['features'] as $feat): ?>
-                  <span class="module-chip module-theme-<?= $theme ?>">
-                    <i class="fa-solid <?= htmlspecialchars($feat['icon'], ENT_QUOTES, 'UTF-8') ?>"></i>
-                    <span data-i18n="<?= htmlspecialchars($feat['label_key'], ENT_QUOTES, 'UTF-8') ?>"><?= modulesAttr($feat['label_key']) ?></span>
-                  </span>
-                <?php endforeach; ?>
-              </div>
+            <div class="module-journey-card__links">
+              <?php foreach ($stage['modules'] as $mod): ?>
+                <a href="<?= htmlspecialchars($mod['href'], ENT_QUOTES, 'UTF-8') ?>" class="indice-module-tile">
+                  <span class="indice-module-tile__emoji" aria-hidden="true"><?= htmlspecialchars($mod['emoji'], ENT_QUOTES, 'UTF-8') ?></span>
+                  <span class="indice-module-tile__name" data-i18n="<?= htmlspecialchars($mod['title_key'], ENT_QUOTES, 'UTF-8') ?>"><?= modulesAttr($mod['title_key']) ?></span>
+                </a>
+              <?php endforeach; ?>
             </div>
-            <?php if ($moduleHref): ?>
-              <span class="module-card-cta">
-                <span data-i18n="modules.card.open"><?= modulesAttr('modules.card.open') ?></span>
-                <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
-              </span>
-            <?php endif; ?>
-          </<?= $moduleTag ?>>
-        </div>
+          </article>
         <?php endforeach; ?>
-      </div>
-
-      <div class="text-center mt-5">
-        <a href="planes.php" class="btn btn-brand btn-lg" data-i18n="modules.core.cta"><?= modulesAttr('modules.core.cta') ?></a>
       </div>
     </div>
   </section>
 
-  <section class="py-6 bg-surface reveal" id="complementarios" aria-label="<?= modulesAttr('modules.scale.title') ?>">
+  <section class="modules-learning-strip reveal" aria-label="<?= modulesAttr('modules.learning.title') ?>">
     <div class="container">
-      <div class="text-center mb-5">
+      <div class="modules-learning-bridge">
+        <div>
+          <span class="eyebrow" data-i18n="home_learning_badge"><?= modulesAttr('home_learning_badge') ?></span>
+          <h2 data-i18n="modules.learning.title"><?= modulesAttr('modules.learning.title') ?></h2>
+        </div>
+        <div class="modules-learning-steps" aria-label="<?= modulesAttr('modules.learning.title') ?>">
+          <span data-i18n="learning.path.step1.title"><?= modulesAttr('learning.path.step1.title') ?></span>
+          <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+          <span data-i18n="learning.path.step2.title"><?= modulesAttr('learning.path.step2.title') ?></span>
+          <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+          <span data-i18n="learning.path.step4.title"><?= modulesAttr('learning.path.step4.title') ?></span>
+        </div>
+        <a href="/modo-aprendiz.php" class="home-text-link" data-i18n="home.apprentice.link"><?= modulesAttr('home.apprentice.link') ?></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="modules-directory-section reveal" id="complementarios" aria-label="<?= modulesAttr('modules.scale.title') ?>">
+    <div class="container">
+      <div class="modules-section-heading text-center">
         <span class="eyebrow" data-i18n="modules.scale.eyebrow"><?= modulesAttr('modules.scale.eyebrow') ?></span>
         <h2 class="section-title" data-i18n="modules.scale.title"><?= modulesAttr('modules.scale.title') ?></h2>
-        <p class="lead-soft mx-auto" style="max-width:780px;" data-i18n="modules.scale.desc"><?= modulesAttr('modules.scale.desc') ?></p>
+        <p class="lead-soft mx-auto" data-i18n="modules.scale.desc"><?= modulesAttr('modules.scale.desc') ?></p>
       </div>
 
-      <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
-        <?php foreach ($modulos_complementarios as $mod):
-          $moduleHref = $mod['href'] ?? null;
-          $moduleTag = $moduleHref ? 'a' : 'article';
-        ?>
-        <div class="col">
-          <<?= $moduleTag ?><?php if ($moduleHref): ?> href="<?= htmlspecialchars($moduleHref, ENT_QUOTES, 'UTF-8') ?>"<?php endif; ?> class="module-card-modern module-theme-complementarios<?php echo $moduleHref ? ' module-card-link' : ''; ?> h-100 p-4">
-            <?php if (!empty($mod['emoji'])): ?>
-              <span class="module-emoji-icon" aria-hidden="true"><?= htmlspecialchars($mod['emoji'], ENT_QUOTES, 'UTF-8') ?></span>
-            <?php else: ?>
-              <i class="fa-solid <?= htmlspecialchars($mod['icon'], ENT_QUOTES, 'UTF-8') ?> module-icon"></i>
-            <?php endif; ?>
-            <h3 data-i18n="<?= htmlspecialchars($mod['title_key'], ENT_QUOTES, 'UTF-8') ?>"><?= modulesAttr($mod['title_key']) ?></h3>
-            <p data-i18n="<?= htmlspecialchars($mod['desc_key'], ENT_QUOTES, 'UTF-8') ?>"><?= modulesAttr($mod['desc_key']) ?></p>
-            <?php if ($moduleHref): ?>
-              <span class="module-card-cta">
-                <span data-i18n="modules.card.open"><?= modulesAttr('modules.card.open') ?></span>
-                <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
-              </span>
-            <?php endif; ?>
-          </<?= $moduleTag ?>>
-        </div>
-        <?php endforeach; ?>
-      </div>
-
-      <div class="cta-box mt-5 text-center">
-        <h3 class="mb-2" data-i18n="modules.custom.title"><?= modulesAttr('modules.custom.title') ?></h3>
-        <p class="lead-soft mb-3" data-i18n="modules.custom.desc"><?= modulesAttr('modules.custom.desc') ?></p>
-        <a href="contacto.php#demo" class="btn btn-brand" data-i18n="modules.custom.button"><?= modulesAttr('modules.custom.button') ?></a>
-      </div>
-    </div>
-  </section>
-
-  <section class="py-6 bg-card reveal" id="ia" aria-label="<?= modulesAttr('modules.ai.title') ?>">
-    <div class="container">
-      <div class="text-center mb-5">
-        <span class="eyebrow" data-i18n="modules.ai.eyebrow"><?= modulesAttr('modules.ai.eyebrow') ?></span>
-        <h2 class="section-title" data-i18n="modules.ai.title"><?= modulesAttr('modules.ai.title') ?></h2>
-        <p class="lead-soft mx-auto" style="max-width:780px;" data-i18n="modules.ai.desc"><?= modulesAttr('modules.ai.desc') ?></p>
-      </div>
-
-      <div class="row row-cols-1 row-cols-md-3 g-4">
-        <?php foreach ($modulos_ia as $mod): ?>
-        <div class="col">
-          <article class="module-card-modern module-theme-ia h-100 p-4">
-            <?php if (!empty($mod['emoji'])): ?>
-              <span class="module-emoji-icon" aria-hidden="true"><?= htmlspecialchars($mod['emoji'], ENT_QUOTES, 'UTF-8') ?></span>
-            <?php else: ?>
-              <i class="fa-solid <?= htmlspecialchars($mod['icon'], ENT_QUOTES, 'UTF-8') ?> module-icon"></i>
-            <?php endif; ?>
-            <h3 data-i18n="<?= htmlspecialchars($mod['title_key'], ENT_QUOTES, 'UTF-8') ?>"><?= modulesAttr($mod['title_key']) ?></h3>
-            <p data-i18n="<?= htmlspecialchars($mod['desc_key'], ENT_QUOTES, 'UTF-8') ?>"><?= modulesAttr($mod['desc_key']) ?></p>
+      <div class="module-directory-grid">
+        <?php foreach ($moduleGroups as $group): ?>
+          <article class="module-directory-group">
+            <h3 data-i18n="<?= htmlspecialchars($group['title_key'], ENT_QUOTES, 'UTF-8') ?>"><?= modulesAttr($group['title_key']) ?></h3>
+            <div class="module-directory-list">
+              <?php foreach ($group['modules'] as $mod): ?>
+                <a href="<?= htmlspecialchars($mod['href'], ENT_QUOTES, 'UTF-8') ?>" class="indice-module-tile indice-module-tile--gray">
+                  <span class="indice-module-tile__emoji" aria-hidden="true"><?= htmlspecialchars($mod['emoji'], ENT_QUOTES, 'UTF-8') ?></span>
+                  <span class="indice-module-tile__name" data-i18n="<?= htmlspecialchars($mod['title_key'], ENT_QUOTES, 'UTF-8') ?>"><?= modulesAttr($mod['title_key']) ?></span>
+                </a>
+              <?php endforeach; ?>
+            </div>
           </article>
-        </div>
         <?php endforeach; ?>
-      </div>
-
-      <div class="cta-box cta-box-strong mt-5 text-center">
-        <h3 class="mb-2" data-i18n="modules.ai.cta.title"><?= modulesAttr('modules.ai.cta.title') ?></h3>
-        <p class="lead-soft mb-3" data-i18n="modules.ai.cta.desc"><?= modulesAttr('modules.ai.cta.desc') ?></p>
-        <a href="contacto.php#demo" class="btn btn-brand btn-lg" data-i18n="modules.ai.cta.button"><?= modulesAttr('modules.ai.cta.button') ?></a>
       </div>
     </div>
   </section>
 
-  <section class="py-6 bg-surface text-center reveal" aria-label="<?= modulesAttr('modules.cta.title') ?>">
+  <section class="modules-ai-section reveal" id="ia" aria-label="<?= modulesAttr('modules.ai.title') ?>">
     <div class="container">
-      <div class="cta-box">
-        <h2 data-i18n="modules.cta.title"><?= modulesAttr('modules.cta.title') ?></h2>
-        <p data-i18n="modules.cta.desc"><?= modulesAttr('modules.cta.desc') ?></p>
-        <a href="contacto.php#demo" class="btn btn-brand btn-lg" data-i18n="modules.cta.primary"><?= modulesAttr('modules.cta.primary') ?></a>
+      <div class="modules-ai-panel">
+        <div class="modules-ai-panel__intro">
+          <span class="eyebrow" data-i18n="modules.ai.eyebrow"><?= modulesAttr('modules.ai.eyebrow') ?></span>
+          <h2 class="section-title" data-i18n="modules.ai.title"><?= modulesAttr('modules.ai.title') ?></h2>
+          <p class="lead-soft" data-i18n="modules.ai.desc"><?= modulesAttr('modules.ai.desc') ?></p>
+        </div>
+        <div class="modules-ai-grid">
+          <?php foreach ($modulos_ia as $mod): ?>
+            <a href="<?= getIndiceLoginUrlAttr() ?>" class="indice-module-tile indice-module-tile--gold">
+              <span class="indice-module-tile__emoji" aria-hidden="true"><?= htmlspecialchars($mod['emoji'], ENT_QUOTES, 'UTF-8') ?></span>
+              <span class="indice-module-tile__name" data-i18n="<?= htmlspecialchars($mod['title_key'], ENT_QUOTES, 'UTF-8') ?>"><?= modulesAttr($mod['title_key']) ?></span>
+            </a>
+          <?php endforeach; ?>
+        </div>
       </div>
+    </div>
+  </section>
+
+  <section class="modules-final-cta text-center reveal" aria-label="<?= modulesAttr('modules.cta.title') ?>">
+    <div class="container">
+      <h2 data-i18n="modules.cta.title"><?= modulesAttr('modules.cta.title') ?></h2>
+      <p data-i18n="modules.cta.desc"><?= modulesAttr('modules.cta.desc') ?></p>
+      <a href="<?= getIndiceLoginUrlAttr() ?>" class="btn btn-brand btn-lg" data-i18n="home_hero_cta_primary"><?= modulesAttr('home_hero_cta_primary') ?></a>
     </div>
   </section>
 

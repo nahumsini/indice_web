@@ -6,7 +6,7 @@ include 'header.php';
 
 <section class="page-hero bg-surface reveal">
 	<div class="container text-center">
-		<h1 class="display-5 fw-bold mb-3">Blog de Indice</h1>
+		<h1 class="display-5 fw-medium mb-3">Blog de Indice</h1>
 		<p class="lead lead-soft">Ideas practicas para ordenar, automatizar y escalar tu negocio.</p>
 	</div>
 </section>

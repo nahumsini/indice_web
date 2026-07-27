@@ -14,13 +14,13 @@ foreach ($articles as $article) {
 	<section class="page-hero bg-surface reveal" aria-label="Centro de ayuda">
 		<div class="container text-center">
 			<span class="eyebrow" data-i18n="help.hero.eyebrow">Guías del sistema</span>
-			<h1 class="display-5 fw-bold mb-3" data-i18n="help.hero.title">Centro de ayuda</h1>
+			<h1 class="display-5 fw-medium mb-3" data-i18n="help.hero.title">Centro de ayuda</h1>
 			<p class="lead lead-soft mx-auto mb-4" style="max-width:760px;" data-i18n="help.hero.subtitle">
 				Artículos prácticos para configurar Índice, usar módulos y resolver dudas del día a día.
 			</p>
 			<div class="d-flex flex-wrap gap-2 justify-content-center">
 				<a href="#articulos" class="btn btn-brand" data-i18n="help.hero.cta.primary">Ver artículos</a>
-				<a href="/contacto.php#demo" class="btn btn-ghost" data-i18n="help.hero.cta.secondary">Pedir ayuda</a>
+				<a href="<?= getIndiceLoginUrlAttr() ?>" class="btn btn-ghost" data-i18n="nav.login">Iniciar sesión</a>
 			</div>
 		</div>
 	</section>
@@ -59,7 +59,7 @@ foreach ($articles as $article) {
 								<p class="text-muted"><?php echo htmlspecialchars($article['excerpt'], ENT_QUOTES, 'UTF-8'); ?></p>
 								<div class="d-flex justify-content-between align-items-center gap-3 mt-3">
 									<span class="small text-muted"><?php echo htmlspecialchars($article['read_time'], ENT_QUOTES, 'UTF-8'); ?></span>
-									<a class="fw-semibold" href="/ayuda-articulo.php?slug=<?php echo urlencode($article['slug']); ?>" data-i18n="help.article.read">Leer artículo</a>
+									<a class="fw-medium" href="/ayuda-articulo.php?slug=<?php echo urlencode($article['slug']); ?>" data-i18n="help.article.read">Leer artículo</a>
 								</div>
 							</div>
 						</article>
@@ -74,7 +74,7 @@ foreach ($articles as $article) {
 			<div class="cta-box cta-box-strong">
 				<h2 data-i18n="help.cta.title">¿Falta una guía?</h2>
 				<p data-i18n="help.cta.text">Podemos agregar nuevos artículos conforme aparezcan dudas reales de clientes y usuarios.</p>
-				<a href="/contacto.php#demo" class="btn btn-brand btn-lg" data-i18n="help.cta.button">Solicitar ayuda</a>
+				<a href="<?= getIndiceLoginUrlAttr() ?>" class="btn btn-brand btn-lg" data-i18n="nav.login">Iniciar sesión</a>
 			</div>
 		</div>
 	</section>

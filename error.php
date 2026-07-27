@@ -12,7 +12,7 @@ include 'header.php';
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-8 mx-auto text-center">
-				<h1 class="display-1 fw-bold text-primary mb-3"><?php echo htmlspecialchars($error_code); ?></h1>
+				<h1 class="display-1 fw-medium text-primary mb-3"><?php echo htmlspecialchars($error_code); ?></h1>
 				<p class="lead mb-4">No pudimos mostrar la pagina solicitada.</p>
 				<a href="/index.php" class="btn btn-brand btn-lg">Volver al inicio</a>
 			</div>

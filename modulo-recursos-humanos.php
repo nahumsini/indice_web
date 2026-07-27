@@ -136,10 +136,10 @@ include 'header.php';
 						<span data-i18n="module.hr.back"><?php echo hrModuleAttr('module.hr.back'); ?></span>
 					</a>
 					<span class="eyebrow module-detail-eyebrow" data-i18n="module.hr.hero.eyebrow"><?php echo hrModuleAttr('module.hr.hero.eyebrow'); ?></span>
-					<h1 class="display-5 fw-bold text-balance mb-3" data-i18n="module.hr.hero.title"><?php echo hrModuleAttr('module.hr.hero.title'); ?></h1>
+					<h1 class="display-5 fw-medium text-balance mb-3" data-i18n="module.hr.hero.title"><?php echo hrModuleAttr('module.hr.hero.title'); ?></h1>
 					<p class="lead lead-soft mb-4" data-i18n="module.hr.hero.subtitle"><?php echo hrModuleAttr('module.hr.hero.subtitle'); ?></p>
 					<div class="d-flex flex-column flex-sm-row gap-2 hero-actions">
-						<a href="/contacto.php#demo" class="btn btn-brand btn-lg" data-i18n="module.hr.hero.cta.primary"><?php echo hrModuleAttr('module.hr.hero.cta.primary'); ?></a>
+						<a href="<?= getIndiceLoginUrlAttr() ?>" class="btn btn-brand btn-lg" data-i18n="nav.login"><?php echo hrModuleAttr('nav.login'); ?></a>
 						<a href="#control-tiempo-real" class="btn btn-ghost btn-lg" data-i18n="module.hr.hero.cta.secondary"><?php echo hrModuleAttr('module.hr.hero.cta.secondary'); ?></a>
 					</div>
 					<p class="hero-microcopy mt-3" data-i18n="module.hr.hero.microcopy"><?php echo hrModuleAttr('module.hr.hero.microcopy'); ?></p>
@@ -401,7 +401,7 @@ include 'header.php';
 				<h2 data-i18n="module.hr.cta.title"><?php echo hrModuleAttr('module.hr.cta.title'); ?></h2>
 				<p data-i18n="module.hr.cta.text"><?php echo hrModuleAttr('module.hr.cta.text'); ?></p>
 				<div class="d-flex flex-column flex-sm-row gap-2 justify-content-center">
-					<a href="/contacto.php#demo" class="btn btn-brand btn-lg" data-i18n="module.hr.cta.primary"><?php echo hrModuleAttr('module.hr.cta.primary'); ?></a>
+					<a href="<?= getIndiceLoginUrlAttr() ?>" class="btn btn-brand btn-lg" data-i18n="nav.login"><?php echo hrModuleAttr('nav.login'); ?></a>
 					<a href="/modulos.php#basicos" class="btn btn-ghost btn-lg" data-i18n="module.hr.cta.secondary"><?php echo hrModuleAttr('module.hr.cta.secondary'); ?></a>
 				</div>
 			</div>
