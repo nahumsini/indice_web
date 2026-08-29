@@ -2,6 +2,9 @@ Options -Indexes
 
 <IfModule mod_rewrite.c>
     RewriteEngine On
+    # The public pricing flow lives in the authenticated Indice application.
+    # Preserve the query string so locale and campaign parameters survive.
+    RewriteRule ^planes(?:\.php)?/?$ https://app.indiceapp.com/planes [R=302,L,NE]
     RewriteRule ^(?:data|logs)(?:/|$) - [F,L,NC]
 </IfModule>
 
