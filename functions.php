@@ -52,6 +52,14 @@ function getIndiceSignupUrlAttr() {
 	return htmlspecialchars(getIndiceSignupUrl(), ENT_QUOTES, 'UTF-8');
 }
 
+function getIndicePlansUrl() {
+	return getIndiceAppBaseUrl() . '/planes';
+}
+
+function getIndicePlansUrlAttr() {
+	return htmlspecialchars(getIndicePlansUrl(), ENT_QUOTES, 'UTF-8');
+}
+
 function sendEmail($to, $subject, $message, $headers = []) {
 	$to = sanitizeEmailHeader($to);
 	$subject = sanitizeEmailHeader($subject);

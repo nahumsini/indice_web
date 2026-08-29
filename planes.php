@@ -1,4 +1,17 @@
 <?php
+require_once __DIR__ . '/functions.php';
+
+$plansContext = resolveSiteContext();
+$plansQuery = http_build_query([
+  'locale' => $plansContext['locale'],
+  'country' => $plansContext['country'],
+]);
+
+header('Cache-Control: no-store, max-age=0');
+header('Location: ' . getIndicePlansUrl() . '?' . $plansQuery, true, 302);
+exit;
+
+// The former server-rendered configurator remains below as an immediate rollback path.
 $page_title = "Planes";
 $page_description = "Configura tu plan de Índice con módulos básicos, empleados y consultorías. Consulta tu precio mensual estimado en tiempo real.";
 include 'header.php';
