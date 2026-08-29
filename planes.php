@@ -1,14 +1,20 @@
 <?php
-require_once __DIR__ . '/functions.php';
-
-$plansContext = resolveSiteContext();
+$supportedPlanLocales = ['es-MX', 'es-CO', 'en-CA', 'fr-CA', 'zh-CA', 'ko-CA', 'pt-BR'];
+$requestedPlanLocale = (string)($_COOKIE['indice_locale'] ?? 'es-MX');
+$planLocale = in_array($requestedPlanLocale, $supportedPlanLocales, true)
+  ? $requestedPlanLocale
+  : 'es-MX';
+$requestedPlanCountry = strtoupper((string)($_COOKIE['indice_country'] ?? 'MX'));
+$planCountry = preg_match('/^[A-Z]{2}$/', $requestedPlanCountry)
+  ? $requestedPlanCountry
+  : 'MX';
 $plansQuery = http_build_query([
-  'locale' => $plansContext['locale'],
-  'country' => $plansContext['country'],
+  'locale' => $planLocale,
+  'country' => $planCountry,
 ]);
 
 header('Cache-Control: no-store, max-age=0');
-header('Location: ' . getIndicePlansUrl() . '?' . $plansQuery, true, 302);
+header('Location: https://app.indiceapp.com/planes?' . $plansQuery, true, 302);
 exit;
 
 // The former server-rendered configurator remains below as an immediate rollback path.
