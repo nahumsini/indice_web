@@ -93,7 +93,7 @@ include __DIR__ . '/header.php';
         ><?= htmlspecialchars($homeCampaign['text'], ENT_QUOTES, 'UTF-8') ?></p>
 
         <div class="home-hero-minimal__actions">
-          <a href="<?= getIndiceLoginUrlAttr() ?>" class="btn btn-brand btn-lg" data-i18n="home_hero_cta_primary">Empezar mis 30 días gratis</a>
+          <a href="/contacto.php" class="btn btn-brand btn-lg" data-i18n="home_hero_cta_primary">Diagnosticar mi empresa</a>
           <a href="/metodologia.php" class="btn btn-ghost btn-lg" data-i18n="nav.methodology">Cómo funciona</a>
         </div>
 
@@ -190,17 +190,17 @@ include __DIR__ . '/header.php';
   <section class="home-final-section" id="cta">
     <div class="container">
       <div class="home-final-section__inner">
-        <span class="home-section-kicker" data-i18n="home_cta_eyebrow">30 días de acceso total</span>
+        <span class="home-section-kicker" data-i18n="home_cta_eyebrow">Prueba guiada</span>
         <h2 data-i18n="home_cta_title">Prueba Índice con acompañamiento, no por tu cuenta.</h2>
         <p class="home-final-section__text" data-i18n="home_cta_text">
-          Tu cuenta incluye acceso completo a los módulos básicos, dos evaluaciones y una consultoría inicial para orientar la implementación de Índice en tu empresa.
+          Comienza con 15 días sin costo y acceso temporal a Corporativiza. Después de tu consultoría, un asesor autorizado puede extender tu prueba una sola vez hasta 30 días totales.
         </p>
 
         <div class="home-final-benefits" role="list">
           <div role="listitem">
             <span>01</span>
             <strong data-i18n="home_cta_step_1_title">Crea tu cuenta</strong>
-            <small data-i18n="home_cta_step_1_text">Activa 30 días de acceso total a todos los módulos básicos.</small>
+            <small data-i18n="home_cta_step_1_text">Activa 15 días de prueba sin cargo inicial.</small>
           </div>
           <div role="listitem">
             <span>02</span>
@@ -209,13 +209,13 @@ include __DIR__ . '/header.php';
           </div>
           <div role="listitem">
             <span>03</span>
-            <strong data-i18n="home_cta_step_3_title">Revisa tus resultados</strong>
-            <small data-i18n="home_cta_step_3_text">Agenda una consultoría inicial sin costo para orientar la implementación y saber si necesitas una solución más robusta.</small>
+            <strong data-i18n="home_cta_step_3_title">Diagnostica con un consultor</strong>
+            <small data-i18n="home_cta_step_3_text">Revisa tu empresa y recibe una recomendación basada en lo que realmente necesitas.</small>
           </div>
           <div role="listitem">
             <span>04</span>
             <strong data-i18n="home_cta_step_4_title">Continúa acompañado</strong>
-            <small data-i18n="home_cta_step_4_text">Sigue probando, arma tu paquete y agenda más consultorías si tu empresa lo requiere.</small>
+            <small data-i18n="home_cta_step_4_text">Confirma tu plan y continúa con una consultoría mensual incluida.</small>
           </div>
         </div>
 
@@ -226,7 +226,10 @@ include __DIR__ . '/header.php';
           </p>
         </div>
 
-        <a href="<?= getIndiceLoginUrlAttr() ?>" class="btn btn-brand btn-lg" data-i18n="home_cta_primary">Empezar mis 30 días gratis</a>
+        <div class="home-hero-minimal__actions">
+          <a href="<?= htmlspecialchars(getIndiceAppBaseUrl() . '/plans', ENT_QUOTES, 'UTF-8') ?>" class="btn btn-brand btn-lg" data-i18n="home_cta_primary">Ver planes y comenzar</a>
+          <a href="/contacto.php" class="btn btn-ghost btn-lg" data-i18n="plans.v2.hero.secondary">Diagnosticar mi empresa</a>
+        </div>
         <p class="home-final-section__note" data-i18n="home_cta_note">
           Consultorías disponibles en español e inglés. Para los demás idiomas, puedes utilizar Índice y recibir atención por chat.
         </p>

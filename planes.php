@@ -1,4 +1,7 @@
 <?php
+require __DIR__ . '/planes-v2.php';
+return;
+
 $page_title = "Planes";
 $page_description = "Configura tu plan de Índice con módulos básicos, empleados y consultorías. Consulta tu precio mensual estimado en tiempo real.";
 include 'header.php';
