@@ -64,6 +64,7 @@ $selectedLocaleFlag = $localeFlags[$serverLocale] ?? '/imgs/flags/default.svg';
     </button>
     <div class="collapse navbar-collapse" id="navMain">
       <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-1">
+        <li class="nav-item"><a class="nav-link <?php echo (basename($_SERVER['PHP_SELF'])=='index.php')?'active':''; ?>" href="/index.php" data-i18n="nav.home">Inicio</a></li>
         <li class="nav-item"><a class="nav-link <?php echo (basename($_SERVER['PHP_SELF'])=='metodologia.php')?'active':''; ?>" href="/metodologia.php" data-i18n="nav.methodology">Cómo funciona</a></li>
         <li class="nav-item"><a class="nav-link <?php echo (basename($_SERVER['PHP_SELF'])=='modulos.php')?'active':''; ?>" href="/modulos.php" data-i18n="nav.modules">Módulos</a></li>
         <li class="nav-item"><a class="nav-link <?php echo (basename($_SERVER['PHP_SELF'])=='modo-aprendiz.php')?'active':''; ?>" href="/modo-aprendiz.php" data-i18n="nav.apprentice">Modo aprendiz</a></li>
