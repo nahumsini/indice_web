@@ -1,6 +1,8 @@
 <?php
-require __DIR__ . '/planes-v2.php';
-return;
+if (is_file(__DIR__ . '/planes-v2.php')) {
+  require __DIR__ . '/planes-v2.php';
+  return;
+}
 
 $page_title = "Planes";
 $page_description = "Configura tu plan de Índice con módulos básicos, empleados y consultorías. Consulta tu precio mensual estimado en tiempo real.";
