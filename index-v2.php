@@ -31,7 +31,7 @@ $plansUrlAttr = htmlspecialchars(getIndiceAppBaseUrl() . '/plans', ENT_QUOTES, '
           <div class="home-v2-product__aura" aria-hidden="true"></div>
           <div class="home-v2-product__frame">
             <div class="home-v2-product__bar"><span></span><span></span><span></span><strong>Índice</strong></div>
-            <img src="/imgs/hero/dashboard-ui.svg?v=2" alt="Panel operativo de Índice" data-i18n-alt="home.v2.product.alt" width="1280" height="800">
+            <img src="/imgs/hero/dashboard-ui.svg?v=3" alt="Panel operativo de Índice" data-i18n-alt="home.v2.product.alt" width="1280" height="800">
           </div>
         </div>
       </div>
