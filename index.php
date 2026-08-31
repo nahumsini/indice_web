@@ -1,4 +1,9 @@
 <?php
+if (is_file(__DIR__ . '/index-v2.php')) {
+  require __DIR__ . '/index-v2.php';
+  return;
+}
+
 require_once __DIR__ . '/functions.php';
 require_once __DIR__ . '/content/home-campaigns.php';
 
