@@ -61,7 +61,7 @@ include 'header.php';
 			<p class="lead lead-soft mb-3 mx-auto" style="max-width:820px;" data-i18n="legal.privacy.hero.subtitle"><?php echo privacyAttr('legal.privacy.hero.subtitle'); ?></p>
 			<p class="small text-muted mb-0">
 				<span data-i18n="legal.common.last_updated_label"><?php echo privacyAttr('legal.common.last_updated_label'); ?></span>
-				<time datetime="2026-05-13" data-i18n="legal.common.last_updated_date"><?php echo privacyAttr('legal.common.last_updated_date'); ?></time>
+				<time datetime="2026-09-01" data-i18n="legal.common.last_updated_date"><?php echo privacyAttr('legal.common.last_updated_date'); ?></time>
 			</p>
 		</div>
 	</section>
@@ -92,6 +92,15 @@ include 'header.php';
 	</section>
 
 	<section class="py-6 bg-surface reveal">
+		<div class="container">
+			<div class="card-min p-4 p-lg-5">
+				<h2 class="h3 fw-medium mb-3" data-i18n="legal.privacy.ai.title"><?php echo privacyAttr('legal.privacy.ai.title'); ?></h2>
+				<?php privacyParagraph('legal.privacy.ai.text'); ?>
+			</div>
+		</div>
+	</section>
+
+	<section class="py-6 bg-card reveal">
 		<div class="container">
 			<div class="row g-4">
 				<div class="col-lg-6">
@@ -128,7 +137,7 @@ include 'header.php';
 		</div>
 	</section>
 
-	<section class="py-6 bg-card reveal">
+	<section class="py-6 bg-surface reveal">
 		<div class="container">
 			<div class="row g-4">
 				<div class="col-lg-6">
@@ -156,7 +165,7 @@ include 'header.php';
 		</div>
 	</section>
 
-	<section class="py-6 bg-surface reveal">
+	<section class="py-6 bg-card reveal">
 		<div class="container">
 			<div class="row g-4">
 				<div class="col-md-6 col-lg-4">
@@ -183,7 +192,7 @@ include 'header.php';
 		</div>
 	</section>
 
-	<section class="py-6 bg-card reveal">
+	<section class="py-6 bg-surface reveal">
 		<div class="container">
 			<div class="card-min p-4 p-lg-5">
 				<h2 class="h3 fw-medium mb-3" data-i18n="legal.privacy.rights.title"><?php echo privacyAttr('legal.privacy.rights.title'); ?></h2>
@@ -200,7 +209,7 @@ include 'header.php';
 		</div>
 	</section>
 
-	<section class="py-6 bg-surface reveal">
+	<section class="py-6 bg-card reveal">
 		<div class="container">
 			<div class="row g-4">
 				<div class="col-lg-6">
@@ -220,7 +229,7 @@ include 'header.php';
 		</div>
 	</section>
 
-	<section class="py-6 bg-card text-center reveal">
+	<section class="py-6 bg-surface text-center reveal">
 		<div class="container">
 			<div class="cta-box cta-box-strong">
 				<h2 data-i18n="legal.privacy.contact.title"><?php echo privacyAttr('legal.privacy.contact.title'); ?></h2>
