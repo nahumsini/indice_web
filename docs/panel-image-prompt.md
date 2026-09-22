@@ -1,0 +1,8 @@
+# Panel Inicial — ilustración de estructura
+
+Archivo: `imgs/panel-business-structure-v1.png`
+Método: herramienta integrada image_gen. Fecha: 2026-09-22.
+
+## Prompt utilizado
+
+Create a premium editorial 3D isometric illustration for Índice ERP website, landscape 1536x1024. White to very pale blue background, polished cobalt blue (#2563eb), navy and gentle aqua accents, subtle soft shadows, exceptionally clean composition. Explain one business owner managing multiple different business types from a central shared management system. Upper center: a beautiful blue central headquarters / organizational hub. Thin elegant blue branching connection lines visibly connect it to THREE separate detailed miniature business scenes in the lower half: left a restaurant with outdoor tables, awning and kitchen hint; center a retail store with shelving, shopping bags and checkout; right a services/workshop business with workbench, tools and a service van. Each business has small distinct connected people/avatar nodes, representing its own team, and one or two small branch/location markers. Hierarchy must be immediately readable: ONE central organizational hub, THREE different businesses, their teams. Warm approachable sophistication, tangible architectural miniature buildings, precise restrained 3D rendering, generous white space between scenes, no clutter, no fake dashboards, no UI screenshots, no numbers, NO TEXT whatsoever, no labels, no watermarks, no actual logos. This is an explanatory hero illustration, all essential objects comfortably within frame. Output the image and provide its saved local file path.
