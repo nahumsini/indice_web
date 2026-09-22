@@ -80,3 +80,20 @@ html{scroll-behavior:smooth;scroll-padding-top:105px}body{color:var(--mk-ink);ba
 
 /* Inventory keeps the product module coral with readable text. */
 .mk-inventory-showcase .mk-hr-jump a{border-color:#c3473d;color:#a6362d;background:#fff3f1}.mk-inventory-showcase .mk-hr-jump a:hover{background:#ffe4df}.mk-inventory-showcase .mk-hr-shot{border-color:#f1c4bd}.mk-inventory-showcase .mk-info-card{border-top:3px solid #ff6b5e}.mk-inventory-showcase .mk-info-card h2{font-size:1.7rem}.mk-inventory-showcase .mk-info-card p{margin-bottom:0}
+
+/* POS: general retail first, with a dedicated food and beverage section. */
+.mk-pos-hero-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:48px;align-items:center;margin-top:12px}
+.mk-pos-showcase .mk-page-hero h1{font-size:clamp(2.3rem,4vw,3.8rem)}
+.mk-pos-hero-photo{display:block;width:100%;height:auto;aspect-ratio:1/1;object-fit:cover;object-position:78% center;border-radius:20px}
+.mk-pos-showcase .mk-hr-jump a{border-color:#c3473d;color:#a6362d;background:#fff3f1}
+.mk-pos-showcase .mk-hr-jump a:hover{background:#ffe4df}
+.mk-pos-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
+.mk-pos-grid-two{grid-template-columns:repeat(2,minmax(0,1fr))}
+.mk-pos-grid .mk-info-card{border-top:3px solid #ff6b5e;min-width:0}
+.mk-pos-grid p{margin-bottom:0}
+.mk-pos-icon{display:grid;place-items:center;width:48px;height:48px;margin-bottom:24px;border-radius:12px;background:#fff3f1;color:#a6362d;font-size:1.35rem}
+@media(max-width:991px){.mk-pos-hero-grid{grid-template-columns:1fr;gap:24px}.mk-pos-hero-photo{aspect-ratio:16/9;max-height:400px}.mk-pos-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:700px){.mk-pos-grid{grid-template-columns:1fr}.mk-pos-grid .mk-info-card{padding:26px}.mk-pos-showcase .mk-button{max-width:100%;white-space:normal;text-align:center}.mk-pos-showcase .mk-hr-jump a{display:flex;justify-content:space-between;gap:12px}}
+
+/* POS interface showcase: concise sections, optional feature detail. */
+.mk-pos-intro{margin-top:12px;max-width:1000px}.mk-pos-showcase .mk-hr-shot{border-color:#f1c4bd}.mk-pos-showcase .mk-section-heading{margin-bottom:0;text-align:left}.mk-pos-details{margin-top:32px;border-top:1px solid #f1c4bd;padding-top:20px}.mk-pos-details summary{cursor:pointer;font-weight:600;color:#a6362d;padding:12px 0}.mk-pos-details[open] summary{margin-bottom:20px}

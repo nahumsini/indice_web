@@ -47,7 +47,7 @@ $selectedLocaleFlag = $localeFlags[$serverLocale] ?? '/imgs/flags/default.svg';
   <!-- Estilos del sitio -->
   <link rel="stylesheet" href="/css/brand.css?v=20260921">
   <link rel="stylesheet" href="/css/style.css?v=20260831-2">
-  <link rel="stylesheet" href="/css/marketing.css?v=20260922-12">
+  <link rel="stylesheet" href="/css/marketing.css?v=20260922-pos-2">
   <?php if (!empty($home_slider)): ?><link rel="stylesheet" href="/css/hero-slider.css?v=20260922-8"><?php endif; ?>
   <link rel="icon" type="image/svg+xml" href="/imgs/logo-mark.svg">
 </head>
