@@ -2,6 +2,38 @@
 
 Sitio oficial de [Índice](https://indiceapp.com), plataforma de gestión empresarial para PyMEs.
 
+## Actualización comercial y visual — 2026-09-21
+
+La web utiliza la identidad azul del ERP y presenta el posicionamiento de ERP personalizado
+con Lupita y cuatro especialistas. La referencia comercial es
+`Indice_base_SAAS/docs/INDICE_MAESTRO_COMERCIAL_Y_AGENTES.md`.
+
+- `index.php` y `planes.php` cargan las plantillas activas `index-v2.php` y `planes-v2.php`.
+- `css/marketing.css` organiza las nuevas superficies; `css/brand.css` conserva los colores de
+  módulos y usa azul para acciones de producto.
+- `content/marketing.php` reutiliza los diccionarios y la detección de idioma existentes.
+- `content/commercial-offer.json` contiene la referencia de la nueva propuesta comercial en
+  centavos. `js/commercial-estimate.js` calcula estimaciones, nunca cargos ni derechos de acceso.
+- Los nuevos llamados comerciales llevan a `contacto.php`, que conserva el endpoint, los campos,
+  CSRF y honeypot existentes. La conversación de portada es un ejemplo ilustrativo.
+- La página `/plans` del SaaS conserva su catálogo publicado y su flujo de registro. Sólo se
+  alineó su identidad azul en esta tarea. No dirigir la nueva oferta a su checkout hasta adaptar
+  y verificar el contrato de billing; no sincronizar estos importes automáticamente a Stripe.
+- La estimación deja de mostrar la promoción cuando el mes UTC supera octubre de 2026. Es una
+  regla de presentación, no un mecanismo de reserva o cobro: elegibilidad y condiciones se
+  confirman en la propuesta. Más de 50 personas requiere cotización de alta.
+- No se añaden rutas: se conservan URLs de páginas y módulos. No se modificaron secretos,
+  integraciones de pago, condiciones legales ni APIs.
+
+Validaciones del cambio: PHP lint, pruebas del estimador (`node --test tests/commercial-estimate.test.cjs`),
+comprobación HTTP de páginas/enlaces y claves de traducción. La vista previa local deshabilita
+los envíos de formularios. La revisión visual en navegador y la entrega real de contactos
+requieren verificación adicional; no se enviaron mensajes de prueba.
+
+Las descripciones anteriores del catálogo en la documentación restante deben interpretarse
+como contexto previo; la nueva oferta se rige por la referencia comercial indicada arriba.
+
+
 ## Stack
 
 - **PHP 8.4 plano** (sin framework, sin build system).
@@ -127,3 +159,24 @@ CONTACT_TO=info@indiceapp.com
 
 - contacto@indiceapp.com
 - Ver [SECURITY_CLEANUP_REPORT.md](SECURITY_CLEANUP_REPORT.md) para el detalle del último hardening.
+
+
+## Portada comercial y agentes
+
+La portada presenta el ERP personalizado y los agentes de IA. Recorre nueve módulos (sin Panel) con fotografías ilustrativas y un chat continuo translúcido. `js/module-hero.js` sincroniza imagen, conversación, etiqueta y enlace cada **5 segundos**. El botón de cada módulo aparece con los dos CTA principales, usa su familia de color y describe sus funciones. Los ejemplos usan personas y cifras ficticias en MXN; no realizan llamadas a agentes.
+
+- Vista: `index-v2.php`, `content/hero-slider.php` y `css/hero-slider.css`.
+- Activos: `imgs/hero-module-*-v1.jpg`; prompts en `docs/hero-module-images.md`.
+- Textos: claves `brand26.*` de los diez diccionarios.
+- Planes: `content/commercial-offer.json` y `js/commercial-estimate.js` calculan una estimación comercial; no cambian los precios de Stripe ni el registro.
+- Los anteriores `js/hero-slider.js` y `js/hero-chat.js` se conservan como versiones previas y no se cargan en el home.
+
+La navegación manual, el uso del historial y el enfoque del botón de módulo pausan el recorrido. Se suspende con la pestaña oculta o fuera de pantalla; con movimiento reducido inicia estático. Sin JavaScript se muestra RH. Se conservan hasta nueve intercambios en el historial.
+
+### Validación
+
+`node --test tests/*.test.cjs` valida la estimación comercial y las secuencias. Validar también PHP, JSON, sintaxis JS, enlaces y recursos locales. La versión móvil se comprobó en Chrome con anchos de 320, 360, 390 y 430 px; tablet/escritorio en 768, 1024 y 1440 px. Sin desbordamiento horizontal; menú móvil, nueve enlaces e historial revisados. En móvil, los CTA ocupan el ancho disponible y los controles tienen áreas táctiles de al menos 44 px.
+
+### Alcance de publicación
+
+Publicar los archivos web y recursos versionados mediante el servidor configurado, con copia previa de los archivos reemplazados. No transferir `.env`, `.vscode`, `.git`, registros privados ni configuración local. Esta publicación no despliega el ERP ni modifica cobros.

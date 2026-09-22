@@ -1,5 +1,6 @@
 <?php
 require_once __DIR__ . '/functions.php';
+require_once __DIR__ . '/content/marketing.php';
 $siteCtx = resolveSiteContext();
 $serverLocale  = $siteCtx['locale'];
 $serverCountry = $siteCtx['country'];
@@ -44,11 +45,14 @@ $selectedLocaleFlag = $localeFlags[$serverLocale] ?? '/imgs/flags/default.svg';
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <!-- Estilos del sitio -->
-  <link rel="stylesheet" href="/css/brand.css">
+  <link rel="stylesheet" href="/css/brand.css?v=20260921">
   <link rel="stylesheet" href="/css/style.css?v=20260831-2">
+  <link rel="stylesheet" href="/css/marketing.css?v=20260921">
+  <?php if (!empty($home_slider)): ?><link rel="stylesheet" href="/css/hero-slider.css?v=20260922-8"><?php endif; ?>
   <link rel="icon" type="image/svg+xml" href="/imgs/logo-mark.svg">
 </head>
 <body>
+<a class="mk-skip" href="#site-content"><?= marketingText('skip') ?></a>
 
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg navbar-custom fixed-top">
@@ -59,15 +63,14 @@ $selectedLocaleFlag = $localeFlags[$serverLocale] ?? '/imgs/flags/default.svg';
       </span>
       <span class="visually-hidden">Índice</span>
     </a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMain" aria-controls="navMain" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMain" aria-controls="navMain" aria-expanded="false" aria-label="<?= htmlspecialchars(marketingString('menu'), ENT_QUOTES, 'UTF-8') ?>" data-i18n-aria-label="brand26.menu">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navMain">
       <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-1">
-        <li class="nav-item"><a class="nav-link <?php echo (basename($_SERVER['PHP_SELF'])=='index.php')?'active':''; ?>" href="/index.php" data-i18n="nav.home">Inicio</a></li>
+        <li class="nav-item"><a class="nav-link" href="/index.php#lupita"><?= marketingText('nav.agents') ?></a></li>
         <li class="nav-item"><a class="nav-link <?php echo (basename($_SERVER['PHP_SELF'])=='metodologia.php')?'active':''; ?>" href="/metodologia.php" data-i18n="nav.methodology">Cómo funciona</a></li>
         <li class="nav-item"><a class="nav-link <?php echo (basename($_SERVER['PHP_SELF'])=='modulos.php')?'active':''; ?>" href="/modulos.php" data-i18n="nav.modules">Módulos</a></li>
-        <li class="nav-item"><a class="nav-link <?php echo (basename($_SERVER['PHP_SELF'])=='modo-aprendiz.php')?'active':''; ?>" href="/modo-aprendiz.php" data-i18n="nav.apprentice">Modo aprendiz</a></li>
         <li class="nav-item"><a class="nav-link <?php echo (basename($_SERVER['PHP_SELF'])=='planes.php')?'active':''; ?>" href="/planes.php" data-i18n="nav.plans">Planes</a></li>
         <li class="nav-item ms-lg-2 me-lg-2 mt-2 mt-lg-0">
           <label class="visually-hidden" for="localeSelector" data-i18n="nav.countryLabel">País e idioma</label>
@@ -82,8 +85,11 @@ $selectedLocaleFlag = $localeFlags[$serverLocale] ?? '/imgs/flags/default.svg';
             </select>
           </div>
         </li>
-        <li class="nav-item ms-lg-1"><a class="nav-link btn-nav-cta" href="<?= getIndiceLoginUrlAttr() ?>" data-i18n="nav.login">Iniciar sesión</a></li>
+        <li class="nav-item ms-lg-1"><a class="nav-link" href="<?= getIndiceLoginUrlAttr() ?>" data-i18n="nav.login">Iniciar sesión</a></li>
+        <li class="nav-item"><a class="mk-button mk-nav-button" href="/contacto.php"><?= marketingText('cta.short') ?></a></li>
       </ul>
     </div>
   </div>
 </nav>
+
+<div id="site-content" tabindex="-1">

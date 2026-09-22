@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
             var status = document.getElementById('contactStatus');
             if (status) {
-                status.textContent = 'Enviando...';
+                status.textContent = getFormCopy(contactForm, 'sending', 'Enviando...');
                 status.className = 'small text-muted';
             }
 
@@ -72,13 +72,13 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
 
                 if (status) {
-                    status.textContent = 'Mensaje enviado correctamente. Te contactaremos pronto.';
+                    status.textContent = getFormCopy(contactForm, 'success', 'Mensaje enviado correctamente. Te contactaremos pronto.');
                     status.className = 'small text-success';
                 }
                 contactForm.reset();
             } catch (err) {
                 if (status) {
-                    status.textContent = err.message || 'Error al enviar el mensaje.';
+                    status.textContent = getFormCopy(contactForm, 'error', 'Error al enviar el mensaje.');
                     status.className = 'small text-danger';
                 }
             }

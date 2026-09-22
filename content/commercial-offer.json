@@ -1,0 +1,12 @@
+{
+  "reference": "commercial-master-2026-09-21",
+  "includedPeople": 10,
+  "blockSize": 10,
+  "annualDiscountPercent": 20,
+  "promotionThroughMonth": "2026-10",
+  "markets": {
+    "MX": {"currency":"MXN","base":[299900,549900,949900],"block":89900,"setup":[999900,1499900,2499900],"setupPromotion":[499900,749950,1249950]},
+    "US": {"currency":"USD","base":[17900,32900,54900],"block":5500,"setup":[59900,89900,149900],"setupPromotion":[29900,44900,74900]},
+    "CA": {"currency":"CAD","base":[24900,44900,77900],"block":7500,"setup":[82900,124900,207900],"setupPromotion":[40900,61900,103900]}
+  }
+}
