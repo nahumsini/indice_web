@@ -28,7 +28,7 @@ separada. La promoción de implementación se oculta después de octubre de 2026
 sincronizan automáticamente al catálogo USD ni a Stripe. `content/commercial-offer.json`
 permanece como referencia histórica del estimador anterior, no como fuente de la página actual.
 
-Desplegar primero backend y migraciones V289–V290, luego configurar ambos secretos y finalmente
+Desplegar primero backend y las migraciones de leads de la versión aprobada, luego configurar ambos secretos y finalmente
 publicar esta web. Verificar en staging un envío sintético y su aparición única en la bandeja;
 no enviar leads reales de prueba sin consentimiento. El rollback web restaura la versión
 anterior; la migración conserva los prospectos existentes. Ver el contrato
