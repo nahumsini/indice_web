@@ -25,9 +25,11 @@ include 'header.php'; // navbar, meta tags, Bootstrap CSS
 |------|---------|
 | [index.php](index.php) | Home tipográfico con mensaje principal personalizado por país |
 | [modulos.php](modulos.php) | Modules page, data from [js/modulos-data.json](js/modulos-data.json) |
-| [planes.php](planes.php) | Current pricing page (3 tiers: Control/Escala/Corporativo) |
+| [planes.php](planes.php) | Public MXN pricing comparison; each CTA leads to the diagnosis form |
+| [content/public-plans-mx.json](content/public-plans-mx.json) | Approved MX prices and dated implementation promotion |
+| [diagnostico.php](diagnostico.php) | Single public lead form for website and social campaigns |
 | [registro.php](registro.php) | Multi-step registration — connects to production DB + Stripe |
-| [api/contact.php](api/contact.php) | POST `{nombre,email,pais,mensaje}` → logs to `/logs/contact.log` |
+| [api/contact.php](api/contact.php) | Validates and signs the lead for the Platform Admin inbox; no local PII log |
 | [api/capture_registration.php](api/capture_registration.php) | POST `{nombre,email,pais,empresa,telefono}` → logs to `/logs/` |
 
 ## i18n System
@@ -65,6 +67,8 @@ include 'header.php'; // navbar, meta tags, Bootstrap CSS
 - [registro.php](registro.php) is production-connected (real DB, Stripe) — test carefully
 - `/data/registrations/` and `/logs/` must not be web-accessible (check `.htaccess`)
 - No `.env` in version control
+- The public lead intake uses `INDICE_LEAD_INGEST_SECRET` on this host and the matching
+  `APP_PLATFORM_LEAD_INGEST_SECRET` on the app backend. Never expose either to browser JavaScript.
 
 ## Deployment
 

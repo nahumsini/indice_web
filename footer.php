@@ -24,9 +24,10 @@
         <ul class="site-footer__links list-unstyled mt-3">
           <li class="mb-2"><a href="/index.php#lupita"><?= marketingText('nav.agents') ?></a></li>
           <li class="mb-2"><a href="/modulos.php" data-i18n="nav.modules">Módulos</a></li>
+          <li class="mb-2"><a href="/planes.php" data-i18n="nav.plans">Planes</a></li>
           <li class="mb-2"><a href="/metodologia.php" data-i18n="nav.methodology">Metodología</a></li>
           <li class="mb-2"><a href="/modo-aprendiz.php" data-i18n="nav.apprentice">Modo aprendiz</a></li>
-          <li class="mb-2"><a href="/planes.php" data-i18n="nav.plans">Planes</a></li>
+          <li class="mb-2"><a href="/diagnostico.php"><?= marketingText('cta.short') ?></a></li>
         </ul>
       </div>
       <div class="col-6 col-lg-2">
@@ -40,7 +41,7 @@
       <div class="col-12 col-lg-3">
         <h6 class="site-footer__heading" data-i18n="footer.support">Soporte</h6>
         <ul class="site-footer__links list-unstyled mt-3">
-          <li class="mb-2"><a href="/contacto.php" data-i18n="footer.links.contact">Contacto</a></li>
+          <li class="mb-2"><a href="/diagnostico.php" data-i18n="footer.links.contact">Contacto</a></li>
           <li class="mb-2"><a href="<?= getIndiceLoginUrlAttr() ?>" data-i18n="nav.login">Iniciar sesión</a></li>
           <li class="mb-2"><a href="/privacidad.php" data-i18n="footer.privacy">Privacidad</a></li>
           <li class="mb-2"><a href="/terminos.php" data-i18n="footer.terms">Términos</a></li>
@@ -69,6 +70,6 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <!-- Scripts del sitio -->
 <script src="/js/i18n.js"></script>
-<script src="/js/main.js?v=20260921"></script>
+<script src="/js/main.js?v=20261004-pricing"></script>
 </body>
 </html>

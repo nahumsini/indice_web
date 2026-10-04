@@ -11,7 +11,7 @@ include 'header.php';
     <div class="mk-panel-hero-grid">
       <div><p class="mk-eyebrow"><span aria-hidden="true">🏠</span><span data-i18n="modules.core.panel.title"><?= htmlspecialchars(basicModuleText('modules.core.panel.title'), ENT_QUOTES, 'UTF-8') ?></span></p>
         <h1><?= marketingText('panel.title') ?></h1><p class="mk-lead"><?= marketingText('panel.intro') ?></p>
-        <div class="mk-actions"><a class="mk-button" href="/contacto.php"><?= marketingText('cta') ?> ↗</a><a class="mk-text-link" href="/planes.php"><?= marketingText('plans.link') ?> →</a></div>
+        <div class="mk-actions"><a class="mk-button" href="/diagnostico.php"><?= marketingText('cta') ?> ↗</a><a class="mk-text-link" href="/metodologia.php"><span data-i18n="nav.methodology">Cómo funciona</span> →</a></div>
       </div>
       <figure class="mk-panel-illustration"><img src="/imgs/panel-business-structure-v1.png" width="1536" height="1024" alt="<?= htmlspecialchars(marketingString('panel.visual.alt'), ENT_QUOTES, 'UTF-8') ?>" data-i18n-alt="brand26.panel.visual.alt" fetchpriority="high"><figcaption><?= marketingText('panel.visual.caption') ?></figcaption></figure>
     </div>

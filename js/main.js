@@ -33,8 +33,27 @@ document.addEventListener('DOMContentLoaded', function () {
         revealEls.forEach(function (el) { el.classList.add('in'); });
     }
 
+    var attributionKeys = ['utm_source', 'utm_medium', 'utm_campaign'];
+    var attribution = {};
+    try {
+        attribution = JSON.parse(sessionStorage.getItem('indiceLeadAttribution') || '{}') || {};
+        var search = new URLSearchParams(window.location.search);
+        attributionKeys.forEach(function (key) {
+            var value = search.get(key);
+            if (value) attribution[key] = value.slice(0, key === 'utm_campaign' ? 150 : 100);
+        });
+        if (!attribution.landingPath) attribution.landingPath = window.location.pathname;
+        sessionStorage.setItem('indiceLeadAttribution', JSON.stringify(attribution));
+    } catch (ignored) {
+        attribution = { landingPath: window.location.pathname };
+    }
+
     var contactForm = document.getElementById('contactForm');
     if (contactForm) {
+        var submissionId = window.crypto && window.crypto.randomUUID ? window.crypto.randomUUID() : '';
+        contactForm.addEventListener('input', function () {
+            if (window.crypto && window.crypto.randomUUID) submissionId = window.crypto.randomUUID();
+        });
         contactForm.addEventListener('submit', async function (e) {
             e.preventDefault();
 
@@ -45,10 +64,19 @@ document.addEventListener('DOMContentLoaded', function () {
             }
 
             var payload = {
-                nombre: (document.getElementById('nombre') || {}).value || '',
+                submissionId: submissionId,
+                fullName: (document.getElementById('fullName') || {}).value || '',
+                companyName: (document.getElementById('companyName') || {}).value || '',
                 email: (document.getElementById('email') || {}).value || '',
-                pais: (document.getElementById('pais') || {}).value || '',
-                mensaje: (document.getElementById('mensaje') || {}).value || '',
+                phone: (document.getElementById('phone') || {}).value || '',
+                country: (document.getElementById('country') || {}).value || '',
+                challenge: (document.getElementById('challenge') || {}).value || '',
+                contactConsent: Boolean((document.getElementById('contactConsent') || {}).checked),
+                landingPath: attribution.landingPath || window.location.pathname,
+                utmSource: attribution.utm_source || '',
+                utmMedium: attribution.utm_medium || '',
+                utmCampaign: attribution.utm_campaign || '',
+                planInterest: (document.getElementById('planInterest') || {}).value || '',
                 csrf_token: getCsrfToken(),
                 company_website: (contactForm.querySelector('[name="company_website"]') || {}).value || ''
             };
@@ -76,6 +104,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     status.className = 'small text-success';
                 }
                 contactForm.reset();
+                if (window.crypto && window.crypto.randomUUID) submissionId = window.crypto.randomUUID();
             } catch (err) {
                 if (status) {
                     status.textContent = getFormCopy(contactForm, 'error', 'Error al enviar el mensaje.');

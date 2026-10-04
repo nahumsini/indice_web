@@ -47,7 +47,7 @@ $selectedLocaleFlag = $localeFlags[$serverLocale] ?? '/imgs/flags/default.svg';
   <!-- Estilos del sitio -->
   <link rel="stylesheet" href="/css/brand.css?v=20260921">
   <link rel="stylesheet" href="/css/style.css?v=20260831-2">
-  <link rel="stylesheet" href="/css/marketing.css?v=20260922-pos-2">
+  <link rel="stylesheet" href="/css/marketing.css?v=20261004-pricing-scope">
   <?php if (!empty($home_slider)): ?><link rel="stylesheet" href="/css/hero-slider.css?v=20260922-8"><?php endif; ?>
   <link rel="icon" type="image/svg+xml" href="/imgs/logo-mark.svg">
 </head>
@@ -86,7 +86,7 @@ $selectedLocaleFlag = $localeFlags[$serverLocale] ?? '/imgs/flags/default.svg';
           </div>
         </li>
         <li class="nav-item ms-lg-1"><a class="nav-link" href="<?= getIndiceLoginUrlAttr() ?>" data-i18n="nav.login">Iniciar sesión</a></li>
-        <li class="nav-item"><a class="mk-button mk-nav-button" href="/contacto.php"><?= marketingText('cta.short') ?></a></li>
+        <li class="nav-item"><a class="mk-button mk-nav-button" href="/diagnostico.php"><?= marketingText('cta.short') ?></a></li>
       </ul>
     </div>
   </div>

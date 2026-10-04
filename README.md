@@ -2,20 +2,55 @@
 
 Sitio oficial de [Índice](https://indiceapp.com), plataforma de gestión empresarial para PyMEs.
 
+## Flujo comercial vigente — 2026-10-04
+
+La web conserva el diseño de portada y metodología, pero ahora ofrece un único siguiente paso:
+**solicitar un diagnóstico empresarial inicial sin costo** en `diagnostico.php`. La landing
+también funciona como destino directo de campañas de redes; conserva UTM y el plan de interés
+para la bandeja del Administrador de Plataforma. `contacto.php` redirige a esa landing;
+`planes.php` publica los tres planes mexicanos confirmados y todos sus CTA llegan al mismo
+diagnóstico. No hay
+contratación ni prueba inmediata desde la web. Un consultor contacta al prospecto; la prueba
+guiada de agentes de 15 días se considera solamente después de completar el diagnóstico.
+
+`api/contact.php` valida CSRF, honeypot, consentimiento, campos y límite de 5 envíos por IP en
+10 minutos. Envía una solicitud firmada por HMAC a
+`/api/v1/public/platform-leads` del backend de Índice. No guarda datos personales en logs
+locales ni responde éxito si el backend no confirma la recepción. Requiere
+`INDICE_LEAD_INGEST_SECRET` en el `.env` privado de este host, igual al valor de
+`APP_PLATFORM_LEAD_INGEST_SECRET` del backend (32 caracteres aleatorios como mínimo). El
+directorio privado `data/rate_limit/` debe ser escribible por PHP; de lo contrario la recepción
+falla cerrada.
+
+Los precios públicos aprobados están en `content/public-plans-mx.json`: Controla $2,999,
+Escala $5,499 y Corporativo $9,499 MXN al mes, con anualidades, módulos y puesta en marcha
+separada. La promoción de implementación se oculta después de octubre de 2026. No se
+sincronizan automáticamente al catálogo USD ni a Stripe. `content/commercial-offer.json`
+permanece como referencia histórica del estimador anterior, no como fuente de la página actual.
+
+Desplegar primero backend y migraciones V289–V290, luego configurar ambos secretos y finalmente
+publicar esta web. Verificar en staging un envío sintético y su aparición única en la bandeja;
+no enviar leads reales de prueba sin consentimiento. El rollback web restaura la versión
+anterior; la migración conserva los prospectos existentes. Ver el contrato
+`Indice_base_SAAS/docs/platform-lead-diagnosis-flow-v1.md`.
+
+La sección siguiente documenta la implementación anterior del 2026-09-21 y no define el CTA
+comercial vigente.
+
 ## Actualización comercial y visual — 2026-09-21
 
 La web utiliza la identidad azul del ERP y presenta el posicionamiento de ERP personalizado
-con Lupita y cuatro especialistas. La referencia comercial es
-`Indice_base_SAAS/docs/INDICE_MAESTRO_COMERCIAL_Y_AGENTES.md`.
+con Lupita y cuatro especialistas. El recorrido comercial vigente está documentado en
+`Indice_base_SAAS/docs/platform-lead-diagnosis-flow-v1.md`.
 
-- `index.php` y `planes.php` cargan las plantillas activas `index-v2.php` y `planes-v2.php`.
+- `index.php` carga `index-v2.php`; `planes-v2.php` redirige a la página pública actual.
 - `css/marketing.css` organiza las nuevas superficies; `css/brand.css` conserva los colores de
   módulos y usa azul para acciones de producto.
 - `content/marketing.php` reutiliza los diccionarios y la detección de idioma existentes.
 - `content/commercial-offer.json` contiene la referencia de la nueva propuesta comercial en
   centavos. `js/commercial-estimate.js` calcula estimaciones, nunca cargos ni derechos de acceso.
-- Los nuevos llamados comerciales llevan a `contacto.php`, que conserva el endpoint, los campos,
-  CSRF y honeypot existentes. La conversación de portada es un ejemplo ilustrativo.
+- Los llamados comerciales vigentes llevan a `diagnostico.php`. La conversación de portada
+  sigue siendo un ejemplo ilustrativo.
 - La página `/plans` del SaaS conserva su catálogo publicado y su flujo de registro. Sólo se
   alineó su identidad azul en esta tarea. No dirigir la nueva oferta a su checkout hasta adaptar
   y verificar el contrato de billing; no sincronizar estos importes automáticamente a Stripe.
@@ -55,14 +90,15 @@ Indice_web/
 ├── functions.php           # env loader, sanitizeInput, sendEmail,
 │                           # detección de país, CSRF, rate limit, honeypot
 ├── index.php               # home tipográfico con mensaje por mercado
-├── planes.php              # única página activa de planes
+├── planes.php              # precios públicos MXN; CTA al diagnóstico
+├── diagnostico.php         # único formulario público de prospectos
 ├── modulos.php             # módulos (datos en js/modulos-data.json)
 ├── metodologia.php
 ├── nosotros.php
-├── contacto.php            # form contacto (CSRF + honeypot)
+├── contacto.php            # redirección a diagnostico.php
 ├── registro.php            # ⚠ acoplado a app.indiceapp.com (DB + Stripe)
 ├── api/
-│   ├── contact.php         # POST JSON, CSRF, rate limit, honeypot
+│   ├── contact.php         # POST JSON, CSRF, rate limit, HMAC hacia app
 │   └── capture_registration.php
 ├── auth/                   # (vacío tras limpieza)
 ├── i18n/                   # es-MX, es-CO, en-CA, en-US, fr-CA, pt-BR, zh-CN, ko-KR
@@ -92,7 +128,7 @@ Indice_web/
 
 ## i18n
 
-- 8 locales soportados: `es-MX` (default), `es-CO`, `en-CA`, `en-US`, `fr-CA`, `pt-BR`, `zh-CN`, `ko-KR`.
+- 10 locales soportados: `es-MX` (default), `es-CO`, `en-CA`, `en-US`, `fr-CA`, `pt-BR`, `zh-CA`, `zh-CN`, `ko-CA`, `ko-KR`.
 - Detección server-side: Cloudflare → cookie → IP (cache 30 días en `data/geo_cache/`).
 - Detección client-side: `localStorage` → `data-server-locale` → `navigator.languages`.
 - Atributos: `data-i18n`, `data-i18n-html`, `data-i18n-placeholder`, `data-i18n-aria-label`, `data-i18n-title`.
@@ -118,6 +154,7 @@ php -l index.php
 php -l planes.php
 php -l metodologia.php
 php -l contacto.php
+php -l diagnostico.php
 php -l registro.php
 php -l api/contact.php
 php -l api/capture_registration.php
@@ -130,12 +167,14 @@ Manual:
 
 1. Home carga.
 2. Navbar y selector de idioma funcionan.
-3. `planes.php` muestra los 3 planes correctos.
-4. Form de contacto envía y recibe `{ok:true}`.
+3. `planes.php` muestra los tres precios e inclusiones; `contacto.php` redirige a `diagnostico.php`.
+4. El formulario crea un único prospecto en Administrador de Plataforma y recibe `{ok:true}`.
 5. Registro responde sin exponer paths internos si falla bootstrap.
 6. No se ven keys i18n crudas (`nav.home`).
 7. Assets (CSS/JS/imágenes) cargan.
 8. `/data/`, `/logs/`, `/.env` devuelven 403 desde el navegador.
+
+Contrato de precios publicados: `node --test tests/public-plans.test.cjs`.
 
 ## Flujo de despliegue recomendado
 

@@ -64,7 +64,7 @@ include 'header.php';
 					<h1 class="display-4 fw-medium text-balance mb-3" data-i18n="learning.hero.title"><?= learningAttr('learning.hero.title') ?></h1>
 					<p class="lead lead-soft mb-4" data-i18n="learning.hero.subtitle"><?= learningAttr('learning.hero.subtitle') ?></p>
 					<div class="d-flex flex-column flex-sm-row gap-2 hero-actions">
-						<a href="/contacto.php" class="btn btn-brand btn-lg"><?= marketingText('cta') ?></a>
+						<a href="/diagnostico.php" class="btn btn-brand btn-lg"><?= marketingText('cta') ?></a>
 						<a href="#como-aprendes" class="btn btn-ghost btn-lg" data-i18n="learning.hero.secondary"><?= learningAttr('learning.hero.secondary') ?></a>
 					</div>
 					<p class="hero-microcopy mt-3" data-i18n="learning.hero.microcopy"><?= learningAttr('learning.hero.microcopy') ?></p>
@@ -186,7 +186,7 @@ include 'header.php';
 				<h2 data-i18n="learning.cta.title"><?= learningAttr('learning.cta.title') ?></h2>
 				<p data-i18n="learning.cta.desc"><?= learningAttr('learning.cta.desc') ?></p>
 				<div class="d-flex flex-column flex-sm-row gap-2 justify-content-center mt-4">
-					<a href="/contacto.php" class="btn btn-brand btn-lg"><?= marketingText('cta') ?></a>
+					<a href="/diagnostico.php" class="btn btn-brand btn-lg"><?= marketingText('cta') ?></a>
 					<a href="/modulos.php#basicos" class="btn btn-ghost btn-lg" data-i18n="learning.cta.secondary"><?= learningAttr('learning.cta.secondary') ?></a>
 				</div>
 			</div>

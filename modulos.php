@@ -22,7 +22,7 @@ function moduleCatalogText(string $key): string {
   return '<span data-i18n="' . htmlspecialchars($key, ENT_QUOTES, 'UTF-8') . '">' . htmlspecialchars($moduleCopy[$key] ?? '', ENT_QUOTES, 'UTF-8') . '</span>';
 }
 ?>
-<main id="main-content" class="mk-page"><section class="mk-section mk-page-hero"><div class="mk-container"><p class="mk-eyebrow"><?= marketingText('hero.eyebrow') ?></p><h1><?= marketingText('modules.title') ?></h1><p class="mk-lead"><?= marketingText('modules.text') ?></p><div class="mk-actions"><a class="mk-button" href="/planes.php"><?= marketingText('plans.link') ?> ↗</a><a class="mk-text-link" href="/index.php#lupita"><?= marketingText('nav.agents') ?> →</a></div></div></section><section class="mk-section"><div class="mk-container"><div class="mk-module-grid mk-catalog-grid">
+<main id="main-content" class="mk-page"><section class="mk-section mk-page-hero"><div class="mk-container"><p class="mk-eyebrow"><?= marketingText('hero.eyebrow') ?></p><h1><?= marketingText('modules.title') ?></h1><p class="mk-lead"><?= marketingText('modules.text') ?></p><div class="mk-actions"><a class="mk-button" href="/diagnostico.php"><?= marketingText('cta') ?> ↗</a><a class="mk-text-link" href="/index.php#lupita"><?= marketingText('nav.agents') ?> →</a></div></div></section><section class="mk-section"><div class="mk-container"><div class="mk-module-grid mk-catalog-grid">
 <?php foreach ($modules as [$key,$route,$emoji,$color]): ?>
 <a class="mk-module-card mk-module-<?= $color ?>" href="/modulo-<?= $route ?>.php">
   <span class="mk-module-icon" aria-hidden="true"><?= $emoji ?></span>

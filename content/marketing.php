@@ -18,7 +18,7 @@ function marketingText(string $key): string {
 }
 
 function marketingClosing(): void { ?>
-<section class="mk-closing"><div class="mk-container"><span class="mk-spark" aria-hidden="true">✦</span><h2><?= marketingText('closing.title') ?></h2><p><?= marketingText('closing.text') ?></p><a class="mk-button mk-button-light" href="/contacto.php"><?= marketingText('cta') ?><span aria-hidden="true">↗</span></a></div></section>
+<section class="mk-closing"><div class="mk-container"><span class="mk-spark" aria-hidden="true">✦</span><h2><?= marketingText('closing.title') ?></h2><p><?= marketingText('closing.text') ?></p><a class="mk-button mk-button-light" href="/diagnostico.php"><?= marketingText('cta') ?><span aria-hidden="true">↗</span></a></div></section>
 <?php }
 
 function marketingSteps(): void { ?>

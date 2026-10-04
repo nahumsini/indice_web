@@ -10,7 +10,7 @@ include 'header.php';
       <p class="mk-eyebrow"><?= marketingText('method.eyebrow') ?></p>
       <h1><?= marketingText('method.title') ?></h1>
       <p class="mk-lead"><?= marketingText('method.intro') ?></p>
-      <div class="mk-actions"><a class="mk-button" href="/contacto.php"><?= marketingText('cta') ?><span aria-hidden="true">↗</span></a></div>
+      <div class="mk-actions"><a class="mk-button" href="/diagnostico.php"><?= marketingText('cta') ?><span aria-hidden="true">↗</span></a></div>
       <div class="mk-ai-platforms">
         <p><?= marketingText('method.platforms') ?></p>
         <div class="mk-ai-names"><span><img src="/imgs/integrations/chatgpt.png" width="24" height="24" alt="">ChatGPT</span><span><img src="/imgs/integrations/claude.png" width="24" height="24" alt="">Claude</span></div>

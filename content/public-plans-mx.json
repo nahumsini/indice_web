@@ -1,0 +1,32 @@
+{
+  "approvedOn": "2026-10-04",
+  "currency": "MXN",
+  "includedPeople": 10,
+  "additionalPeopleBlockSize": 10,
+  "additionalPeopleBlockMonthlyCents": 89900,
+  "annualSavingsPercent": 20,
+  "implementationPromotionThroughMonth": "2026-10",
+  "plans": [
+    {"id": "controla", "monthlyCents": 299900, "annualCents": 2879040, "implementationRegularCents": 999900, "implementationPromotionCents": 499900},
+    {"id": "escala", "monthlyCents": 549900, "annualCents": 5279040, "implementationRegularCents": 1499900, "implementationPromotionCents": 749950},
+    {"id": "corporativo", "monthlyCents": 949900, "annualCents": 9119040, "implementationRegularCents": 2499900, "implementationPromotionCents": 1249950}
+  ],
+  "modules": [
+    {"id": "panel", "includedIn": ["controla", "escala", "corporativo"]},
+    {"id": "people", "includedIn": ["controla", "escala", "corporativo"]},
+    {"id": "tasks", "includedIn": ["controla", "escala", "corporativo"]},
+    {"id": "expenses", "includedIn": ["escala", "corporativo"]},
+    {"id": "sales", "includedIn": ["corporativo"], "choiceIn": ["escala"]},
+    {"id": "pos", "includedIn": ["corporativo"], "choiceIn": ["escala"]},
+    {"id": "inventory", "includedIn": ["escala", "corporativo"]},
+    {"id": "receivables", "includedIn": ["corporativo"]},
+    {"id": "kpis", "includedIn": ["corporativo"]}
+  ],
+  "agents": [
+    {"id": "lupita", "includedIn": ["controla", "escala", "corporativo"]},
+    {"id": "controla", "includedIn": ["controla", "escala", "corporativo"]},
+    {"id": "escala", "includedIn": ["escala", "corporativo"]},
+    {"id": "finance", "includedIn": ["escala", "corporativo"]},
+    {"id": "corporativo", "includedIn": ["corporativo"]}
+  ]
+}

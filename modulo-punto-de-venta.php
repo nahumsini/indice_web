@@ -19,7 +19,7 @@ include 'header.php';
                     <h1><?= marketingText('posShowcase.title') ?></h1>
                     <p class="mk-lead"><?= marketingText('posShowcase.intro') ?></p>
                     <div class="mk-actions">
-                        <a class="mk-button" href="/contacto.php"><?= marketingText('posShowcase.cta') ?> <span aria-hidden="true">↗</span></a>
+                        <a class="mk-button" href="/diagnostico.php"><?= marketingText('cta') ?> <span aria-hidden="true">↗</span></a>
                         <a class="mk-text-link" href="#pos-retail"><?= marketingText('posShowcase.explore') ?> <span aria-hidden="true">↓</span></a>
                     </div>
                 </div>
@@ -108,7 +108,7 @@ include 'header.php';
         <div class="mk-container">
             <h2 id="pos-closing-title"><?= marketingText('posShowcase.closing.title') ?></h2>
             <p><?= marketingText('posShowcase.closing.text') ?></p>
-            <a class="mk-button mk-button-light" href="/contacto.php"><?= marketingText('posShowcase.cta') ?> <span aria-hidden="true">↗</span></a>
+            <a class="mk-button mk-button-light" href="/diagnostico.php"><?= marketingText('cta') ?> <span aria-hidden="true">↗</span></a>
         </div>
     </section>
 </main>

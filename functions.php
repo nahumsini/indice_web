@@ -23,7 +23,7 @@ function loadEnv($path = '.env') {
 }
 
 if (!isset($_ENV['ENV_LOADED'])) {
-	loadEnv();
+	loadEnv(__DIR__ . '/.env');
 	$_ENV['ENV_LOADED'] = true;
 }
 

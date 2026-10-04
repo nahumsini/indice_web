@@ -1,22 +1,5 @@
 <?php
-require_once __DIR__ . '/content/marketing.php';
-$offer = json_decode(file_get_contents(__DIR__ . '/content/commercial-offer.json'), true);
-$country = resolveSiteContext()['country'] ?? 'MX';
-$market = isset($offer['markets'][$country]) ? $country : ($country ? 'OTHER' : 'MX');
-$currency = $offer['markets'][$market === 'OTHER' ? 'US' : $market]['currency'];
-$base = $offer['markets'][$market === 'OTHER' ? 'US' : $market]['base'];
-$page_title = marketingString('plans.link');
-$page_description = marketingString('plans.text');
-include 'header.php';
-?>
-<main id="main-content" class="mk-page"><section class="mk-section mk-page-hero mk-centered"><div class="mk-container"><p class="mk-eyebrow"><?= marketingText('hero.eyebrow') ?></p><h1><?= marketingText('plans.title') ?></h1><p class="mk-lead"><?= marketingText('plans.text') ?></p></div></section>
-<section class="mk-section mk-plans-section" id="packages"><div class="mk-container">
-<form class="mk-plan-controls" id="commercial-estimator"><div><label for="plan-market"><?= marketingText('country') ?></label><select id="plan-market" name="market" class="form-select"><?php foreach(['MX'=>'México · MXN','US'=>'United States · USD','CA'=>'Canada · CAD','OTHER'=>marketingString('other')] as $code=>$label): ?><option value="<?= $code ?>" <?= $market===$code?'selected':'' ?> <?= $code==='OTHER'?'data-i18n="brand26.other"':'' ?>><?= htmlspecialchars($label, ENT_QUOTES, 'UTF-8') ?></option><?php endforeach; ?></select></div><div><label for="plan-people"><?= marketingText('capacity') ?></label><input type="number" id="plan-people" name="people" class="form-control" min="1" max="10000" step="1" value="10" required></div><fieldset><legend class="visually-hidden"><?= marketingText('monthly') ?> / <?= marketingText('annual') ?></legend><label class="mk-period"><input type="radio" name="interval" value="MONTH" checked><span><?= marketingText('monthly') ?></span></label><label class="mk-period"><input type="radio" name="interval" value="YEAR"><span><?= marketingText('annual') ?></span></label></fieldset></form>
-<p class="mk-fine-print"><?= marketingText('capacity.note') ?></p>
-<div class="mk-package-grid" aria-live="polite" aria-atomic="false"><?php $plans=['control'=>['Controla',['feature.control'],'Lupita + Controla'],'scale'=>['Escala',['feature.scale','feature.choice'],'Lupita + Controla + Escala + Finanzas'],'corporate'=>['Corporativo',['feature.corporate','feature.kpis'],'Lupita + Controla + Escala + Finanzas + Corporativo']]; $i=0; foreach($plans as $key=>$plan): ?><article class="mk-package <?= $key==='scale'?'mk-package-featured':'' ?>" id="<?= $key ?>"><span class="mk-package-index" aria-hidden="true">0<?= $i+1 ?></span><h2><?= $plan[0] ?></h2><p class="mk-package-description"><?= marketingText('plan.'.$key) ?></p><div class="mk-price"><strong data-plan-price="<?= $i ?>"><?= number_format($base[$i]/100,0) ?></strong><span data-plan-currency><?= $currency ?></span></div><p class="mk-price-period"><span data-period-month><?= marketingText('month') ?></span><span data-period-year hidden><?= marketingText('year') ?></span></p><a class="mk-button <?= $key==='scale'?'':'mk-button-outline' ?>" href="/contacto.php"><?= marketingText('cta.short') ?><span aria-hidden="true">↗</span></a><ul><?php foreach($plan[1] as $feature): ?><li><?= marketingText($feature) ?></li><?php endforeach; ?><li><?= marketingText('feature.people') ?></li><li><?= marketingText('feature.consulting') ?></li></ul><div class="mk-included-agents"><span><?= marketingText('feature.agents') ?></span><p><?= $plan[2] ?></p></div></article><?php $i++; endforeach; ?></div>
-<div class="mk-estimate-details"><div><p class="mk-eyebrow"><?= marketingText('blocks') ?></p><strong><span data-block-count>0</span> × <span data-block-price></span></strong><p><?= marketingText('capacity.note') ?></p></div><div class="mk-setup-summary"><p class="mk-eyebrow"><?= marketingText('setup') ?></p><p><?= marketingText('setup.text') ?></p><div data-setup-amount><strong data-setup-price></strong> <span data-plan-currency><?= $currency ?></span><p data-promotion-label><?= marketingText('launch') ?></p><p data-regular-setup><?= marketingText('regular') ?>: <span data-setup-regular></span></p></div><div data-setup-custom hidden><strong><?= marketingText('custom') ?></strong></div></div></div>
-<p class="mk-fine-print"><?= marketingText('setup.note') ?></p><p class="mk-quote-note"><?= marketingText('quote.note') ?></p>
-</div></section><section class="mk-section mk-soft"><div class="mk-container mk-faq"><h2><?= marketingText('faq.title') ?></h2><?php foreach(['one','two','three'] as $key): ?><details><summary><?= marketingText('faq.'.$key) ?></summary><p><?= marketingText('faq.'.$key.'.text') ?></p></details><?php endforeach; ?></div></section><?php marketingClosing(); ?></main>
-<script type="application/json" id="commercial-offer"><?= json_encode($offer, JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT) ?></script>
-<script src="/js/commercial-estimate.js?v=20260921"></script>
-<?php include 'footer.php'; ?>
+// Historic direct links now resolve to the one public, consultant-led pricing page.
+$query = $_SERVER['QUERY_STRING'] ?? '';
+header('Location: /planes.php' . ($query === '' ? '' : '?' . $query), true, 302);
+exit;

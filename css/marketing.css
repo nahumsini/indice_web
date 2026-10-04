@@ -97,3 +97,55 @@ html{scroll-behavior:smooth;scroll-padding-top:105px}body{color:var(--mk-ink);ba
 
 /* POS interface showcase: concise sections, optional feature detail. */
 .mk-pos-intro{margin-top:12px;max-width:1000px}.mk-pos-showcase .mk-hr-shot{border-color:#f1c4bd}.mk-pos-showcase .mk-section-heading{margin-bottom:0;text-align:left}.mk-pos-details{margin-top:32px;border-top:1px solid #f1c4bd;padding-top:20px}.mk-pos-details summary{cursor:pointer;font-weight:600;color:#a6362d;padding:12px 0}.mk-pos-details[open] summary{margin-bottom:20px}
+
+/* The single diagnosis intake is also the landing page for social campaigns. */
+.mk-diagnosis-page .mk-page-hero .mk-lead{max-width:800px}
+.mk-diagnosis-page .mk-contact-form>p{max-width:590px;margin-bottom:28px}
+.mk-diagnosis-page .mk-contact-form textarea{resize:vertical}
+.mk-consent{display:flex;align-items:flex-start;gap:12px;color:var(--mk-ink);font-size:.84rem;line-height:1.6;cursor:pointer}
+.mk-consent input{width:19px;height:19px;margin-top:2px;flex:none;accent-color:var(--mk-blue)}
+.mk-consent a{color:var(--mk-blue);text-decoration:underline;text-underline-offset:3px}
+.mk-diagnosis-steps{list-style:none;counter-reset:diagnosis;margin:25px 0 0;padding:0;display:grid;gap:16px}
+.mk-diagnosis-steps li{counter-increment:diagnosis;display:flex;align-items:flex-start;gap:12px;line-height:1.5}
+.mk-diagnosis-steps li::before{content:counter(diagnosis,decimal-leading-zero);display:grid;place-items:center;flex:none;width:31px;height:31px;border-radius:50%;background:#e9f1ff;color:var(--mk-blue);font-size:.7rem;font-weight:700}
+.mk-diagnosis-page #contactStatus:not(:empty){padding:12px 14px;border-radius:10px}
+.mk-diagnosis-page #contactStatus.text-success{background:#eaf8f2}
+.mk-diagnosis-page #contactStatus.text-danger{background:#fff0ef}
+
+/* Published MXN plans lead to the same consultant-led diagnosis. */
+.mk-public-pricing .mk-page-hero .mk-lead{max-width:850px}
+.mk-price-cards .mk-package{gap:0;overflow:hidden}
+.mk-price-cards .mk-package h3{font-size:1.7rem;margin:0 0 10px;color:var(--mk-deep)}
+.mk-price-cards .mk-package-description{min-height:72px}
+.mk-price-cards .mk-price-period{margin:3px 0 8px!important}
+.mk-price-annual{font-size:.83rem;color:var(--mk-ink);line-height:1.5;min-height:48px;margin:0 0 20px}
+.mk-price-annual strong{color:var(--mk-deep)}
+.mk-price-annual>span{display:block;color:var(--mk-blue);font-weight:600}
+.mk-price-cards .mk-button{width:100%;justify-content:center}
+.mk-price-card-note{font-size:.83rem!important;margin:20px 0 0!important;padding-top:17px;border-top:1px solid var(--mk-line)}
+.mk-price-popular{position:absolute;right:0;top:0;padding:6px 18px;background:var(--mk-blue);color:#fff;font-size:.72rem;font-weight:700;border-radius:0 0 0 12px}
+.mk-price-table-wrap{overflow-x:auto;border:1px solid var(--mk-line);border-radius:16px;scrollbar-width:thin}
+.mk-price-table{width:100%;min-width:820px;border-collapse:collapse;background:#fff;font-size:.86rem}
+.mk-price-table th,.mk-price-table td{padding:15px 19px;border-bottom:1px solid var(--mk-line)}
+.mk-price-table thead{background:var(--mk-soft);color:var(--mk-deep)}
+.mk-price-table th{text-align:left;font-weight:600}
+.mk-price-table td{text-align:center;width:20%}
+.mk-price-row-title,.mk-price-row-detail{display:block}
+.mk-price-row-detail{margin-top:5px;color:var(--mk-muted);font-size:.79rem;font-weight:400;line-height:1.4}
+.mk-price-table .mk-price-table-group th{padding:13px 19px;background:var(--mk-soft);color:var(--mk-deep);font-size:.93rem}
+.mk-price-table tbody tr:last-child th,.mk-price-table tbody tr:last-child td{border-bottom:0}
+.mk-price-table tbody tr:hover{background:#f8fbff}
+.mk-price-check{display:inline-grid;place-items:center;width:29px;height:29px;border-radius:50%;background:#e6f4ec;color:#13804a;font-weight:700}
+.mk-price-dash{color:#9baabd}
+.mk-price-shared{margin-top:30px;padding:25px;border:1px solid var(--mk-line);border-radius:15px;background:var(--mk-soft)}
+.mk-price-shared h3{font-size:1.25rem;margin-bottom:15px}
+.mk-price-shared ul{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 30px;list-style:none;padding:0;margin:0}
+.mk-price-shared li{position:relative;padding-left:20px;font-size:.86rem;color:var(--mk-ink)}
+.mk-price-shared li::before{content:'✓';position:absolute;left:0;color:var(--mk-blue);font-weight:700}
+.mk-price-setup-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-bottom:18px}
+.mk-price-setup-grid article{padding:25px;border:1px solid var(--mk-line);border-radius:15px;background:#fff}
+.mk-price-setup-grid h3{font-size:1.1rem;margin:0 0 14px;color:var(--mk-deep)}
+.mk-price-setup-grid strong{display:block;font-size:1.55rem;line-height:1.2;color:var(--mk-deep)}
+.mk-price-setup-grid p{font-size:.8rem;margin:10px 0 0}
+.mk-price-implementation-includes{max-width:850px;margin:20px 0!important;font-size:.9rem}
+@media(max-width:700px){.mk-price-cards .mk-package-description,.mk-price-annual{min-height:0}.mk-price-shared ul,.mk-price-setup-grid{grid-template-columns:1fr}.mk-price-table th,.mk-price-table td{padding:12px 14px}.mk-price-setup-grid article{padding:20px}}

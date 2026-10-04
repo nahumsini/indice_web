@@ -1,94 +1,140 @@
 <?php
-// API de contacto (Marketing 2025)
-// POST JSON: { nombre, email, pais, mensaje, csrf_token, company_website }
-// Respuesta: { ok: true } | { ok: false, error }
-
+// Single public intake: the marketing host validates the browser request and signs a
+// server-to-server submission to the platform lead inbox. No local PII log is written.
 require_once dirname(__DIR__) . '/functions.php';
 
 header('Content-Type: application/json; charset=UTF-8');
 header('Cache-Control: no-store');
 
-$method = $_SERVER['REQUEST_METHOD'] ?? 'GET';
-if ($method !== 'POST') {
-    http_response_code(405);
-    echo json_encode(['ok' => false, 'error' => 'Método no permitido']);
+function contactResponse(int $status, bool $ok, string $message): void {
+    http_response_code($status);
+    echo json_encode($ok ? ['ok' => true, 'message' => $message]
+        : ['ok' => false, 'error' => $message], JSON_UNESCAPED_UNICODE);
     exit;
 }
 
-// Leer payload JSON con límite defensivo de tamaño.
-$request = getJsonRequestData(32768);
+function contactField(array $data, string $key, int $maximum, bool $required = false): string {
+    $raw = $data[$key] ?? '';
+    if (!is_string($raw)) {
+        contactResponse(422, false, 'Revisa los campos de la solicitud.');
+    }
+    $value = trim($raw);
+    $length = function_exists('mb_strlen') ? mb_strlen($value, 'UTF-8') : strlen($value);
+    if ($length > $maximum || ($required && $value === '')) {
+        contactResponse(422, false, 'Revisa los campos obligatorios de la solicitud.');
+    }
+    return $value;
+}
+
+if (($_SERVER['REQUEST_METHOD'] ?? '') !== 'POST') {
+    contactResponse(405, false, 'Método no permitido.');
+}
+
+$request = getJsonRequestData(8192);
 if (!$request['ok']) {
-    http_response_code((int)$request['status']);
-    echo json_encode(['ok' => false, 'error' => $request['error']]);
-    exit;
+    contactResponse((int)$request['status'], false, $request['error']);
 }
 $data = $request['data'];
-
-// Honeypot: si trae el campo oculto lleno, respondemos OK genérico y no procesamos.
 if (isHoneypotTriggered($data)) {
-    http_response_code(200);
-    echo json_encode(['ok' => true]);
-    exit;
+    contactResponse(200, true, 'Solicitud recibida.');
 }
-
-// CSRF
 if (!validateCsrfToken($data['csrf_token'] ?? '')) {
-    http_response_code(403);
-    echo json_encode(['ok' => false, 'error' => 'Invalid request.']);
-    exit;
+    contactResponse(403, false, 'Solicitud no válida. Actualiza la página e inténtalo de nuevo.');
 }
-
-// Rate limit por IP + endpoint (5 intentos / 10 min)
+$rateLimitDirectory = dirname(__DIR__) . '/data/rate_limit';
+if (!is_dir($rateLimitDirectory) || !is_writable($rateLimitDirectory)) {
+    contactResponse(503, false, 'No podemos recibir solicitudes en este momento. Escríbenos a contacto@indiceapp.com.');
+}
 $ip = function_exists('getClientIP') ? getClientIP() : ($_SERVER['REMOTE_ADDR'] ?? 'unknown');
-$rl = rateLimit('contact:' . $ip, 5, 600);
-if (!$rl['allowed']) {
-    http_response_code(429);
-    if (!empty($rl['retry_after'])) {
-        header('Retry-After: ' . (int)$rl['retry_after']);
-    }
-    echo json_encode(['ok' => false, 'error' => 'Too many attempts. Please try again later.']);
-    exit;
+$limit = rateLimit('contact:' . $ip, 5, 600);
+if (!$limit['allowed']) {
+    if (!empty($limit['retry_after'])) header('Retry-After: ' . (int)$limit['retry_after']);
+    contactResponse(429, false, 'Demasiados intentos. Inténtalo más tarde.');
 }
 
-$nombre  = limitText($data['nombre'] ?? '', 120);
-$email   = limitText($data['email'] ?? '', 180);
-$pais    = limitText($data['pais'] ?? '', 80);
-$mensaje = limitText($data['mensaje'] ?? '', 3000);
+$fullName = contactField($data, 'fullName', 120, true);
+$companyName = contactField($data, 'companyName', 160, true);
+$email = strtolower(contactField($data, 'email', 180, true));
+$phone = contactField($data, 'phone', 40);
+$country = contactField($data, 'country', 80);
+$challenge = contactField($data, 'challenge', 3000, true);
+$landingPath = contactField($data, 'landingPath', 255);
+$utmSource = contactField($data, 'utmSource', 100);
+$utmMedium = contactField($data, 'utmMedium', 100);
+$utmCampaign = contactField($data, 'utmCampaign', 150);
+$planInterest = strtoupper(contactField($data, 'planInterest', 20));
+$submittedId = contactField($data, 'submissionId', 36);
 
-if ($nombre === '' || $email === '' || $mensaje === '') {
-    http_response_code(422);
-    echo json_encode(['ok' => false, 'error' => 'Campos obligatorios: nombre, email, mensaje']);
-    exit;
+if (!filter_var($email, FILTER_VALIDATE_EMAIL) || ($data['contactConsent'] ?? null) !== true) {
+    contactResponse(422, false, 'Indica un correo válido y autoriza que te contactemos.');
+}
+if ($landingPath !== '' && $landingPath[0] !== '/') {
+    contactResponse(422, false, 'Origen de solicitud no válido.');
+}
+if ($planInterest !== '' && !in_array($planInterest, ['CONTROLA', 'ESCALA', 'CORPORATIVO'], true)) {
+    contactResponse(422, false, 'Plan de interés no válido.');
 }
 
-if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-    http_response_code(422);
-    echo json_encode(['ok' => false, 'error' => 'Email inválido']);
-    exit;
+$secret = (string)($_ENV['INDICE_LEAD_INGEST_SECRET'] ?? '');
+if (strlen($secret) < 32 || !function_exists('curl_init')) {
+    contactResponse(503, false, 'No podemos recibir solicitudes en este momento. Escríbenos a contacto@indiceapp.com.');
 }
 
-// Logging sencillo dentro del proyecto
-$logDir = dirname(__DIR__) . '/logs';
-ensurePrivateRuntimeDir($logDir, 0750);
-$logEntry = [
-  'ts' => date('c'),
-  'ip' => $ip,
-  'payload' => compact('nombre','email','pais','mensaje'),
-];
-@file_put_contents($logDir . '/contact.log', json_encode($logEntry, JSON_UNESCAPED_UNICODE) . "\n", FILE_APPEND | LOCK_EX);
+$socialSources = ['facebook', 'instagram', 'meta', 'tiktok', 'youtube', 'linkedin'];
+$sourceChannel = in_array(strtolower($utmSource), $socialSources, true)
+    || in_array(strtolower($utmMedium), ['social', 'paid_social', 'social_paid'], true)
+    ? 'SOCIAL' : 'WEBSITE';
+$payload = json_encode([
+    'fullName' => $fullName,
+    'companyName' => $companyName,
+    'email' => $email,
+    'phone' => $phone,
+    'country' => $country,
+    'challenge' => $challenge,
+    'landingPath' => $landingPath,
+    'sourceChannel' => $sourceChannel,
+    'utmSource' => $utmSource,
+    'utmMedium' => $utmMedium,
+    'utmCampaign' => $utmCampaign,
+    'planInterest' => $planInterest,
+    'contactConsent' => true,
+], JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
+if ($payload === false) contactResponse(422, false, 'La solicitud contiene caracteres no válidos.');
 
-// Envío de email opcional
-$subject = 'Nuevo contacto desde la web';
-$body = '<h3>Nuevo contacto</h3>' .
-        '<p><strong>Nombre:</strong> ' . htmlspecialchars($nombre) . '</p>' .
-        '<p><strong>Email:</strong> ' . htmlspecialchars($email) . '</p>' .
-        '<p><strong>País:</strong> ' . htmlspecialchars($pais) . '</p>' .
-        '<p><strong>Mensaje:</strong><br>' . nl2br(htmlspecialchars($mensaje)) . '</p>';
-
-if (function_exists('sendEmail')) {
-    $to = $_ENV['CONTACT_TO'] ?? 'info@indiceapp.com';
-    @sendEmail($to, $subject, $body);
+if ($submittedId !== '' && !preg_match('/^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i', $submittedId)) {
+    contactResponse(422, false, 'Referencia de solicitud no válida.');
 }
-
-http_response_code(200);
-echo json_encode(['ok' => true]);
+if ($submittedId === '') {
+    $bytes = random_bytes(16);
+    $bytes[6] = chr((ord($bytes[6]) & 0x0f) | 0x40);
+    $bytes[8] = chr((ord($bytes[8]) & 0x3f) | 0x80);
+    $hex = bin2hex($bytes);
+    $submittedId = substr($hex, 0, 8) . '-' . substr($hex, 8, 4) . '-' . substr($hex, 12, 4)
+        . '-' . substr($hex, 16, 4) . '-' . substr($hex, 20);
+}
+$submissionId = strtolower($submittedId);
+$timestamp = (string)time();
+$signature = hash_hmac('sha256', $timestamp . "\n" . $submissionId . "\n" . $payload, $secret);
+$url = getIndiceAppBaseUrl() . '/api/v1/public/platform-leads';
+$requestHandle = curl_init($url);
+curl_setopt_array($requestHandle, [
+    CURLOPT_POST => true,
+    CURLOPT_POSTFIELDS => $payload,
+    CURLOPT_RETURNTRANSFER => true,
+    CURLOPT_FOLLOWLOCATION => false,
+    CURLOPT_CONNECTTIMEOUT => 4,
+    CURLOPT_TIMEOUT => 10,
+    CURLOPT_HTTPHEADER => [
+        'Content-Type: application/json',
+        'X-Lead-Id: ' . $submissionId,
+        'X-Lead-Timestamp: ' . $timestamp,
+        'X-Lead-Signature: ' . $signature,
+    ],
+]);
+$response = curl_exec($requestHandle);
+$status = (int)curl_getinfo($requestHandle, CURLINFO_HTTP_CODE);
+curl_close($requestHandle);
+if ($response === false || $status !== 201) {
+    contactResponse(502, false, 'No pudimos guardar tu solicitud. Inténtalo de nuevo o escríbenos a contacto@indiceapp.com.');
+}
+contactResponse(200, true, 'Solicitud recibida. Un consultor te contactará para coordinar el diagnóstico sin costo.');

@@ -11,7 +11,7 @@ include 'header.php';
 <a class="mk-text-link" href="/modulos.php">← <?= marketingText('panel.back') ?></a>
 <p class="mk-eyebrow"><span aria-hidden="true">✅</span><span data-i18n="modules.core.process.title"><?= htmlspecialchars($page_title, ENT_QUOTES, 'UTF-8') ?></span></p>
 <h1><?= marketingText('tasksShowcase.title') ?></h1><p class="mk-lead"><?= marketingText('tasksShowcase.intro') ?></p>
-<div class="mk-actions"><a class="mk-button" href="/contacto.php"><?= marketingText('cta') ?> ↗</a><a class="mk-text-link" href="/planes.php"><?= marketingText('plans.link') ?> →</a></div>
+<div class="mk-actions"><a class="mk-button" href="/diagnostico.php"><?= marketingText('cta') ?> ↗</a><a class="mk-text-link" href="/metodologia.php"><span data-i18n="nav.methodology">Cómo funciona</span> →</a></div>
 <nav class="mk-hr-jump" aria-label="<?= htmlspecialchars($page_title, ENT_QUOTES, 'UTF-8') ?>"><?php foreach (['agenda','processes','kiosk'] as $view): ?><a href="#tasks-<?= $view ?>"><?= marketingText('tasksShowcase.'.$view.'.title') ?> ↓</a><?php endforeach; ?></nav>
 </div></section>
 <?php foreach (['agenda','processes','kiosk'] as $index=>$view): ?>

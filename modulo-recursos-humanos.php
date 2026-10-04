@@ -10,7 +10,7 @@ include 'header.php';
 <a class="mk-text-link" href="/modulos.php">← <?= marketingText('panel.back') ?></a>
 <p class="mk-eyebrow"><span aria-hidden="true">👥</span><span data-i18n="modules.core.rh.title"><?= htmlspecialchars($page_title, ENT_QUOTES, 'UTF-8') ?></span></p>
 <h1><?= marketingText('hrShowcase.title') ?></h1><p class="mk-lead"><?= marketingText('hrShowcase.intro') ?></p>
-<div class="mk-actions"><a class="mk-button" href="/contacto.php"><?= marketingText('cta') ?> ↗</a><a class="mk-text-link" href="/planes.php"><?= marketingText('plans.link') ?> →</a></div>
+<div class="mk-actions"><a class="mk-button" href="/diagnostico.php"><?= marketingText('cta') ?> ↗</a><a class="mk-text-link" href="/metodologia.php"><span data-i18n="nav.methodology">Cómo funciona</span> →</a></div>
 <nav class="mk-hr-jump" aria-label="<?= htmlspecialchars($page_title, ENT_QUOTES, 'UTF-8') ?>"><?php foreach (['attendance','payroll','kiosk'] as $view): ?><a href="#hr-<?= $view ?>"><?= marketingText('hrShowcase.'.$view.'.title') ?> ↓</a><?php endforeach; ?></nav>
 </div></section>
 <?php foreach (['attendance','payroll','kiosk'] as $index=>$view): ?>
