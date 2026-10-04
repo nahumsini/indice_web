@@ -1,5 +1,6 @@
 <?php
 require_once __DIR__ . '/content/marketing.php';
+startSecureSession();
 $page_title = marketingString('contact.title');
 $page_description = marketingString('contact.text');
 $selectedPlan = strtoupper(trim((string)($_GET['plan'] ?? '')));

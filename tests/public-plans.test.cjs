@@ -30,6 +30,12 @@ test('each pricing CTA keeps the consultant-led diagnosis as the next step', () 
   assert.doesNotMatch(page, /getIndiceSignupUrl|\/signup|capture_registration|\/checkout/);
 });
 
+test('diagnosis starts its CSRF session before rendering the header', () => {
+  const page = fs.readFileSync(path.join(root, 'diagnostico.php'), 'utf8');
+  assert.ok(page.indexOf('startSecureSession();') > page.indexOf("require_once __DIR__ . '/content/marketing.php';"));
+  assert.ok(page.indexOf('startSecureSession();') < page.indexOf("include 'header.php';"));
+});
+
 test('module and specialist scope is explicit for each plan', () => {
   assert.deepEqual(offer.modules.map(({ id, includedIn, choiceIn }) => [id, includedIn, choiceIn || []]), [
     ['panel', ['controla', 'escala', 'corporativo'], []],
