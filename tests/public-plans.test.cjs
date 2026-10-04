@@ -36,6 +36,15 @@ test('diagnosis starts its CSRF session before rendering the header', () => {
   assert.ok(page.indexOf('startSecureSession();') < page.indexOf("include 'header.php';"));
 });
 
+test('marketing intake requires HTTPS and keeps private runtime paths blocked', () => {
+  const rules = fs.readFileSync(path.join(root, '.htaccess'), 'utf8');
+  assert.match(rules, /RewriteRule \^\(\?:data\|logs\)/);
+  assert.match(rules, /RewriteCond %\{HTTPS\} !=on/);
+  assert.match(rules, /https:\/\/indiceapp\.com\/\$1 \[R=301/);
+  assert.match(rules, /FilesMatch "\^\\\.env/);
+  assert.match(rules, /Header always set X-Content-Type-Options "nosniff"/);
+});
+
 test('module and specialist scope is explicit for each plan', () => {
   assert.deepEqual(offer.modules.map(({ id, includedIn, choiceIn }) => [id, includedIn, choiceIn || []]), [
     ['panel', ['controla', 'escala', 'corporativo'], []],
